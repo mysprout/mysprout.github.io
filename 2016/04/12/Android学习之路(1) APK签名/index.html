@@ -1,0 +1,542 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+
+    <title>Android学习之路(1) -- APK签名 | 杨萌个人博客 - 一个迷茫期的程序员</title>
+    <meta name="author" content="mysprout">
+    
+    <meta name="description" content="杨萌个人博客">
+    
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:title" content="Android学习之路(1) -- APK签名"/>
+    <meta property="og:site_name" content="Face the sea,with spring flowers blossoming."/>
+
+    
+    <meta property="og:image" content="undefined"/>
+    
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="alternate" href="/atom.xml" title="Face the sea,with spring flowers blossoming." type="application/atom+xml">
+    <link rel="stylesheet" href="/css/lib/materialize.min.css">
+    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+
+    
+        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
+    
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+
+
+<body>
+    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+
+    <nav class="brown darken-1">
+    <div class="nav-wrapper">
+        <a href="#" data-activates="main-menu" class="button-collapse">
+            <i class="fa fa-navicon"></i>
+        </a>
+        <div class="">
+            <a href="/" class="brand-logo hide-on-med-and-down">Face the sea,with spring flowers blossoming.</a>
+            <ul class="right hide-on-med-and-down">
+                
+                    <li>
+                        <a class="menu-home " href="/" >
+                            <i class="fa fa-home "></i>
+                            
+                            首页
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-archive " href="/archives" >
+                            <i class="fa fa-archive "></i>
+                            
+                            归档
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                            <i class="fa fa-bookmark "></i>
+                            
+                            分类
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-reading " href="/reading" >
+                            <i class="fa fa-book "></i>
+                            
+                            读书
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a class="menu-about " href="/about" >
+                            <i class="fa fa-user "></i>
+                            
+                            关于
+                        </a>
+                    </li>
+                
+            </ul>
+            <div>
+    <ul class="side-nav brown darken-1" id="main-menu">
+        
+        <li class="side-user">
+            <div class="row">
+                <div class="col s4 no-padding">
+                    <img class="avatar-image circle responsive-img" src="http://ww2.sinaimg.cn/small/74990035jw1f1rjkd681bj20rs0rsdhg.jpg" alt="User Avatar">
+                </div>
+                <div class="info col s8 valign-wrapper no-padding">
+                    <div class="valign">
+                        <p class="name">杨萌</p>
+                        <p class="desc">Android/伪技术宅</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        
+
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-home " href="/" >
+                    <i class="fa fa-home "></i>
+                    
+                    首页
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-archive " href="/archives" >
+                    <i class="fa fa-archive "></i>
+                    
+                    归档
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
+                    <i class="fa fa-bookmark "></i>
+                    
+                    分类
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-reading " href="/reading" >
+                    <i class="fa fa-book "></i>
+                    
+                    读书
+                </a>
+            </li>
+        
+            <li class="no-padding">
+                <a class="waves-effect menu-about " href="/about" >
+                    <i class="fa fa-user "></i>
+                    
+                    关于
+                </a>
+            </li>
+        
+    </ul>
+
+    <ul class="side-nav brown darken-1" id="category-menu">
+    
+
+            
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/Android学习/">
+                    Android学习 <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+    </ul>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+    <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper brown darken-1">
+        <span class="breadcrumb">当前位置（分类目录）</span>
+        
+            
+    
+    
+    <a class="breadcrumb" href="/categories/Android学习/">Android学习</a>
+
+
+        
+
+        
+    </div>
+</nav>
+
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>Android学习之路(1) -- APK签名</h1>
+    
+
+
+            </div>
+            <time class="light-green-link-context" datetime="2016-04-12T08:36:43.000Z"><a href="/2016/04/12/Android学习之路(1) APK签名/">2016-04-12</a></time>
+
+            
+    <div class="tags-row">
+        
+            <a href="/tags/Android/" class="chip light-green">Android</a>
+        
+            <a href="/tags/打包/" class="chip light-green">打包</a>
+        
+    </div>
+
+
+            <div class="toc light-green-link-context hide-on-med-and-down">
+    
+</div>
+
+
+            <div class="entry light-green-link-context">
+                <p>离开校园，工作也有三个月了，一直都忙于公司的项目或者瞎折腾，今天开始，好好的开始学习Android，从零出发。</p>
+<p>自从学习Android以来，一直都是自学，用到啥学啥，很乱，没有系统的去梳理Android的知识，在博客园看到一位博主：<a href="http://www.cnblogs.com/qianxudetianxia/category/293007.html" target="_blank" rel="external">谦虚的天下，从2011年4月一直更新到2015年1月Android学习系列；想以这个为指导，进行现阶段的Android学习。</a></p>
+<p>今天学习了APK的签名，并记录下来，方便以后复习或查阅。</p>
+<p>谦虚的天下的这篇博文由于是2011年发表的，有些过时，在实现的时候出现一些问题，通过一番查询也解决，好了，进入这篇文章的正题：</p>
+<p>#任务目标</p>
+<ol>
+<li>为什么签名</li>
+<li>通过命令行完成签名</li>
+<li>通过Android Studio（简称：AS）完成签名</li>
+</ol>
+<p>##为什么签名<br>为了保证每个应用程序开发商合法ID，防止部分开放商可能通过使用相同的Package Name来混淆替换已经安装的程序，我们需要对我们发布的APK文件进行唯一签名，保证我们每次发布的版本的一致性(如自动更新不会因为版本不一致而无法安装)。</p>
+<p>##命令行签名</p>
+<ul>
+<li>未签名的apk</li>
+<li>签名工具的配置</li>
+<li>具体操作</li>
+</ul>
+<p>###通过AS导出未签名的apk<br>AS不能直接导出未签名的apk，需要通过gradle来导出。打开AS，直接新建一个默认项目，用于签名测试的Demo。<br><img src="http://upload-images.jianshu.io/upload_images/1316553-99fd864c009d00f6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="导出未签名apk的示意图"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1316553-4e4dbd9d9662f897.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="导出成功示意图"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1316553-7f84f552f063f351.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="导出包路径示意图"><br>这样，未签名的apk包就导出来了，第一步准备工作就完成了。</p>
+<p>###签名工具的配置<br><strong>用到的签名工具：</strong></p>
+<ul>
+<li>keytool.exe</li>
+<li>jarsigner.exe</li>
+</ul>
+<p>keytool.exe生成key，位于C:\Program Files\Java\jre1.8.0_25\bin目录下（jre的安装目录），jarsigner.exe用生成的key对apk签名，位于C:\Program Files\Java\jdk1.8.0_25\bin目录下(jdk的安装目录)，把这两个的路径添加到环境变量path后，就完成了签名工具的配置。</p>
+<p>###具体操作<br><strong>keytool参数选项说明：</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Keytool 选项</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-genkey</td>
+<td style="text-align:center">产生一个键值对（公钥和私钥）</td>
+</tr>
+<tr>
+<td style="text-align:center">-v</td>
+<td style="text-align:center">允许动作输出</td>
+</tr>
+<tr>
+<td style="text-align:center">-alias<alias_name></alias_name></td>
+<td style="text-align:center">键的别名。只有前八位字符有效。</td>
+</tr>
+<tr>
+<td style="text-align:center">-keyalg</td>
+<td style="text-align:center">产生键的<a href="http://www.2cto.com/Article/jiami/" target="_blank" rel="external">加密</a>算法。支持DSA和RSA。</td>
+</tr>
+<tr>
+<td style="text-align:center">-keysize</td>
+<td style="text-align:center">产生键的长度。如果不支持，keytool用默认值1024 bits.通常我们用2048 bits 或更长的key。</td>
+</tr>
+<tr>
+<td style="text-align:center">-dname</td>
+<td style="text-align:center">专有名称，描述谁创建的密钥。该值被用作自签名证书的颁发者和主题字段。注意你可以不在命令行指定。如果没有指定keytool会提示你(CN, OU, and so on)。</td>
+</tr>
+<tr>
+<td style="text-align:center">-keypass</td>
+<td style="text-align:center">键的密码。主要为了安全起见，如果没提供，keytool会提示你输入。</td>
+</tr>
+<tr>
+<td style="text-align:center">-validity</td>
+<td style="text-align:center">键的有效期，单位：天。<br><strong>Note:</strong> A value of 10000 or greater is recommended.</td>
+</tr>
+<tr>
+<td style="text-align:center">-keystore.keystore</td>
+<td style="text-align:center">用于存储私钥的文件。</td>
+</tr>
+<tr>
+<td style="text-align:center">-storepass</td>
+<td style="text-align:center">私钥存储文件的密码。主要为了安全起见，如果没提供，keytool会提示你输入。这个密码不会存储在你的shell历史记录中。</td>
+</tr>
+</tbody>
+</table>
+<p>使用keytool创建签名key，打开windows 10的命令窗口，输入命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -genkey -v -alias demo -keyalg RSA -validity 40000 -keystore demo.keystore</span><br></pre></td></tr></table></figure></p>
+<p><strong>参数说明：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-genkey             产生密钥</span><br><span class="line">-alias              demo.keystore的别名demo</span><br><span class="line">-keyalg RSA         使用RSA算法对签名加密</span><br><span class="line">-validity 40000     有效期限4000天</span><br><span class="line">-keystore           demo.keystore</span><br></pre></td></tr></table></figure></p>
+<p>说明：输入此命令前，先进入你想将创建的key保存的目录，比如，我现在要将keystore保存在D盘根目录，则</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1316553-7434552346a968b6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="创建签名key的示意图"><br>这样，签名key就创建成功了。<br>接着，对未签名的apk进行签名，先把未签名的apk放到你生成的keystore的目录。</p>
+<p><strong>jarsigner参数选项说明：</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Jarsigner 选项</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-keystore.keystore</td>
+<td style="text-align:center">包含你私钥的存储文件</td>
+</tr>
+<tr>
+<td style="text-align:center">-verbose</td>
+<td style="text-align:center">显示输出动作</td>
+</tr>
+<tr>
+<td style="text-align:center">-sigalg</td>
+<td style="text-align:center">签名算法，用 SHA1withRSA</td>
+</tr>
+<tr>
+<td style="text-align:center">-digestalg</td>
+<td style="text-align:center">消息摘要算法，用 SHA1</td>
+</tr>
+<tr>
+<td style="text-align:center">-storepass</td>
+<td style="text-align:center">存储文件的密码<br>主要为了安全起见，如果没提供，jarsigner会提示你输入。这个密码不会存储在你的shell历史记录中。</td>
+</tr>
+<tr>
+<td style="text-align:center">-keypass</td>
+<td style="text-align:center">私钥的密码<br>主要为了安全起见，如果没提供，jarsigner会提示你输入。这个密码不会存储在你的shell历史记录中。</td>
+</tr>
+</tbody>
+</table>
+<p>JDK1.6命令:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jarsigner -verbose -keystore demo.keystore -signedjar app-signed.apk app-unsigned.apk demo</span><br></pre></td></tr></table></figure></p>
+<p><strong>参数说明：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-verbose 输出签名的详细信息</span><br><span class="line">-keystore demo.keystore密钥库的位置</span><br><span class="line">-signedjar app-signed.apk app-unsigned.apk   demo.keystore 正式签名，app-signed.apk是</span><br><span class="line">app-unsigned.apk签名后生成的apk，文件名可自定义，app-unsigned.apk是放在demo.keystore文件</span><br><span class="line">同一目录的未签名apk</span><br><span class="line">demo  demo.keystore的别名</span><br></pre></td></tr></table></figure></p>
+<p>JDK1.7以上 命令：(JDK1.7 算法发生了变化，需要指定 -sigalg 和 -digestalg)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore demo.keystore -signedjar app-signed.apk app-unsigned.apk demo</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1316553-484b0638862d4e19.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="生成签名apk"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1316553-b7c692b63ee5696f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="签名成功"><br>如上图，签名成功后出现警告，这个警告对签名并没有影响，但看着怪不舒服的，要去掉的话只要在命令上加上<strong>-tsa <a href="https://timestamp.geotrust.com/tsa" target="_blank" rel="external">https://timestamp.geotrust.com/tsa</a></strong>就可以了。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1316553-4bfecb14b503eeaf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="最终命令"></p>
+<p>##通过Android Studio（简称：AS）完成签名<br>IDE工具签名很容易就可以完成，看下图：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1316553-ea4a6323a39d14d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="AS签名apk"><br>根据提示，填写相应的内容，即可完成签名，这里就不进一步说明了。</p>
+<p>#遇到的问题及解决方法<br>1.生成的签名apk不能安装</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1316553-eca22d5d7cb6dfe1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="问题一"><br>出现上图，红色框的提示导致签名apk无法安装，原因是真机或者模拟器的Android版本小于签名apk的最小sdk版本，比如我现在的这个apk的最小sdk版本是19，而我的真机版本是17。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1316553-1a60ed4fbcb99ae9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="解决方法"></p>
+<p>2.签名apk不能重复安装</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1316553-1d1dbcbc401bfb56.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="问题二"><br>出现上图，红色框的提示安装失败，是因为这个apk已经安装过了。<br><strong>解决方法：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//执行安装命令是，增加-r参数</span><br><span class="line">adb install -r app-signed.apk</span><br></pre></td></tr></table></figure></p>
+<p>3.签名冲突</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1316553-d1df0df9f90ad946.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="签名冲突"><br>出现上图，红色框的提示安装失败，是因为签名冲突造成的，比如你使用了ADB的debug权限签名，但后来使用标准sign签名后再安装同一个文件会出现这样的错误提示，解决的方法除了只有先老老实实从手机上卸载原有版本再进行安装，而adb install -r参数也无法解决这个问题。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1316553-a706a2c0b203a787.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="安装签名apk成功"></p>
+<p>#总结</p>
+<blockquote>
+<p>哪怕再小的知识点，也要认真的去学习，一点一点的去积累，去成长，写的有什么不对的，希望各位路过的大牛们指点指点，拜谢。</p>
+</blockquote>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+</div>
+
+        <div class="fixed-action-btn float-sitemap">
+    <a class="btn-floating btn-large light-green">
+      <i class="fa fa-caret-square-o-up"></i>
+    </a>
+    <ul>
+      <li><a class="btn-return-top btn-floating waves-effect red" title="回到顶部"><i class="fa fa-arrow-circle-o-up"></i></a></li>
+      <li><a class="btn-floating waves-effect button-collapse purple"  data-activates="main-menu" title="menu"><i class="fa fa-navicon"></i></a></li>
+    </ul>
+  </div>
+
+    </main>
+    <footer class="page-footer brown darken-1 darken-1">
+    
+    <div class="container">
+        <div class="row">
+            
+            <div class="social-group col m3 s12">
+                <h5 class="white-text">社交</h5>
+                
+                    <a class="social-link" href="http://weibo.com/1956184117" target="_blank">
+                        <i class="fa fa-2x fa-weibo"></i>
+                    </a>
+                
+                    <a class="social-link" href="https://www.zhihu.com/people/yang-meng-41-91" target="_blank">
+                        <i class="fa fa-2x fa-zhihu"></i>
+                    </a>
+                
+                    <a class="social-link" href="/atom.xml" target="_blank">
+                        <i class="fa fa-2x fa-rss"></i>
+                    </a>
+                
+            </div>
+            
+
+            
+            <div class="col m9 s12">
+                <h5 class="white-text">友情链接</h5>
+                
+                    <a class="social-link" href="http://raytaylorlin.com/" target="_blank">Ray Taylor Lin&#39;s world</a>
+                
+                    <a class="social-link" href="http://havebear.com/" target="_blank">BGG&#39;s Blog</a>
+                
+                    <a class="social-link" href="http://blog.kejidi.net/" target="_blank">BlackTrace’s Blog</a>
+                
+                    <a class="social-link" href="http://www.free-sec.com/" target="_blank">intMan</a>
+                
+                    <a class="social-link" href="http://tangjianpeng.com/" target="_blank">唐建鹏博客</a>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div class="footer-copyright light-green-link-context">
+        <div class="container">
+            © 2016 yangmeng.net.cn, All rights reserved.
+            <p class="right" style="margin-top: 0;">本博客由 <a href="https://hexo.io">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
+        </div>
+    </div>
+</footer>
+
+
+    <noscript>
+    <div class="noscript">
+        <p class="center-align">当前浏览器不支持博客完整功能。如果要获得最佳体验，请点击右上角···，复制链接，并在其它浏览器打开</p>
+    </div>
+</noscript>
+<div class="noscript">
+    <p class="center-align">当前浏览器不支持博客完整功能。如果要获得最佳体验，请点击右上角···，复制链接，并在其它浏览器打开</p>
+</div>
+
+
+<script src="/js/jquery-2.1.1.min.js"></script>
+<script src="/js/materialize.min.js"></script>
+
+<script>
+(function($) {
+    $(document).ready(function() {
+        // 隐藏禁用javascript（针对微信内置浏览器）的提示
+        $('.noscript').hide();
+
+        // 图片缩放效果
+        var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
+
+        // 给图片加上点击放大效果（materialbox插件）
+        $imgs.addClass('materialboxed')
+            .each(function(i, el) {
+                $(this).attr('data-caption', $(this).attr('alt') || ' ');
+            }).materialbox();
+
+        // 优化表格的显示
+        $('table').addClass('responsive-table striped bordered');
+
+        // 首页幻灯片
+        $('.slider').slider({
+            indicators: true,
+            full_width: true,
+            interval: 8000
+        });
+
+        $(".button-collapse").sideNav();
+        $(".category-menu").sideNav();
+
+        // 针对gallery post
+        $('.carousel').carousel({
+            full_width: true
+        });
+        $('.carousel-control.prev').click(function() {
+            $('.carousel').carousel('prev');
+        });
+        $('.carousel-control.next').click(function() {
+            $('.carousel').carousel('next');
+        });
+
+        // 文章目录
+        $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
+        // 修正文章目录的left-border颜色
+        var color = $('.table-of-contents-text').css('color');
+        $('.table-of-contents-link').css('border-left-color', color);
+
+        // 针对移动端做的优化：FAB按钮点击一下收回
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            $('.fixed-action-btn').addClass('click-to-toggle');
+        }
+        // 回到顶部
+        $('.btn-return-top').click(function() {
+            $('body, html').animate({
+                scrollTop: 0
+            }, 500);
+        });
+
+        // 重置读书页面的Tab标签页的颜色
+        $('li.tab a').hover(function() {
+            $(this).toggleClass('text-lighten-4');
+        });
+        $('.indicator').addClass('light-green lighten-2');
+
+        
+        // 添加new标签
+        $('.menu-reading,.menu-about').append('<span class="new badge light-green"></span>');
+        
+    });
+})(jQuery);
+</script>
+
+
+<script src="/js/prettify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("pre").addClass("prettyprint");
+        prettyPrint();
+    });
+</script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" async
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+</body>
+</html>
