@@ -155,8 +155,16 @@
             
 
             <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/Android学习/">
-                    Android学习 <span class="right">1 篇</span></a>
+                <a class="no-padding" href="/categories/Android/">
+                    Android <span class="right">1 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/Android/Study/">
+                    Study <span class="right">1 篇</span></a>
                 </a>
             </li>
 
@@ -178,7 +186,7 @@
             
     
     
-    <a class="breadcrumb" href="/categories/Android学习/">Android学习</a>
+    <a class="breadcrumb" href="/categories/Android/">Android</a><a class="breadcrumb" href="/categories/Android/Study/">Study</a>
 
 
         
@@ -207,44 +215,43 @@
         
             <a href="/tags/Android/" class="chip light-green">Android</a>
         
-            <a href="/tags/打包/" class="chip light-green">打包</a>
+            <a href="/tags/签名/" class="chip light-green">签名</a>
         
     </div>
 
 
             <div class="toc light-green-link-context hide-on-med-and-down">
-    
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#任务目标"><span class="section table-of-contents-text">任务目标</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#为什么签名"><span class="section table-of-contents-text">为什么签名</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#命令行签名"><span class="section table-of-contents-text">命令行签名</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#通过AS导出未签名的apk"><span class="section table-of-contents-text">通过AS导出未签名的apk</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#签名工具的配置"><span class="section table-of-contents-text">签名工具的配置</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#具体操作"><span class="section table-of-contents-text">具体操作</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#通过Android-Studio（简称：AS）完成签名"><span class="section table-of-contents-text">通过Android Studio（简称：AS）完成签名</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#遇到的问题及解决方法"><span class="section table-of-contents-text">遇到的问题及解决方法</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#总结"><span class="section table-of-contents-text">总结</span></a></li></ol>
 </div>
 
 
             <div class="entry light-green-link-context">
                 <p>离开校园，工作也有三个月了，一直都忙于公司的项目或者瞎折腾，今天开始，好好的开始学习Android，从零出发。</p>
-<p>自从学习Android以来，一直都是自学，用到啥学啥，很乱，没有系统的去梳理Android的知识，在博客园看到一位博主：<a href="http://www.cnblogs.com/qianxudetianxia/category/293007.html" target="_blank" rel="external">谦虚的天下，从2011年4月一直更新到2015年1月Android学习系列；想以这个为指导，进行现阶段的Android学习。</a></p>
+<p>自从学习Android以来，一直都是自学，用到啥学啥，很乱，没有系统的去梳理Android的知识，在博客园看到一位博主：<a href="http://www.cnblogs.com/qianxudetianxia/category/293007.html" target="_blank" rel="external">谦虚的天下，从2011年4月一直更新到2015年1月Android学习系列</a>；想以这个为指导，进行现阶段的Android学习。<br><a id="more"></a><br>离开校园，工作也有三个月了，一直都忙于公司的项目或者瞎折腾，今天开始，好好的开始学习Android，从零出发。</p>
+<p>自从学习Android以来，一直都是自学，用到啥学啥，很乱，没有系统的去梳理Android的知识，在博客园看到一位博主：<a href="http://www.cnblogs.com/qianxudetianxia/category/293007.html" target="_blank" rel="external">谦虚的天下，从2011年4月一直更新到2015年1月Android学习系列</a>；想以这个为指导，进行现阶段的Android学习。</p>
 <p>今天学习了APK的签名，并记录下来，方便以后复习或查阅。</p>
 <p>谦虚的天下的这篇博文由于是2011年发表的，有些过时，在实现的时候出现一些问题，通过一番查询也解决，好了，进入这篇文章的正题：</p>
-<p>#任务目标</p>
-<ol>
+<h1 id="任务目标"><a href="#任务目标" class="headerlink" title="任务目标"></a>任务目标</h1><ol>
 <li>为什么签名</li>
 <li>通过命令行完成签名</li>
 <li>通过Android Studio（简称：AS）完成签名</li>
 </ol>
-<p>##为什么签名<br>为了保证每个应用程序开发商合法ID，防止部分开放商可能通过使用相同的Package Name来混淆替换已经安装的程序，我们需要对我们发布的APK文件进行唯一签名，保证我们每次发布的版本的一致性(如自动更新不会因为版本不一致而无法安装)。</p>
-<p>##命令行签名</p>
-<ul>
+<h2 id="为什么签名"><a href="#为什么签名" class="headerlink" title="为什么签名"></a>为什么签名</h2><p>为了保证每个应用程序开发商合法ID，防止部分开放商可能通过使用相同的Package Name来混淆替换已经安装的程序，我们需要对我们发布的APK文件进行唯一签名，保证我们每次发布的版本的一致性(如自动更新不会因为版本不一致而无法安装)。</p>
+<h2 id="命令行签名"><a href="#命令行签名" class="headerlink" title="命令行签名"></a>命令行签名</h2><ul>
 <li>未签名的apk</li>
 <li>签名工具的配置</li>
 <li>具体操作</li>
 </ul>
-<p>###通过AS导出未签名的apk<br>AS不能直接导出未签名的apk，需要通过gradle来导出。打开AS，直接新建一个默认项目，用于签名测试的Demo。<br><img src="http://upload-images.jianshu.io/upload_images/1316553-99fd864c009d00f6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="导出未签名apk的示意图"></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1316553-4e4dbd9d9662f897.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="导出成功示意图"></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1316553-7f84f552f063f351.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="导出包路径示意图"><br>这样，未签名的apk包就导出来了，第一步准备工作就完成了。</p>
-<p>###签名工具的配置<br><strong>用到的签名工具：</strong></p>
+<h3 id="通过AS导出未签名的apk"><a href="#通过AS导出未签名的apk" class="headerlink" title="通过AS导出未签名的apk"></a>通过AS导出未签名的apk</h3><p>AS不能直接导出未签名的apk，需要通过gradle来导出。打开AS，直接新建一个默认项目，用于签名测试的Demo。<br><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016%5C04%5C12%5CAndroid%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%281%29%20--%20APK%E7%AD%BE%E5%90%8D%5C01.png" alt="导出未签名apk的示意图"></p>
+<p><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016%5C04%5C12%5CAndroid%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%281%29%20--%20APK%E7%AD%BE%E5%90%8D%5C02.png" alt="导出成功示意图"></p>
+<p><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016%5C04%5C12%5CAndroid%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%281%29%20--%20APK%E7%AD%BE%E5%90%8D%5C03.png" alt="导出包路径示意图"><br>这样，未签名的apk包就导出来了，第一步准备工作就完成了。</p>
+<h3 id="签名工具的配置"><a href="#签名工具的配置" class="headerlink" title="签名工具的配置"></a>签名工具的配置</h3><p><strong>用到的签名工具：</strong></p>
 <ul>
 <li>keytool.exe</li>
 <li>jarsigner.exe</li>
 </ul>
 <p>keytool.exe生成key，位于C:\Program Files\Java\jre1.8.0_25\bin目录下（jre的安装目录），jarsigner.exe用生成的key对apk签名，位于C:\Program Files\Java\jdk1.8.0_25\bin目录下(jdk的安装目录)，把这两个的路径添加到环境变量path后，就完成了签名工具的配置。</p>
-<p>###具体操作<br><strong>keytool参数选项说明：</strong></p>
+<h3 id="具体操作"><a href="#具体操作" class="headerlink" title="具体操作"></a>具体操作</h3><p><strong>keytool参数选项说明：</strong></p>
 <table>
 <thead>
 <tr>
@@ -298,7 +305,7 @@
 <p>使用keytool创建签名key，打开windows 10的命令窗口，输入命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -genkey -v -alias demo -keyalg RSA -validity 40000 -keystore demo.keystore</span><br></pre></td></tr></table></figure></p>
 <p><strong>参数说明：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-genkey             产生密钥</span><br><span class="line">-alias              demo.keystore的别名demo</span><br><span class="line">-keyalg RSA         使用RSA算法对签名加密</span><br><span class="line">-validity 40000     有效期限4000天</span><br><span class="line">-keystore           demo.keystore</span><br></pre></td></tr></table></figure></p>
 <p>说明：输入此命令前，先进入你想将创建的key保存的目录，比如，我现在要将keystore保存在D盘根目录，则</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1316553-7434552346a968b6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="创建签名key的示意图"><br>这样，签名key就创建成功了。<br>接着，对未签名的apk进行签名，先把未签名的apk放到你生成的keystore的目录。</p>
+<p><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016%5C04%5C12%5CAndroid%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%281%29%20--%20APK%E7%AD%BE%E5%90%8D%5C04.png" alt="创建签名key的示意图"><br>这样，签名key就创建成功了。<br>接着，对未签名的apk进行签名，先把未签名的apk放到你生成的keystore的目录。</p>
 <p><strong>jarsigner参数选项说明：</strong></p>
 <table>
 <thead>
@@ -337,21 +344,20 @@
 <p>JDK1.6命令:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jarsigner -verbose -keystore demo.keystore -signedjar app-signed.apk app-unsigned.apk demo</span><br></pre></td></tr></table></figure></p>
 <p><strong>参数说明：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-verbose 输出签名的详细信息</span><br><span class="line">-keystore demo.keystore密钥库的位置</span><br><span class="line">-signedjar app-signed.apk app-unsigned.apk   demo.keystore 正式签名，app-signed.apk是</span><br><span class="line">app-unsigned.apk签名后生成的apk，文件名可自定义，app-unsigned.apk是放在demo.keystore文件</span><br><span class="line">同一目录的未签名apk</span><br><span class="line">demo  demo.keystore的别名</span><br></pre></td></tr></table></figure></p>
 <p>JDK1.7以上 命令：(JDK1.7 算法发生了变化，需要指定 -sigalg 和 -digestalg)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore demo.keystore -signedjar app-signed.apk app-unsigned.apk demo</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1316553-484b0638862d4e19.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="生成签名apk"></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1316553-b7c692b63ee5696f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="签名成功"><br>如上图，签名成功后出现警告，这个警告对签名并没有影响，但看着怪不舒服的，要去掉的话只要在命令上加上<strong>-tsa <a href="https://timestamp.geotrust.com/tsa" target="_blank" rel="external">https://timestamp.geotrust.com/tsa</a></strong>就可以了。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1316553-4bfecb14b503eeaf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="最终命令"></p>
-<p>##通过Android Studio（简称：AS）完成签名<br>IDE工具签名很容易就可以完成，看下图：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1316553-ea4a6323a39d14d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="AS签名apk"><br>根据提示，填写相应的内容，即可完成签名，这里就不进一步说明了。</p>
-<p>#遇到的问题及解决方法<br>1.生成的签名apk不能安装</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1316553-eca22d5d7cb6dfe1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="问题一"><br>出现上图，红色框的提示导致签名apk无法安装，原因是真机或者模拟器的Android版本小于签名apk的最小sdk版本，比如我现在的这个apk的最小sdk版本是19，而我的真机版本是17。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1316553-1a60ed4fbcb99ae9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="解决方法"></p>
+<p><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016%5C04%5C12%5CAndroid%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%281%29%20--%20APK%E7%AD%BE%E5%90%8D%5C05.png" alt="生成签名apk"></p>
+<p><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016%5C04%5C12%5CAndroid%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%281%29%20--%20APK%E7%AD%BE%E5%90%8D%5C06.png" alt="签名成功"><br>如上图，签名成功后出现警告，这个警告对签名并没有影响，但看着怪不舒服的，要去掉的话只要在命令上加上<strong>-tsa <a href="https://timestamp.geotrust.com/tsa" target="_blank" rel="external">https://timestamp.geotrust.com/tsa</a></strong>就可以了。</p>
+<p><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016%5C04%5C12%5CAndroid%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%281%29%20--%20APK%E7%AD%BE%E5%90%8D%5C07.png" alt="最终命令"></p>
+<h2 id="通过Android-Studio（简称：AS）完成签名"><a href="#通过Android-Studio（简称：AS）完成签名" class="headerlink" title="通过Android Studio（简称：AS）完成签名"></a>通过Android Studio（简称：AS）完成签名</h2><p>IDE工具签名很容易就可以完成，看下图：</p>
+<p><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016%5C04%5C12%5CAndroid%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%281%29%20--%20APK%E7%AD%BE%E5%90%8D%5C08.png" alt="AS签名apk"><br>根据提示，填写相应的内容，即可完成签名，这里就不进一步说明了。</p>
+<h1 id="遇到的问题及解决方法"><a href="#遇到的问题及解决方法" class="headerlink" title="遇到的问题及解决方法"></a>遇到的问题及解决方法</h1><p>1.生成的签名apk不能安装</p>
+<p><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016%5C04%5C12%5CAndroid%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%281%29%20--%20APK%E7%AD%BE%E5%90%8D%5C09.png" alt="问题一"><br>出现上图，红色框的提示导致签名apk无法安装，原因是真机或者模拟器的Android版本小于签名apk的最小sdk版本，比如我现在的这个apk的最小sdk版本是19，而我的真机版本是17。</p>
+<p><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016%5C04%5C12%5CAndroid%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%281%29%20--%20APK%E7%AD%BE%E5%90%8D%5C10.png" alt="解决方法"></p>
 <p>2.签名apk不能重复安装</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1316553-1d1dbcbc401bfb56.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="问题二"><br>出现上图，红色框的提示安装失败，是因为这个apk已经安装过了。<br><strong>解决方法：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//执行安装命令是，增加-r参数</span><br><span class="line">adb install -r app-signed.apk</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016%5C04%5C12%5CAndroid%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%281%29%20--%20APK%E7%AD%BE%E5%90%8D%5C11.png" alt="问题二"><br>出现上图，红色框的提示安装失败，是因为这个apk已经安装过了。<br><strong>解决方法：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//执行安装命令是，增加-r参数</span><br><span class="line">adb install -r app-signed.apk</span><br></pre></td></tr></table></figure></p>
 <p>3.签名冲突</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1316553-d1df0df9f90ad946.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="签名冲突"><br>出现上图，红色框的提示安装失败，是因为签名冲突造成的，比如你使用了ADB的debug权限签名，但后来使用标准sign签名后再安装同一个文件会出现这样的错误提示，解决的方法除了只有先老老实实从手机上卸载原有版本再进行安装，而adb install -r参数也无法解决这个问题。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1316553-a706a2c0b203a787.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="安装签名apk成功"></p>
-<p>#总结</p>
-<blockquote>
+<p><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016%5C04%5C12%5CAndroid%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%281%29%20--%20APK%E7%AD%BE%E5%90%8D%5C12.png" alt="签名冲突"><br>出现上图，红色框的提示安装失败，是因为签名冲突造成的，比如你使用了ADB的debug权限签名，但后来使用标准sign签名后再安装同一个文件会出现这样的错误提示，解决的方法除了只有先老老实实从手机上卸载原有版本再进行安装，而adb install -r参数也无法解决这个问题。</p>
+<p><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016%5C04%5C12%5CAndroid%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%281%29%20--%20APK%E7%AD%BE%E5%90%8D%5C13.png" alt="安装签名apk成功"></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><blockquote>
 <p>哪怕再小的知识点，也要认真的去学习，一点一点的去积累，去成长，写的有什么不对的，希望各位路过的大牛们指点指点，拜谢。</p>
 </blockquote>
 
@@ -362,6 +368,33 @@
 
 
 
+
+    <section id="comment">
+        <div class="card">
+            <div class="card-content">
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread" data-thread-key="2016/04/12/Android学习之路(1) APK签名/" data-title="Android学习之路(1) -- APK签名" data-url="http://yoursite.com/2016/04/12/Android学习之路(1) APK签名/"></div>
+
+                <script type="text/javascript">
+                    console.log(document.querySelector('.ds-thread'));
+                    var duoshuoQuery = {
+                        short_name: 'yangmeng'
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:'
+                            ? 'https:'
+                            : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
+            </div>
+        </div>
+    </section>
 
 
 
