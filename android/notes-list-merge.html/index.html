@@ -7,7 +7,7 @@
 
     
 
-    <title>杨萌个人博客 - 一个迷茫期的程序员</title>
+    <title>清单合并 | 杨萌个人博客 - 一个迷茫期的程序员</title>
     <meta name="author" content="mysprout">
     
     <meta name="description" content="杨萌个人博客">
@@ -15,7 +15,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
+    <meta property="og:title" content="清单合并"/>
     <meta property="og:site_name" content="Face the sea,with spring flowers blossoming."/>
 
     
@@ -202,43 +202,39 @@
 </nav>
 
     <main>
+        <div class="container main-container">
+    <nav class="page-nav hide-on-small-only">
+    <div class="nav-wrapper brown darken-1">
+        <span class="breadcrumb">当前位置（分类目录）</span>
+        
+            
+    
+    
+    <a class="breadcrumb" href="/categories/Android/">Android</a><a class="breadcrumb" href="/categories/Android/Notes/">Notes</a>
+
+
         
 
-<div class="slider">
-    <ul class="slides">
-    
-       <li>
-           <a href="/">
-               <img class="slider-image" src="http://7xswpn.com2.z0.glb.clouddn.com/slider2015041201.jpeg">
-               <div class="caption left-align">
-                 <h4>This is our big Tagline!</h3>
-                 <h5 class="light grey-text text-lighten-3">Here&#39;s our small slogan.</h5>
-               </div>
-           </a>
-       </li>
-    
-   </ul>
- </div>
+        
+    </div>
+</nav>
 
+<article>
+    <div class="card">
+        <div class="card-content">
+            
 
-
-<div id="article-list" class="container main-container">
-    
-        <article class="simple-article">
-        <div class="card">
-            <div class="card-content">
-                <div class="article-title">
-                    
-    
-        <h1 class="brown-link-context"><a href="/android/notes-list-merge.html/">清单合并</a></h1>
-    
-
-
-                </div>
-
-                <time class="light-green-link-context" datetime="2016-04-13T11:59:31.000Z"><a href="/android/notes-list-merge.html/">2016-04-13</a></time>
-
+            <div class="article-title">
                 
+    
+        <h1>清单合并</h1>
+    
+
+
+            </div>
+            <time class="light-green-link-context" datetime="2016-04-13T11:59:31.000Z"><a href="/android/notes-list-merge.html/">2016-04-13</a></time>
+
+            
     <div class="tags-row">
         
             <a href="/tags/Android/" class="chip light-green">Android</a>
@@ -248,209 +244,62 @@
     </div>
 
 
+            <div class="toc light-green-link-context hide-on-med-and-down">
+    
+</div>
 
-                
-                    <div class="entry light-green-link-context">
-                        <p>因公司业务需要，需要在项目中集成滴滴的SDK， 几经波折集成好后，在运行项目的时候，项目不能编译通过，报错如下：</p>
+
+            <div class="entry light-green-link-context">
+                <p>因公司业务需要，需要在项目中集成滴滴的SDK， 几经波折集成好后，在运行项目的时候，项目不能编译通过，报错如下：</p>
 <p><img src="http://7xswpn.com2.z0.glb.clouddn.com/android-notes-4-01.png" alt=""></p>
-                    </div>
-                
-            </div>
+<a id="more"></a>
+<p>因公司业务需要，需要在项目中集成滴滴的SDK， 几经波折集成好后，在运行项目的时候，项目不能编译通过，报错如下：</p>
+<p><img src="http://7xswpn.com2.z0.glb.clouddn.com/android-notes-4-01.png" alt=""></p>
+<p>原因：AS的Gradle插件默认会启用Manifest Merger Tool，若Library项目中也定义了与主项目相同的属性（例如默认生成的android:label），则此时会合并失败，并报上面的错误。</p>
+<p>解决方法有2种：</p>
+<ul>
+<li><p>在Manifest.xml的application标签下添加tools:replace=”android:icon, android:theme”,多个属性用,隔开，并且记住在manifest根标签上加入xmlns:tools=”<a href="http://schemas.android.com/tools" target="_blank" rel="external">http://schemas.android.com/tools</a>“ ，否则会找不到namespace哦。</p>
+</li>
+<li><p>在build.gradle根标签上加上useOldManifestMerger true （懒人方法）。</p>
+</li>
+</ul>
 
-            
-            <div class="card-action light-green-link-context">
-                <a href="android/notes-list-merge.html/">READ MORE</a>
             </div>
-            
         </div>
+    </div>
 </article>
 
-    
-        <article class="simple-article">
+
+
+
+    <section id="comment">
         <div class="card">
             <div class="card-content">
-                <div class="article-title">
-                    
-    
-        <h1 class="brown-link-context"><a href="/android/notes-textview-icon.html/">为TextView、Button控件上的文本添加图标</a></h1>
-    
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread" data-thread-key="android/notes-list-merge.html/" data-title="清单合并" data-url="http://yoursite.com/android/notes-list-merge.html/"></div>
 
-
-                </div>
-
-                <time class="light-green-link-context" datetime="2016-04-13T11:47:55.000Z"><a href="/android/notes-textview-icon.html/">2016-04-13</a></time>
-
-                
-    <div class="tags-row">
-        
-            <a href="/tags/Android/" class="chip light-green">Android</a>
-        
-            <a href="/tags/TextView/" class="chip light-green">TextView</a>
-        
-            <a href="/tags/图标/" class="chip light-green">图标</a>
-        
-    </div>
-
-
-
-                
-                    <div class="entry light-green-link-context">
-                        <p>最近做项目，需要在TextView的文本左边添加图标，临时用到，以前会的现在居然忘了，没法，只有记录下来，方便以后用到的时候，及时查询到。<br>如果只是想在TextView的文本的上下左右添加图片，在java代码中不会改变的话，可以直接在布局xml文件中写死，使用TextView的drawableLeft、drawableTop、drawableRight、drawableBottom属性就可以实现如下图的效果，使用drawablePadding属性就可以控制图片与文本之间的距离。<br>
-                    </div>
-                
+                <script type="text/javascript">
+                    console.log(document.querySelector('.ds-thread'));
+                    var duoshuoQuery = {
+                        short_name: 'yangmeng'
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:'
+                            ? 'https:'
+                            : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
             </div>
-
-            
-            <div class="card-action light-green-link-context">
-                <a href="android/notes-textview-icon.html/">READ MORE</a>
-            </div>
-            
         </div>
-</article>
-
-    
-        <article class="simple-article">
-        <div class="card">
-            <div class="card-content">
-                <div class="article-title">
-                    
-    
-        <h1 class="brown-link-context"><a href="/android/notes-button-countdown.html/">在Button控件上显示倒计时</a></h1>
-    
+    </section>
 
 
-                </div>
-
-                <time class="light-green-link-context" datetime="2016-04-13T11:22:00.000Z"><a href="/android/notes-button-countdown.html/">2016-04-13</a></time>
-
-                
-    <div class="tags-row">
-        
-            <a href="/tags/Android/" class="chip light-green">Android</a>
-        
-            <a href="/tags/Button/" class="chip light-green">Button</a>
-        
-            <a href="/tags/倒计时/" class="chip light-green">倒计时</a>
-        
-    </div>
-
-
-
-                
-                    <div class="entry light-green-link-context">
-                        <p>今天做项目的时候，需要做一个按钮获取验证码，点击之后按钮需要倒计时，并且不可点击。现在将方法记录下来，方便下次遇到的时候解决。<br>
-                    </div>
-                
-            </div>
-
-            
-            <div class="card-action light-green-link-context">
-                <a href="android/notes-button-countdown.html/">READ MORE</a>
-            </div>
-            
-        </div>
-</article>
-
-    
-        <article class="simple-article">
-        <div class="card">
-            <div class="card-content">
-                <div class="article-title">
-                    
-    
-        <h1 class="brown-link-context"><a href="/wordpress/plugins-syntaxHighlighter.html/">WordPress使用笔记 — 插件篇（SyntaxHighlighter）</a></h1>
-    
-
-
-                </div>
-
-                <time class="light-green-link-context" datetime="2016-04-13T03:55:03.000Z"><a href="/wordpress/plugins-syntaxHighlighter.html/">2016-04-13</a></time>
-
-                
-    <div class="tags-row">
-        
-            <a href="/tags/WordPress/" class="chip light-green">WordPress</a>
-        
-            <a href="/tags/SyntaxHighlighter/" class="chip light-green">SyntaxHighlighter</a>
-        
-            <a href="/tags/代码高亮/" class="chip light-green">代码高亮</a>
-        
-    </div>
-
-
-
-                
-                    <div class="entry light-green-link-context">
-                        <p>进入wp后台 — 插件 – 安装插件，在搜索框中输入：SyntaxHighlighter Evolved，回车搜索，下载并安装第一个。<br>安装成功后，启用SyntaxHighlighter Evolved插件，并刷新后台，进入 – 设置 – SyntaxHighlighter；只需更改杂项设置，其他的默认就行。<br>
-                    </div>
-                
-            </div>
-
-            
-            <div class="card-action light-green-link-context">
-                <a href="wordpress/plugins-syntaxHighlighter.html/">READ MORE</a>
-            </div>
-            
-        </div>
-</article>
-
-    
-        <article class="simple-article">
-        <div class="card">
-            <div class="card-content">
-                <div class="article-title">
-                    
-    
-        <h1 class="brown-link-context"><a href="/android/study-apk-signed.html/">Android学习之路(1) -- APK签名</a></h1>
-    
-
-
-                </div>
-
-                <time class="light-green-link-context" datetime="2016-04-12T08:36:43.000Z"><a href="/android/study-apk-signed.html/">2016-04-12</a></time>
-
-                
-    <div class="tags-row">
-        
-            <a href="/tags/Android/" class="chip light-green">Android</a>
-        
-            <a href="/tags/签名/" class="chip light-green">签名</a>
-        
-    </div>
-
-
-
-                
-                    <div class="entry light-green-link-context">
-                        <p>离开校园，工作也有三个月了，一直都忙于公司的项目或者瞎折腾，今天开始，好好的开始学习Android，从零出发。</p>
-<p>自从学习Android以来，一直都是自学，用到啥学啥，很乱，没有系统的去梳理Android的知识，在博客园看到一位博主：<a href="http://www.cnblogs.com/qianxudetianxia/category/293007.html">谦虚的天下，从2011年4月一直更新到2015年1月Android学习系列</a>；想以这个为指导，进行现阶段的Android学习。<br>
-                    </div>
-                
-            </div>
-
-            
-            <div class="card-action light-green-link-context">
-                <a href="android/study-apk-signed.html/">READ MORE</a>
-            </div>
-            
-        </div>
-</article>
-
-    
-
-    <ul class="pagination center-align">
-    <li class="disabled">
-        <a href="/"><i class="fa fa-angle-left"></i></a>
-    </li>
-    
-    
-        <li class="active light-green"><a href="/">1</a></li>
-    
-    
-    <li class="disabled">
-        <a href="/"><i class="fa fa-angle-right"></i></a>
-    </li>
- </ul>
 
 </div>
 
