@@ -7,7 +7,7 @@
 
     
 
-    <title>Plugins | 杨萌个人博客 - 一个迷茫期的程序员</title>
+    <title>在Button控件上显示倒计时 | 杨萌个人博客 - 一个迷茫期的程序员</title>
     <meta name="author" content="mysprout">
     
     <meta name="description" content="杨萌个人博客">
@@ -15,7 +15,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
+    <meta property="og:title" content="在Button控件上显示倒计时"/>
     <meta property="og:site_name" content="Face the sea,with spring flowers blossoming."/>
 
     
@@ -203,30 +203,99 @@
 
     <main>
         <div class="container main-container">
-    
-
-<nav class="page-nav hide-on-small-only">
+    <nav class="page-nav hide-on-small-only">
     <div class="nav-wrapper brown darken-1">
         <span class="breadcrumb">当前位置（分类目录）</span>
         
+            
+    
+    
+    <a class="breadcrumb" href="/categories/Android/">Android</a><a class="breadcrumb" href="/categories/Android/Notes/">Notes</a>
+
 
         
-            <a class="breadcrumb" href="/categories/WordPress/Plugins/">Plugins</a>
+
         
     </div>
 </nav>
 
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>在Button控件上显示倒计时</h1>
+    
 
 
-    <div class="collection mt-0">
+            </div>
+            <time class="light-green-link-context" datetime="2016-04-13T11:22:00.000Z"><a href="/android/notes-button-countdown.html/">2016-04-13</a></time>
+
+            
+    <div class="tags-row">
         
-            <a href="/wordpress/plugins-syntaxHighlighter.html/" class="collection-item grey-text text-darken-1">
-                <time datetime="2016-04-13T03:55:03.000Z">2016-04-13</time>
-                <span>&nbsp;&nbsp;&nbsp;</span>
-                WordPress使用笔记 — 插件篇（SyntaxHighlighter）
-            </a>
+            <a href="/tags/Android/" class="chip light-green">Android</a>
+        
+            <a href="/tags/Button/" class="chip light-green">Button</a>
+        
+            <a href="/tags/倒计时/" class="chip light-green">倒计时</a>
         
     </div>
+
+
+            <div class="toc light-green-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#一丶前言"><span class="section table-of-contents-text">一丶前言</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#二、实现"><span class="section table-of-contents-text">二、实现</span></a></li></ol>
+</div>
+
+
+            <div class="entry light-green-link-context">
+                <p>今天做项目的时候，需要做一个按钮获取验证码，点击之后按钮需要倒计时，并且不可点击。现在将方法记录下来，方便下次遇到的时候解决。<br><a id="more"></a></p>
+<h1 id="一丶前言"><a href="#一丶前言" class="headerlink" title="一丶前言"></a>一丶前言</h1><p>今天做项目的时候，需要做一个按钮获取验证码，点击之后按钮需要倒计时，并且不可点击。现在将方法记录下来，方便下次遇到的时候解决。</p>
+<h1 id="二、实现"><a href="#二、实现" class="headerlink" title="二、实现"></a>二、实现</h1><p>先上一张成功示意图：</p>
+<p><img src="http://7xswpn.com2.z0.glb.clouddn.com/android-notes-5-01.png" alt="成功示意图"></p>
+<p>实现倒计时的代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">//这段是实现倒计时的代码</span><br><span class="line">class TimeCount extends CountDownTimer &#123;</span><br><span class="line">    public TimeCount(long millisInFuture, long countDownInterval) &#123;</span><br><span class="line">        super(millisInFuture, countDownInterval);//参数依次为总时长,和计时的时间间隔</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    @Override</span><br><span class="line">    public void onFinish() &#123;//计时完毕时触发</span><br><span class="line">        //按钮上的文本显示</span><br><span class="line">        button.setText(&quot;重新获取&quot;);</span><br><span class="line">        //设置按钮可点击</span><br><span class="line">        button.setClickable(true);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    @Override</span><br><span class="line">    public void onTick(long millisUntilFinished)&#123;//计时过程显示</span><br><span class="line">        //设置按钮不可点击</span><br><span class="line">        button.setClickable(false);</span><br><span class="line">        //设置倒计时时的显示文本</span><br><span class="line">        button.setText(getString(millisUntilFinished/1000 + &quot;秒后重新获取&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在要实现的按钮点击的时候调用此类：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//点击按钮时触发倒计时，单位是毫秒</span><br><span class="line">new TimeCount(60000, 1000).start();</span><br></pre></td></tr></table></figure></p>
+<p>这样就可以实现按钮倒计时的功能了。</p>
+<p>我采取的是内部类的方法实现，也可以单独提取出来封成通用方法。</p>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+    <section id="comment">
+        <div class="card">
+            <div class="card-content">
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread" data-thread-key="android/notes-button-countdown.html/" data-title="在Button控件上显示倒计时" data-url="http://yoursite.com/android/notes-button-countdown.html/"></div>
+
+                <script type="text/javascript">
+                    console.log(document.querySelector('.ds-thread'));
+                    var duoshuoQuery = {
+                        short_name: 'yangmeng'
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:'
+                            ? 'https:'
+                            : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
+            </div>
+        </div>
+    </section>
+
 
 
 </div>
