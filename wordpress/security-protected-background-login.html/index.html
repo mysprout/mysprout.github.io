@@ -274,7 +274,7 @@
 <p>注：如果是其他地址，即使你的用户名和密码正确，都是没办法登录的！如果开启了隐身模式，除了上面的地址之外，其他任何地址都看不到登录表单。</p>
 <h2 id="2-非插件：使用代码"><a href="#2-非插件：使用代码" class="headerlink" title="2.非插件：使用代码"></a>2.非插件：使用代码</h2><p>如果你不喜欢插件，可以将下面的代码添加到当前主题的 functions.php 文件：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//保护后台登录</span><br><span class="line">add_action(&apos;login_enqueue_scripts&apos;,&apos;login_protection&apos;);  </span><br><span class="line">function login_protection()&#123;  </span><br><span class="line">    if($_GET[&apos;test&apos;] != &apos;test&apos;)header(&apos;Location: http://blog.mysprout.cn/&apos;);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这样一来，后台登录的唯一地址就是<a href="http://blog.mysprout.cn/wp-login.php?" target="_blank" rel="external">http://blog.mysprout.cn/wp-login.php?</a><font color="red">test=test</font>，如果不是这个地址，就会自动跳转到 <a href="http://blog.mysprout.cn/，不信你试试！" target="_blank" rel="external">http://blog.mysprout.cn/，不信你试试！</a></p>
+<p>这样一来，后台登录的唯一地址就是<a href="http://blog.mysprout.cn/wp-login.php?" target="_blank" rel="external">http://blog.mysprout.cn/wp-login.php?</a><font color="red">test=test</font>，如果不是这个地址，就会自动跳转到 <a href="http://blog.mysprout.cn/" target="_blank" rel="external">http://blog.mysprout.cn/</a><font color="black">，不信你试试！</font></p>
 <p>你可以修改第 4 行的 test、test和 <a href="http://blog.mysprout.cn/这三个参数。" target="_blank" rel="external">http://blog.mysprout.cn/这三个参数。</a></p>
 
             </div>
