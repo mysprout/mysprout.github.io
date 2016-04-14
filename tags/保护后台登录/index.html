@@ -7,7 +7,7 @@
 
     
 
-    <title>清单合并 | 杨萌个人博客 - 一个迷茫期的程序员</title>
+    <title>保护后台登录 | 杨萌个人博客 - 一个迷茫期的程序员</title>
     <meta name="author" content="mysprout">
     
     <meta name="description" content="杨萌个人博客">
@@ -15,7 +15,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <meta property="og:title" content="清单合并"/>
+    
     <meta property="og:site_name" content="Face the sea,with spring flowers blossoming."/>
 
     
@@ -211,102 +211,30 @@
 
     <main>
         <div class="container main-container">
-    <nav class="page-nav hide-on-small-only">
+    
+
+<nav class="page-nav hide-on-small-only">
     <div class="nav-wrapper brown darken-1">
-        <span class="breadcrumb">当前位置（分类目录）</span>
-        
-            
-    
-    
-    <a class="breadcrumb" href="/categories/Android/">Android</a><a class="breadcrumb" href="/categories/Android/Notes/">Notes</a>
-
-
+        <span class="breadcrumb">当前位置（标签）</span>
         
 
+        
+            <a class="breadcrumb" href="/tags/保护后台登录/">保护后台登录</a>
         
     </div>
 </nav>
 
-<article>
-    <div class="card">
-        <div class="card-content">
-            
-
-            <div class="article-title">
-                
-    
-        <h1>清单合并</h1>
-    
 
 
-            </div>
-            <time class="light-green-link-context" datetime="2016-04-13T11:59:31.000Z"><a href="/android/notes-list-merge.html/">2016-04-13</a></time>
-
-            
-    <div class="tags-row">
+    <div class="collection mt-0">
         
-            <a href="/tags/Android/" class="chip light-green">Android</a>
-        
-            <a href="/tags/Manifest-merger-failed/" class="chip light-green">Manifest merger failed</a>
+            <a href="/wordpress/security-protected-background-login.html/" class="collection-item grey-text text-darken-1">
+                <time datetime="2016-04-14T09:26:09.000Z">2016-04-14</time>
+                <span>&nbsp;&nbsp;&nbsp;</span>
+                WordPress使用笔记 — 安全篇（保护后台登录）
+            </a>
         
     </div>
-
-
-            <div class="toc light-green-link-context hide-on-med-and-down">
-    
-</div>
-
-
-            <div class="entry light-green-link-context">
-                <p>因公司业务需要，需要在项目中集成滴滴的SDK， 几经波折集成好后，在运行项目的时候，项目不能编译通过，报错如下：</p>
-<p><img src="http://7xswpn.com2.z0.glb.clouddn.com/android-notes-4-01.png" alt=""></p>
-<a id="more"></a>
-<p>因公司业务需要，需要在项目中集成滴滴的SDK， 几经波折集成好后，在运行项目的时候，项目不能编译通过，报错如下：</p>
-<p><img src="http://7xswpn.com2.z0.glb.clouddn.com/android-notes-4-01.png" alt=""></p>
-<p>原因：AS的Gradle插件默认会启用Manifest Merger Tool，若Library项目中也定义了与主项目相同的属性（例如默认生成的android:label），则此时会合并失败，并报上面的错误。</p>
-<p>解决方法有2种：</p>
-<ul>
-<li><p>在Manifest.xml的application标签下添加tools:replace=”android:icon, android:theme”,多个属性用,隔开，并且记住在manifest根标签上加入xmlns:tools=”<a href="http://schemas.android.com/tools" target="_blank" rel="external">http://schemas.android.com/tools</a>“ ，否则会找不到namespace哦。</p>
-</li>
-<li><p>在build.gradle根标签上加上useOldManifestMerger true （懒人方法）。</p>
-</li>
-</ul>
-
-            </div>
-        </div>
-    </div>
-</article>
-
-
-
-
-    <section id="comment">
-        <div class="card">
-            <div class="card-content">
-                <!-- Duoshuo Comment BEGIN -->
-                <div class="ds-thread" data-thread-key="android/notes-list-merge.html/" data-title="清单合并" data-url="http://yoursite.com/android/notes-list-merge.html/"></div>
-
-                <script type="text/javascript">
-                    console.log(document.querySelector('.ds-thread'));
-                    var duoshuoQuery = {
-                        short_name: 'yangmeng'
-                    };
-                    (function() {
-                        var ds = document.createElement('script');
-                        ds.type = 'text/javascript';
-                        ds.async = true;
-                        ds.src = (document.location.protocol == 'https:'
-                            ? 'https:'
-                            : 'http:') + '//static.duoshuo.com/embed.js';
-                        ds.charset = 'UTF-8';
-                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
-                    })();
-                </script>
-                <!-- Duoshuo Comment END -->
-            </div>
-        </div>
-    </section>
-
 
 
 </div>

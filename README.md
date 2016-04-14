@@ -1,4 +1,7 @@
 ﻿#记录每日发表的文章
+##2016.04.14
+- WordPress-Security-WordPress使用笔记 — 安全篇（保护后台登录）
+
 ##2016.04.13
 - WordPress-Plugins-WordPress使用笔记 — 插件篇（SyntaxHighlighter）
 - Android-Notes-在Button控件上显示倒计时

@@ -7,7 +7,7 @@
 
     
 
-    <title>清单合并 | 杨萌个人博客 - 一个迷茫期的程序员</title>
+    <title>WordPress使用笔记 — 安全篇（保护后台登录） | 杨萌个人博客 - 一个迷茫期的程序员</title>
     <meta name="author" content="mysprout">
     
     <meta name="description" content="杨萌个人博客">
@@ -15,7 +15,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <meta property="og:title" content="清单合并"/>
+    <meta property="og:title" content="WordPress使用笔记 — 安全篇（保护后台登录）"/>
     <meta property="og:site_name" content="Face the sea,with spring flowers blossoming."/>
 
     
@@ -218,7 +218,7 @@
             
     
     
-    <a class="breadcrumb" href="/categories/Android/">Android</a><a class="breadcrumb" href="/categories/Android/Notes/">Notes</a>
+    <a class="breadcrumb" href="/categories/WordPress/">WordPress</a><a class="breadcrumb" href="/categories/WordPress/Security/">Security</a>
 
 
         
@@ -235,42 +235,47 @@
             <div class="article-title">
                 
     
-        <h1>清单合并</h1>
+        <h1>WordPress使用笔记 — 安全篇（保护后台登录）</h1>
     
 
 
             </div>
-            <time class="light-green-link-context" datetime="2016-04-13T11:59:31.000Z"><a href="/android/notes-list-merge.html/">2016-04-13</a></time>
+            <time class="light-green-link-context" datetime="2016-04-14T09:26:09.000Z"><a href="/wordpress/security-protected-background-login.html/">2016-04-14</a></time>
 
             
     <div class="tags-row">
         
-            <a href="/tags/Android/" class="chip light-green">Android</a>
+            <a href="/tags/WordPress/" class="chip light-green">WordPress</a>
         
-            <a href="/tags/Manifest-merger-failed/" class="chip light-green">Manifest merger failed</a>
+            <a href="/tags/保护后台登录/" class="chip light-green">保护后台登录</a>
         
     </div>
 
 
             <div class="toc light-green-link-context hide-on-med-and-down">
-    
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#一、前言："><span class="section table-of-contents-text">一、前言：</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#二、实现："><span class="section table-of-contents-text">二、实现：</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#1-插件：Protected-wp-login"><span class="section table-of-contents-text">1.插件：Protected wp-login</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#2-非插件：使用代码"><span class="section table-of-contents-text">2.非插件：使用代码</span></a></li></ol></li></ol>
 </div>
 
 
             <div class="entry light-green-link-context">
-                <p>因公司业务需要，需要在项目中集成滴滴的SDK， 几经波折集成好后，在运行项目的时候，项目不能编译通过，报错如下：</p>
-<p><img src="http://7xswpn.com2.z0.glb.clouddn.com/android-notes-4-01.png" alt=""></p>
-<a id="more"></a>
-<p>因公司业务需要，需要在项目中集成滴滴的SDK， 几经波折集成好后，在运行项目的时候，项目不能编译通过，报错如下：</p>
-<p><img src="http://7xswpn.com2.z0.glb.clouddn.com/android-notes-4-01.png" alt=""></p>
-<p>原因：AS的Gradle插件默认会启用Manifest Merger Tool，若Library项目中也定义了与主项目相同的属性（例如默认生成的android:label），则此时会合并失败，并报上面的错误。</p>
-<p>解决方法有2种：</p>
+                <p>通过修改进入wordpress站点后台的登录地址，来提高WordPress站点的安全性。<br>实现的方法有两种，一种是使用插件，一种是使用非插件。<br><a id="more"></a></p>
+<h1 id="一、前言："><a href="#一、前言：" class="headerlink" title="一、前言："></a>一、前言：</h1><p>通过修改进入wordpress站点后台的登录地址，来提高WordPress站点的安全性。</p>
+<h1 id="二、实现："><a href="#二、实现：" class="headerlink" title="二、实现："></a>二、实现：</h1><p>实现的方法有两种，一种是使用插件，一种是使用非插件。</p>
+<h2 id="1-插件：Protected-wp-login"><a href="#1-插件：Protected-wp-login" class="headerlink" title="1.插件：Protected wp-login"></a>1.插件：Protected wp-login</h2><p>这款插件使用非常简单，也非常的实用。</p>
+<p>使用方法：进入后台，下载该插件，启动插件，进入设置界面。</p>
+<p>该插件有三个设置选项：</p>
 <ul>
-<li><p>在Manifest.xml的application标签下添加tools:replace=”android:icon, android:theme”,多个属性用,隔开，并且记住在manifest根标签上加入xmlns:tools=”<a href="http://schemas.android.com/tools" target="_blank" rel="external">http://schemas.android.com/tools</a>“ ，否则会找不到namespace哦。</p>
-</li>
-<li><p>在build.gradle根标签上加上useOldManifestMerger true （懒人方法）。</p>
-</li>
+<li>Enable protection（启用保护）</li>
+<li>Your secure key（你的安全密钥——如果不是包含安全密钥的地址，即使你的用户名和密码正确，都没办法登录）</li>
+<li>Enable stealth mode（启用隐身模式——如果不是包含安全密钥的地址，都不显示登录表单）</li>
 </ul>
+<p>勾选启用保护，输入安全密钥（如：test），保存更改，就会得到一个登录地址：<a href="https://blog.mysprout.cn/wp-login.php/wp-login.php?" target="_blank" rel="external">https://blog.mysprout.cn/wp-login.php/wp-login.php?</a><font color="red">sk=test</font>(是不是看着很怪，显示了连个wp-login.php)</p>
+<p>经过测试，上面的地址可以正常登录，不过使用下面的地址也可以正常登录：<a href="https://blog.mysprout.cn/wp-login.php?" target="_blank" rel="external">https://blog.mysprout.cn/wp-login.php?</a><font color="red">sk=test</font></p>
+<p>注：如果是其他地址，即使你的用户名和密码正确，都是没办法登录的！如果开启了隐身模式，除了上面的地址之外，其他任何地址都看不到登录表单。</p>
+<h2 id="2-非插件：使用代码"><a href="#2-非插件：使用代码" class="headerlink" title="2.非插件：使用代码"></a>2.非插件：使用代码</h2><p>如果你不喜欢插件，可以将下面的代码添加到当前主题的 functions.php 文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//保护后台登录</span><br><span class="line">add_action(&apos;login_enqueue_scripts&apos;,&apos;login_protection&apos;);  </span><br><span class="line">function login_protection()&#123;  </span><br><span class="line">    if($_GET[&apos;test&apos;] != &apos;test&apos;)header(&apos;Location: http://blog.mysprout.cn/&apos;);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样一来，后台登录的唯一地址就是<a href="http://blog.mysprout.cn/wp-login.php?" target="_blank" rel="external">http://blog.mysprout.cn/wp-login.php?</a><font color="red">test=test</font>，如果不是这个地址，就会自动跳转到 <a href="http://blog.mysprout.cn/，不信你试试！" target="_blank" rel="external">http://blog.mysprout.cn/，不信你试试！</a></p>
+<p>你可以修改第 4 行的 test、test和 <a href="http://blog.mysprout.cn/这三个参数。" target="_blank" rel="external">http://blog.mysprout.cn/这三个参数。</a></p>
 
             </div>
         </div>
@@ -284,7 +289,7 @@
         <div class="card">
             <div class="card-content">
                 <!-- Duoshuo Comment BEGIN -->
-                <div class="ds-thread" data-thread-key="android/notes-list-merge.html/" data-title="清单合并" data-url="http://yoursite.com/android/notes-list-merge.html/"></div>
+                <div class="ds-thread" data-thread-key="wordpress/security-protected-background-login.html/" data-title="WordPress使用笔记 — 安全篇（保护后台登录）" data-url="http://yoursite.com/wordpress/security-protected-background-login.html/"></div>
 
                 <script type="text/javascript">
                     console.log(document.querySelector('.ds-thread'));
