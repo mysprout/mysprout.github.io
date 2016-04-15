@@ -1,17 +1,4 @@
-﻿#记录每日发表的文章
-##2016.04.14
-- WordPress-Security-WordPress使用笔记 — 安全篇（保护后台登录）
-
-##2016.04.13
-- WordPress-Plugins-WordPress使用笔记 — 插件篇（SyntaxHighlighter）
-- Android-Notes-在Button控件上显示倒计时
-- Android-Notes-为TextView、Button控件上的文本添加图标
-- Android-Notes-清单合并
-
-##2016.04.12
-- Android-Study-Android学习之路(1) -- APK签名
-
-#使用与配置Hexo
+﻿#使用与配置Hexo
 ##2016.04.14
 ###将我的博客同时托管到github和coding
 将博客同时托管在国外和国内，通过DNSPOD分流，在国内访问coding，国外访问github，在执行时，出现了些问题，记录下来。
