@@ -7,7 +7,7 @@
 
     
 
-    <title>为TextView、Button控件上的文本添加图标 | 杨萌个人博客 - 一个迷茫期的程序员</title>
+    <title>清单合并 | 杨萌个人博客 - 一个迷茫期的程序员</title>
     <meta name="author" content="mysprout">
     
     <meta name="description" content="杨萌个人博客">
@@ -15,7 +15,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <meta property="og:title" content="为TextView、Button控件上的文本添加图标"/>
+    <meta property="og:title" content="清单合并"/>
     <meta property="og:site_name" content="Face the sea,with spring flowers blossoming."/>
 
     
@@ -235,47 +235,42 @@
             <div class="article-title">
                 
     
-        <h1>为TextView、Button控件上的文本添加图标</h1>
+        <h1>清单合并</h1>
     
 
 
             </div>
-            <time class="light-green-link-context" datetime="2016-04-13T11:47:55.000Z"><a href="/android/notes-textview-icon.html/">2016-04-13</a></time>
+            <time class="light-green-link-context" datetime="2016-04-13T11:59:31.000Z"><a href="/Android/Notes/list-merge.html">2016-04-13</a></time>
 
             
     <div class="tags-row">
         
             <a href="/tags/Android/" class="chip light-green">Android</a>
         
-            <a href="/tags/TextView/" class="chip light-green">TextView</a>
-        
-            <a href="/tags/图标/" class="chip light-green">图标</a>
+            <a href="/tags/Manifest-merger-failed/" class="chip light-green">Manifest merger failed</a>
         
     </div>
 
 
             <div class="toc light-green-link-context hide-on-med-and-down">
-    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#一丶前言"><span class="section table-of-contents-text">一丶前言</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#二丶静态实现"><span class="section table-of-contents-text">二丶静态实现</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#三丶动态实现"><span class="section table-of-contents-text">三丶动态实现</span></a></li></ol>
+    
 </div>
 
 
             <div class="entry light-green-link-context">
-                <p>最近做项目，需要在TextView的文本左边添加图标，临时用到，以前会的现在居然忘了，没法，只有记录下来，方便以后用到的时候，及时查询到。<br>如果只是想在TextView的文本的上下左右添加图片，在java代码中不会改变的话，可以直接在布局xml文件中写死，使用TextView的drawableLeft、drawableTop、drawableRight、drawableBottom属性就可以实现如下图的效果，使用drawablePadding属性就可以控制图片与文本之间的距离。<br><a id="more"></a></p>
-<h1 id="一丶前言"><a href="#一丶前言" class="headerlink" title="一丶前言"></a>一丶前言</h1><p>最近做项目，需要在TextView的文本左边添加图标，临时用到，以前会的现在居然忘了，没法，只有记录下来，方便以后用到的时候，及时查询到。</p>
-<h1 id="二丶静态实现"><a href="#二丶静态实现" class="headerlink" title="二丶静态实现"></a>二丶静态实现</h1><p>如果只是想在TextView的文本的上下左右添加图片，在java代码中不会改变的话，可以直接在布局xml文件中写死，使用TextView的drawableLeft、drawableTop、drawableRight、drawableBottom属性就可以实现如下图的效果，使用drawablePadding属性就可以控制图片与文本之间的距离。</p>
-<p><img src="http://7xswpn.com2.z0.glb.clouddn.com/android-notes-6-01.png" alt="静态添加实现效果图"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//实现的代码</span><br><span class="line">&lt;TextView </span><br><span class="line">    android:id=&quot;@+id/tv_hobby_left&quot; </span><br><span class="line">    android:layout_width=&quot;wrap_content&quot; </span><br><span class="line">    android:layout_height=&quot;wrap_content&quot; </span><br><span class="line">    android:drawableLeft=&quot;@mipmap/ic_other_interest&quot; </span><br><span class="line">    android:drawablePadding=&quot;12dp&quot; </span><br><span class="line">    android:gravity=&quot;right|center_vertical&quot; </span><br><span class="line">    android:paddingBottom=&quot;9dp&quot; </span><br><span class="line">    android:paddingTop=&quot;9dp&quot; </span><br><span class="line">    android:text=&quot;@string/other_info_interest&quot; </span><br><span class="line">    android:textColor=&quot;@color/text_blak&quot; </span><br><span class="line">    android:textSize=&quot;@dimen/text_size16&quot; /&gt;</span><br></pre></td></tr></table></figure>
-<h1 id="三丶动态实现"><a href="#三丶动态实现" class="headerlink" title="三丶动态实现"></a>三丶动态实现</h1><p>有时候，在xml中实现并不能满足项目的需求，比如，看用户资料，A看自己的资料时可以修改某些资料，并且在可以修改的地方有个图标提示用户这里可以修改，而A去看B的时候这个图标却是看不到，那么这是就可以在Activity中动态添加图标，进入Activity后，判断是不是A自己，如果是则添加，如果不是则不用添加，实现方法同下面，<strong>但是在实现的过程中，出现了一种情况，那就是我用setHint方法为TextView设置了文本，然后当我的文本变短后，为TextView添加上图标后，会离文本很远，这时，就需要先将hint设为空，tv.setHint(“”)，然后再添加图标，文本和图标就会紧靠着了。</strong><br>在最近开发中我就遇到了上面的这种情况，还有下面的这种情况：</p>
-<p><img src="http://7xswpn.com2.z0.glb.clouddn.com/android-notes-6-02.png" alt="图1"></p>
-<p>这时可以看到在文本的右边有一个X，表示我点击文本，地址会被删除，那么删除后，这个x图标肯定不能存在，如下图：</p>
-<p><img src="http://7xswpn.com2.z0.glb.clouddn.com/android-notes-6-03.png" alt="图2"></p>
-<p>那这时该怎么去实现呢？很简单，只需要将这个TextView的右图标设为空，就可以咯。到这里，如上图显示的是“显示位置”，这是我们点击后，又会变成图1那样，这时又怎么做？既然能设为空，那么也就能重新添加上。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//这是在xml布局中的TextView</span><br><span class="line">&lt;TextView </span><br><span class="line">    android:id=&quot;@+id/tv_location&quot; </span><br><span class="line">    android:layout_width=&quot;wrap_content&quot; </span><br><span class="line">    android:layout_height=&quot;30dp&quot; </span><br><span class="line">    android:gravity=&quot;center_vertical&quot; </span><br><span class="line">    android:paddingLeft=&quot;10dp&quot; </span><br><span class="line">    android:paddingRight=&quot;10dp&quot; </span><br><span class="line">    android:singleLine=&quot;true&quot; </span><br><span class="line">    android:text=&quot;@string/post_address&quot; </span><br><span class="line">    android:textColor=&quot;@color/font_grey&quot; </span><br><span class="line">    android:textSize=&quot;@dimen/text_size14&quot; /&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">//这里是实现在Activity中动态添加文本图标</span><br><span class="line">@Override</span><br><span class="line">public void onClick(View v) &#123;</span><br><span class="line">    switch (v.getId()) &#123;</span><br><span class="line">	case R.id.tv_location:</span><br><span class="line">	    Drawable addr = ContextCompat.getDrawable(this, R.drawable.ic_address);</span><br><span class="line">	    Drawable addr_close = ContextCompat.getDrawable(this, R.drawable.ic_x);</span><br><span class="line">	    //调用setCompoundDrawables时，必须调用Drawable.setBounds()方法,否则图片不显示</span><br><span class="line">	    addr.setBounds(0, 0, addr.getMinimumWidth(), addr.getMinimumHeight());</span><br><span class="line">	    addr_close.setBounds(0, 0, addr_close.getMinimumWidth(), addr_close.getMinimumHeight());</span><br><span class="line">            //这里判断location变量是否为空，来采取不同的处理方式</span><br><span class="line">	    if (StringUtil.isNull(location)) &#123;</span><br><span class="line">	        //这里实现了图1，动态的在文本左边和右边添加了图标</span><br><span class="line">	        tv_location.setText(getString(R.string.post_loacating));</span><br><span class="line">	        tv_location.setCompoundDrawables(addr, null, addr_close, null);</span><br><span class="line">	        tv_location.setCompoundDrawablePadding(ContextUtil.dp2px(this, 5));</span><br><span class="line">	        baiduLoction();</span><br><span class="line">	    &#125; else &#123;</span><br><span class="line">	        //这里实现了图2，动态的在文本左边添加了图标并把右边的图标清空了</span><br><span class="line">		tv_location.setText(getString(R.string.post_show_location));</span><br><span class="line">	        tv_location.setCompoundDrawables(addr, null, null, null);</span><br><span class="line">	        tv_location.setCompoundDrawablePadding(ContextUtil.dp2px(this, 5));</span><br><span class="line">	        location = null;</span><br><span class="line">	    &#125;</span><br><span class="line">	break;</span><br><span class="line">    &#125;</span><br><span class="line">｝</span><br></pre></td></tr></table></figure>
-<p>从上面的代码，我们可以看出，在文本的左上右下四个方向是可以同时设置图标的，静态实现的时候也是可以一起设置的。另外，在开发的过程，一种需求的实现方法是可以有多种方式，怎么选择就看个人的思维逻辑是怎么样的。</p>
-<p>这种实现在TextView、Button中都是很常用的，在Activity中除了用setCompoundDrawables这个方法实现，还有setCompoundDrawablesWithIntrinsicBounds这个方法同样能实现。</p>
-<p>但两者还是有区别：<br>setCompoundDrawables画的drawable的宽高是按drawable.setBound()设置的宽高，所以才有The Drawables must already have had setBounds(Rect) called.意思是说使用之前必须使用Drawable.setBounds设置Drawable的长宽。<br>而setCompoundDrawablesWithIntrinsicBounds是画的drawable的宽高是按drawable固定的宽高，即通过getIntrinsicWidth()与getIntrinsicHeight()获得，所以才有The Drawables’ bounds will be set to their intrinsic bounds.这句话之说！</p>
-<p>使用上的区别：<br>调用setCompoundDrawables时，必须调用Drawable.setBounds()方法,否则图片不显示，而setCompoundDrawablesWithIntrinsicBounds则不需要。</p>
+                <p>因公司业务需要，需要在项目中集成滴滴的SDK， 几经波折集成好后，在运行项目的时候，项目不能编译通过，报错如下：</p>
+<p><img src="http://7xswpn.com2.z0.glb.clouddn.com/android-notes-4-01.png" alt=""></p>
+<a id="more"></a>
+<p>因公司业务需要，需要在项目中集成滴滴的SDK， 几经波折集成好后，在运行项目的时候，项目不能编译通过，报错如下：</p>
+<p><img src="http://7xswpn.com2.z0.glb.clouddn.com/android-notes-4-01.png" alt=""></p>
+<p>原因：AS的Gradle插件默认会启用Manifest Merger Tool，若Library项目中也定义了与主项目相同的属性（例如默认生成的android:label），则此时会合并失败，并报上面的错误。</p>
+<p>解决方法有2种：</p>
+<ul>
+<li><p>在Manifest.xml的application标签下添加tools:replace=”android:icon, android:theme”,多个属性用,隔开，并且记住在manifest根标签上加入xmlns:tools=”<a href="http://schemas.android.com/tools" target="_blank" rel="external">http://schemas.android.com/tools</a>“ ，否则会找不到namespace哦。</p>
+</li>
+<li><p>在build.gradle根标签上加上useOldManifestMerger true （懒人方法）。</p>
+</li>
+</ul>
 
             </div>
         </div>
@@ -289,7 +284,7 @@
         <div class="card">
             <div class="card-content">
                 <!-- Duoshuo Comment BEGIN -->
-                <div class="ds-thread" data-thread-key="android/notes-textview-icon.html/" data-title="为TextView、Button控件上的文本添加图标" data-url="http://yoursite.com/android/notes-textview-icon.html/"></div>
+                <div class="ds-thread" data-thread-key="Android/Notes/list-merge.html" data-title="清单合并" data-url="http://yoursite.com/Android/Notes/list-merge.html"></div>
 
                 <script type="text/javascript">
                     console.log(document.querySelector('.ds-thread'));
