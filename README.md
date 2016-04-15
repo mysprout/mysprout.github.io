@@ -1,4 +1,20 @@
-﻿#使用与配置Hexo
+﻿
+#使用与配置Hexo
+##2016.04.15
+###添加RSS和sitemap
+####通过npm安装插件
+```
+npm install hexo-generator-feed@1.0.3 --save
+npm install hexo-generator-sitemap@1.0.1 --save
+```
+####修改全局配置文件_config.yml
+```
+#添加如下配置
+feed:
+  type: atom ##feed类型 atom或者rss2
+  path: atom.xml ##feed路径
+  limit: 20  ##feed文章最小数量
+```
 ##2016.04.14
 ###将我的博客同时托管到github和coding
 将博客同时托管在国外和国内，通过DNSPOD分流，在国内访问coding，国外访问github，在执行时，出现了些问题，记录下来。

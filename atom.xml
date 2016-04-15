@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[Face the sea,with spring flowers blossoming.]]></title>
+  <subtitle><![CDATA[杨萌个人博客 - 一个迷茫期的程序员]]></subtitle>
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://yoursite.com/"/>
+  <updated>2016-04-15T02:00:07.105Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name><![CDATA[mysprout]]></name>
+    <email><![CDATA[mysprout@163.com]]></email>
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[WordPress使用笔记 — 安全篇（保护后台登录）]]></title>
+    <link href="http://yoursite.com/WordPress/Security/protected-background-login.html"/>
+    <id>http://yoursite.com/WordPress/Security/protected-background-login.html</id>
+    <published>2016-04-14T09:26:09.000Z</published>
+    <updated>2016-04-15T02:00:07.105Z</updated>
+    <content type="html"><![CDATA[<p>通过修改进入wordpress站点后台的登录地址，来提高WordPress站点的安全性。<br>实现的方法有两种，一种是使用插件，一种是使用非插件。<br><a id="more"></a></p>
+<h1 id="一、前言："><a href="#一、前言：" class="headerlink" title="一、前言："></a>一、前言：</h1><p>通过修改进入wordpress站点后台的登录地址，来提高WordPress站点的安全性。</p>
+<h1 id="二、实现："><a href="#二、实现：" class="headerlink" title="二、实现："></a>二、实现：</h1><p>实现的方法有两种，一种是使用插件，一种是使用非插件。</p>
+<h2 id="1-插件：Protected-wp-login"><a href="#1-插件：Protected-wp-login" class="headerlink" title="1.插件：Protected wp-login"></a>1.插件：Protected wp-login</h2><p>这款插件使用非常简单，也非常的实用。</p>
+<p>使用方法：进入后台，下载该插件，启动插件，进入设置界面。</p>
+<p>该插件有三个设置选项：</p>
+<ul>
+<li>Enable protection（启用保护）</li>
+<li>Your secure key（你的安全密钥——如果不是包含安全密钥的地址，即使你的用户名和密码正确，都没办法登录）</li>
+<li>Enable stealth mode（启用隐身模式——如果不是包含安全密钥的地址，都不显示登录表单）</li>
+</ul>
+<p>勾选启用保护，输入安全密钥（如：test），保存更改，就会得到一个登录地址：<a href="https://blog.mysprout.cn/wp-login.php/wp-login.php?" target="_blank" rel="external">https://blog.mysprout.cn/wp-login.php/wp-login.php?</a><font color="red">sk=test</font>(是不是看着很怪，显示了连个wp-login.php)</p>
+<p>经过测试，上面的地址可以正常登录，不过使用下面的地址也可以正常登录：<a href="https://blog.mysprout.cn/wp-login.php?" target="_blank" rel="external">https://blog.mysprout.cn/wp-login.php?</a><font color="red">sk=test</font></p>
+<p>注：如果是其他地址，即使你的用户名和密码正确，都是没办法登录的！如果开启了隐身模式，除了上面的地址之外，其他任何地址都看不到登录表单。</p>
+<h2 id="2-非插件：使用代码"><a href="#2-非插件：使用代码" class="headerlink" title="2.非插件：使用代码"></a>2.非插件：使用代码</h2><p>如果你不喜欢插件，可以将下面的代码添加到当前主题的 functions.php 文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//保护后台登录</span><br><span class="line">add_action(&apos;login_enqueue_scripts&apos;,&apos;login_protection&apos;);  </span><br><span class="line">function login_protection()&#123;  </span><br><span class="line">    if($_GET[&apos;test&apos;] != &apos;test&apos;)header(&apos;Location: http://blog.mysprout.cn/&apos;);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样一来，后台登录的唯一地址就是<a href="http://blog.mysprout.cn/wp-login.php?" target="_blank" rel="external">http://blog.mysprout.cn/wp-login.php?</a><font color="red">test=test</font>，如果不是这个地址，就会自动跳转到 <a href="http://blog.mysprout.cn/" target="_blank" rel="external">http://blog.mysprout.cn/</a><font color="black">，不信你试试！</font></p>
+<p>你可以修改第 4 行的 test、test和 <a href="http://blog.mysprout.cn/这三个参数。" target="_blank" rel="external">http://blog.mysprout.cn/这三个参数。</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>通过修改进入wordpress站点后台的登录地址，来提高WordPress站点的安全性。<br>实现的方法有两种，一种是使用插件，一种是使用非插件。<br>]]>
+    
+    </summary>
+    
+      <category term="WordPress" scheme="http://yoursite.com/tags/WordPress/"/>
+    
+      <category term="保护后台登录" scheme="http://yoursite.com/tags/%E4%BF%9D%E6%8A%A4%E5%90%8E%E5%8F%B0%E7%99%BB%E5%BD%95/"/>
+    
+      <category term="WordPress" scheme="http://yoursite.com/categories/WordPress/"/>
+    
+      <category term="Security" scheme="http://yoursite.com/categories/WordPress/Security/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[清单合并]]></title>
+    <link href="http://yoursite.com/Android/Notes/list-merge.html"/>
+    <id>http://yoursite.com/Android/Notes/list-merge.html</id>
+    <published>2016-04-13T11:59:31.000Z</published>
+    <updated>2016-04-15T02:00:33.240Z</updated>
+    <content type="html"><![CDATA[<p>因公司业务需要，需要在项目中集成滴滴的SDK， 几经波折集成好后，在运行项目的时候，项目不能编译通过，报错如下：</p>
+<p><img src="http://7xswpn.com2.z0.glb.clouddn.com/android-notes-4-01.png" alt=""></p>
+<a id="more"></a>
+<p>因公司业务需要，需要在项目中集成滴滴的SDK， 几经波折集成好后，在运行项目的时候，项目不能编译通过，报错如下：</p>
+<p><img src="http://7xswpn.com2.z0.glb.clouddn.com/android-notes-4-01.png" alt=""></p>
+<p>原因：AS的Gradle插件默认会启用Manifest Merger Tool，若Library项目中也定义了与主项目相同的属性（例如默认生成的android:label），则此时会合并失败，并报上面的错误。</p>
+<p>解决方法有2种：</p>
+<ul>
+<li><p>在Manifest.xml的application标签下添加tools:replace=”android:icon, android:theme”,多个属性用,隔开，并且记住在manifest根标签上加入xmlns:tools=”<a href="http://schemas.android.com/tools" target="_blank" rel="external">http://schemas.android.com/tools</a>“ ，否则会找不到namespace哦。</p>
+</li>
+<li><p>在build.gradle根标签上加上useOldManifestMerger true （懒人方法）。</p>
+</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>因公司业务需要，需要在项目中集成滴滴的SDK， 几经波折集成好后，在运行项目的时候，项目不能编译通过，报错如下：</p>
+<p><img src="http://7xswpn.com2.z0.glb.clouddn.com/android-notes-4-01.png" alt=""></p>]]>
+    
+    </summary>
+    
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
+    
+      <category term="Manifest merger failed" scheme="http://yoursite.com/tags/Manifest-merger-failed/"/>
+    
+      <category term="Android" scheme="http://yoursite.com/categories/Android/"/>
+    
+      <category term="Notes" scheme="http://yoursite.com/categories/Android/Notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[为TextView、Button控件上的文本添加图标]]></title>
+    <link href="http://yoursite.com/Android/Notes/textview-icon.html"/>
+    <id>http://yoursite.com/Android/Notes/textview-icon.html</id>
+    <published>2016-04-13T11:47:55.000Z</published>
+    <updated>2016-04-15T02:00:44.007Z</updated>
+    <content type="html"><![CDATA[<p>最近做项目，需要在TextView的文本左边添加图标，临时用到，以前会的现在居然忘了，没法，只有记录下来，方便以后用到的时候，及时查询到。<br>如果只是想在TextView的文本的上下左右添加图片，在java代码中不会改变的话，可以直接在布局xml文件中写死，使用TextView的drawableLeft、drawableTop、drawableRight、drawableBottom属性就可以实现如下图的效果，使用drawablePadding属性就可以控制图片与文本之间的距离。<br><a id="more"></a></p>
+<h1 id="一丶前言"><a href="#一丶前言" class="headerlink" title="一丶前言"></a>一丶前言</h1><p>最近做项目，需要在TextView的文本左边添加图标，临时用到，以前会的现在居然忘了，没法，只有记录下来，方便以后用到的时候，及时查询到。</p>
+<h1 id="二丶静态实现"><a href="#二丶静态实现" class="headerlink" title="二丶静态实现"></a>二丶静态实现</h1><p>如果只是想在TextView的文本的上下左右添加图片，在java代码中不会改变的话，可以直接在布局xml文件中写死，使用TextView的drawableLeft、drawableTop、drawableRight、drawableBottom属性就可以实现如下图的效果，使用drawablePadding属性就可以控制图片与文本之间的距离。</p>
+<p><img src="http://7xswpn.com2.z0.glb.clouddn.com/android-notes-6-01.png" alt="静态添加实现效果图"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//实现的代码</span><br><span class="line">&lt;TextView </span><br><span class="line">    android:id=&quot;@+id/tv_hobby_left&quot; </span><br><span class="line">    android:layout_width=&quot;wrap_content&quot; </span><br><span class="line">    android:layout_height=&quot;wrap_content&quot; </span><br><span class="line">    android:drawableLeft=&quot;@mipmap/ic_other_interest&quot; </span><br><span class="line">    android:drawablePadding=&quot;12dp&quot; </span><br><span class="line">    android:gravity=&quot;right|center_vertical&quot; </span><br><span class="line">    android:paddingBottom=&quot;9dp&quot; </span><br><span class="line">    android:paddingTop=&quot;9dp&quot; </span><br><span class="line">    android:text=&quot;@string/other_info_interest&quot; </span><br><span class="line">    android:textColor=&quot;@color/text_blak&quot; </span><br><span class="line">    android:textSize=&quot;@dimen/text_size16&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="三丶动态实现"><a href="#三丶动态实现" class="headerlink" title="三丶动态实现"></a>三丶动态实现</h1><p>有时候，在xml中实现并不能满足项目的需求，比如，看用户资料，A看自己的资料时可以修改某些资料，并且在可以修改的地方有个图标提示用户这里可以修改，而A去看B的时候这个图标却是看不到，那么这是就可以在Activity中动态添加图标，进入Activity后，判断是不是A自己，如果是则添加，如果不是则不用添加，实现方法同下面，<strong>但是在实现的过程中，出现了一种情况，那就是我用setHint方法为TextView设置了文本，然后当我的文本变短后，为TextView添加上图标后，会离文本很远，这时，就需要先将hint设为空，tv.setHint(“”)，然后再添加图标，文本和图标就会紧靠着了。</strong><br>在最近开发中我就遇到了上面的这种情况，还有下面的这种情况：</p>
+<p><img src="http://7xswpn.com2.z0.glb.clouddn.com/android-notes-6-02.png" alt="图1"></p>
+<p>这时可以看到在文本的右边有一个X，表示我点击文本，地址会被删除，那么删除后，这个x图标肯定不能存在，如下图：</p>
+<p><img src="http://7xswpn.com2.z0.glb.clouddn.com/android-notes-6-03.png" alt="图2"></p>
+<p>那这时该怎么去实现呢？很简单，只需要将这个TextView的右图标设为空，就可以咯。到这里，如上图显示的是“显示位置”，这是我们点击后，又会变成图1那样，这时又怎么做？既然能设为空，那么也就能重新添加上。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//这是在xml布局中的TextView</span><br><span class="line">&lt;TextView </span><br><span class="line">    android:id=&quot;@+id/tv_location&quot; </span><br><span class="line">    android:layout_width=&quot;wrap_content&quot; </span><br><span class="line">    android:layout_height=&quot;30dp&quot; </span><br><span class="line">    android:gravity=&quot;center_vertical&quot; </span><br><span class="line">    android:paddingLeft=&quot;10dp&quot; </span><br><span class="line">    android:paddingRight=&quot;10dp&quot; </span><br><span class="line">    android:singleLine=&quot;true&quot; </span><br><span class="line">    android:text=&quot;@string/post_address&quot; </span><br><span class="line">    android:textColor=&quot;@color/font_grey&quot; </span><br><span class="line">    android:textSize=&quot;@dimen/text_size14&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">//这里是实现在Activity中动态添加文本图标</span><br><span class="line">@Override</span><br><span class="line">public void onClick(View v) &#123;</span><br><span class="line">    switch (v.getId()) &#123;</span><br><span class="line">	case R.id.tv_location:</span><br><span class="line">	    Drawable addr = ContextCompat.getDrawable(this, R.drawable.ic_address);</span><br><span class="line">	    Drawable addr_close = ContextCompat.getDrawable(this, R.drawable.ic_x);</span><br><span class="line">	    //调用setCompoundDrawables时，必须调用Drawable.setBounds()方法,否则图片不显示</span><br><span class="line">	    addr.setBounds(0, 0, addr.getMinimumWidth(), addr.getMinimumHeight());</span><br><span class="line">	    addr_close.setBounds(0, 0, addr_close.getMinimumWidth(), addr_close.getMinimumHeight());</span><br><span class="line">            //这里判断location变量是否为空，来采取不同的处理方式</span><br><span class="line">	    if (StringUtil.isNull(location)) &#123;</span><br><span class="line">	        //这里实现了图1，动态的在文本左边和右边添加了图标</span><br><span class="line">	        tv_location.setText(getString(R.string.post_loacating));</span><br><span class="line">	        tv_location.setCompoundDrawables(addr, null, addr_close, null);</span><br><span class="line">	        tv_location.setCompoundDrawablePadding(ContextUtil.dp2px(this, 5));</span><br><span class="line">	        baiduLoction();</span><br><span class="line">	    &#125; else &#123;</span><br><span class="line">	        //这里实现了图2，动态的在文本左边添加了图标并把右边的图标清空了</span><br><span class="line">		tv_location.setText(getString(R.string.post_show_location));</span><br><span class="line">	        tv_location.setCompoundDrawables(addr, null, null, null);</span><br><span class="line">	        tv_location.setCompoundDrawablePadding(ContextUtil.dp2px(this, 5));</span><br><span class="line">	        location = null;</span><br><span class="line">	    &#125;</span><br><span class="line">	break;</span><br><span class="line">    &#125;</span><br><span class="line">｝</span><br></pre></td></tr></table></figure>
+<p>从上面的代码，我们可以看出，在文本的左上右下四个方向是可以同时设置图标的，静态实现的时候也是可以一起设置的。另外，在开发的过程，一种需求的实现方法是可以有多种方式，怎么选择就看个人的思维逻辑是怎么样的。</p>
+<p>这种实现在TextView、Button中都是很常用的，在Activity中除了用setCompoundDrawables这个方法实现，还有setCompoundDrawablesWithIntrinsicBounds这个方法同样能实现。</p>
+<p>但两者还是有区别：<br>setCompoundDrawables画的drawable的宽高是按drawable.setBound()设置的宽高，所以才有The Drawables must already have had setBounds(Rect) called.意思是说使用之前必须使用Drawable.setBounds设置Drawable的长宽。<br>而setCompoundDrawablesWithIntrinsicBounds是画的drawable的宽高是按drawable固定的宽高，即通过getIntrinsicWidth()与getIntrinsicHeight()获得，所以才有The Drawables’ bounds will be set to their intrinsic bounds.这句话之说！</p>
+<p>使用上的区别：<br>调用setCompoundDrawables时，必须调用Drawable.setBounds()方法,否则图片不显示，而setCompoundDrawablesWithIntrinsicBounds则不需要。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>最近做项目，需要在TextView的文本左边添加图标，临时用到，以前会的现在居然忘了，没法，只有记录下来，方便以后用到的时候，及时查询到。<br>如果只是想在TextView的文本的上下左右添加图片，在java代码中不会改变的话，可以直接在布局xml文件中写死，使用TextView的drawableLeft、drawableTop、drawableRight、drawableBottom属性就可以实现如下图的效果，使用drawablePadding属性就可以控制图片与文本之间的距离。<br>]]>
+    
+    </summary>
+    
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
+    
+      <category term="TextView" scheme="http://yoursite.com/tags/TextView/"/>
+    
+      <category term="图标" scheme="http://yoursite.com/tags/%E5%9B%BE%E6%A0%87/"/>
+    
+      <category term="Android" scheme="http://yoursite.com/categories/Android/"/>
+    
+      <category term="Notes" scheme="http://yoursite.com/categories/Android/Notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[在Button控件上显示倒计时]]></title>
+    <link href="http://yoursite.com/Android/Notes/button-countdown.html"/>
+    <id>http://yoursite.com/Android/Notes/button-countdown.html</id>
+    <published>2016-04-13T11:22:00.000Z</published>
+    <updated>2016-04-15T02:00:55.791Z</updated>
+    <content type="html"><![CDATA[<p>今天做项目的时候，需要做一个按钮获取验证码，点击之后按钮需要倒计时，并且不可点击。现在将方法记录下来，方便下次遇到的时候解决。<br><a id="more"></a></p>
+<h1 id="一丶前言"><a href="#一丶前言" class="headerlink" title="一丶前言"></a>一丶前言</h1><p>今天做项目的时候，需要做一个按钮获取验证码，点击之后按钮需要倒计时，并且不可点击。现在将方法记录下来，方便下次遇到的时候解决。</p>
+<h1 id="二、实现"><a href="#二、实现" class="headerlink" title="二、实现"></a>二、实现</h1><p>先上一张成功示意图：</p>
+<p><img src="http://7xswpn.com2.z0.glb.clouddn.com/android-notes-5-01.png" alt="成功示意图"></p>
+<p>实现倒计时的代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">//这段是实现倒计时的代码</span><br><span class="line">class TimeCount extends CountDownTimer &#123;</span><br><span class="line">    public TimeCount(long millisInFuture, long countDownInterval) &#123;</span><br><span class="line">        super(millisInFuture, countDownInterval);//参数依次为总时长,和计时的时间间隔</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    @Override</span><br><span class="line">    public void onFinish() &#123;//计时完毕时触发</span><br><span class="line">        //按钮上的文本显示</span><br><span class="line">        button.setText(&quot;重新获取&quot;);</span><br><span class="line">        //设置按钮可点击</span><br><span class="line">        button.setClickable(true);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    @Override</span><br><span class="line">    public void onTick(long millisUntilFinished)&#123;//计时过程显示</span><br><span class="line">        //设置按钮不可点击</span><br><span class="line">        button.setClickable(false);</span><br><span class="line">        //设置倒计时时的显示文本</span><br><span class="line">        button.setText(getString(millisUntilFinished/1000 + &quot;秒后重新获取&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在要实现的按钮点击的时候调用此类：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//点击按钮时触发倒计时，单位是毫秒</span><br><span class="line">new TimeCount(60000, 1000).start();</span><br></pre></td></tr></table></figure></p>
+<p>这样就可以实现按钮倒计时的功能了。</p>
+<p>我采取的是内部类的方法实现，也可以单独提取出来封成通用方法。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>今天做项目的时候，需要做一个按钮获取验证码，点击之后按钮需要倒计时，并且不可点击。现在将方法记录下来，方便下次遇到的时候解决。<br>]]>
+    
+    </summary>
+    
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
+    
+      <category term="Button" scheme="http://yoursite.com/tags/Button/"/>
+    
+      <category term="倒计时" scheme="http://yoursite.com/tags/%E5%80%92%E8%AE%A1%E6%97%B6/"/>
+    
+      <category term="Android" scheme="http://yoursite.com/categories/Android/"/>
+    
+      <category term="Notes" scheme="http://yoursite.com/categories/Android/Notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[WordPress使用笔记 — 插件篇（SyntaxHighlighter）]]></title>
+    <link href="http://yoursite.com/WordPress/Plugins/syntaxHighlighter.html"/>
+    <id>http://yoursite.com/WordPress/Plugins/syntaxHighlighter.html</id>
+    <published>2016-04-13T03:55:03.000Z</published>
+    <updated>2016-04-15T02:00:21.565Z</updated>
+    <content type="html"><![CDATA[<p>进入wp后台 — 插件 – 安装插件，在搜索框中输入：SyntaxHighlighter Evolved，回车搜索，下载并安装第一个。<br>安装成功后，启用SyntaxHighlighter Evolved插件，并刷新后台，进入 – 设置 – SyntaxHighlighter；只需更改杂项设置，其他的默认就行。<br><a id="more"></a><br>代码高亮插件：SyntaxHighlighter Evolved</p>
+<h1 id="下载与安装"><a href="#下载与安装" class="headerlink" title="下载与安装"></a>下载与安装</h1><p>进入wp后台 — 插件 – 安装插件，在搜索框中输入：SyntaxHighlighter Evolved，回车搜索，下载并安装第一个。</p>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p>安装成功后，启用SyntaxHighlighter Evolved插件，并刷新后台，进入 – 设置 – SyntaxHighlighter；只需更改杂项设置，其他的默认就行。</p>
+<p><img src="http://7xswpn.com2.z0.glb.clouddn.com/wordpress-notes-plugins-01.png" alt="配置"></p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>在发表文章时，[&amp;php]&lt;您需要高亮的代码&gt;[/php]，去掉&amp;符号，发布成功后，即可进入博客查看效果了。</p>
+<h1 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h1><p>发表文章：</p>
+<p><img src="http://7xswpn.com2.z0.glb.clouddn.com/wordpress-notes-plugins-02.png" alt="使用图"></p>
+<p>查看效果：</p>
+<p><img src="http://7xswpn.com2.z0.glb.clouddn.com/wordpress-notes-plugins-03.png" alt="效果图"></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>进入wp后台 — 插件 – 安装插件，在搜索框中输入：SyntaxHighlighter Evolved，回车搜索，下载并安装第一个。<br>安装成功后，启用SyntaxHighlighter Evolved插件，并刷新后台，进入 – 设置 – SyntaxHighlighter；只需更改杂项设置，其他的默认就行。<br>]]>
+    
+    </summary>
+    
+      <category term="WordPress" scheme="http://yoursite.com/tags/WordPress/"/>
+    
+      <category term="SyntaxHighlighter" scheme="http://yoursite.com/tags/SyntaxHighlighter/"/>
+    
+      <category term="代码高亮" scheme="http://yoursite.com/tags/%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE/"/>
+    
+      <category term="WordPress" scheme="http://yoursite.com/categories/WordPress/"/>
+    
+      <category term="Plugins" scheme="http://yoursite.com/categories/WordPress/Plugins/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Android学习之路(1) -- APK签名]]></title>
+    <link href="http://yoursite.com/Android/Study/apk-signed.html"/>
+    <id>http://yoursite.com/Android/Study/apk-signed.html</id>
+    <published>2016-04-12T08:36:43.000Z</published>
+    <updated>2016-04-15T01:59:53.750Z</updated>
+    <content type="html"><![CDATA[<p>离开校园，工作也有三个月了，一直都忙于公司的项目或者瞎折腾，今天开始，好好的开始学习Android，从零出发。</p>
+<p>自从学习Android以来，一直都是自学，用到啥学啥，很乱，没有系统的去梳理Android的知识，在博客园看到一位博主：<a href="http://www.cnblogs.com/qianxudetianxia/category/293007.html" target="_blank" rel="external">谦虚的天下，从2011年4月一直更新到2015年1月Android学习系列</a>；想以这个为指导，进行现阶段的Android学习。<br><a id="more"></a><br>离开校园，工作也有三个月了，一直都忙于公司的项目或者瞎折腾，今天开始，好好的开始学习Android，从零出发。</p>
+<p>自从学习Android以来，一直都是自学，用到啥学啥，很乱，没有系统的去梳理Android的知识，在博客园看到一位博主：<a href="http://www.cnblogs.com/qianxudetianxia/category/293007.html" target="_blank" rel="external">谦虚的天下，从2011年4月一直更新到2015年1月Android学习系列</a>；想以这个为指导，进行现阶段的Android学习。</p>
+<p>今天学习了APK的签名，并记录下来，方便以后复习或查阅。</p>
+<p>谦虚的天下的这篇博文由于是2011年发表的，有些过时，在实现的时候出现一些问题，通过一番查询也解决，好了，进入这篇文章的正题：</p>
+<h1 id="任务目标"><a href="#任务目标" class="headerlink" title="任务目标"></a>任务目标</h1><ol>
+<li>为什么签名</li>
+<li>通过命令行完成签名</li>
+<li>通过Android Studio（简称：AS）完成签名</li>
+</ol>
+<h2 id="为什么签名"><a href="#为什么签名" class="headerlink" title="为什么签名"></a>为什么签名</h2><p>为了保证每个应用程序开发商合法ID，防止部分开放商可能通过使用相同的Package Name来混淆替换已经安装的程序，我们需要对我们发布的APK文件进行唯一签名，保证我们每次发布的版本的一致性(如自动更新不会因为版本不一致而无法安装)。</p>
+<h2 id="命令行签名"><a href="#命令行签名" class="headerlink" title="命令行签名"></a>命令行签名</h2><ul>
+<li>未签名的apk</li>
+<li>签名工具的配置</li>
+<li>具体操作</li>
+</ul>
+<h3 id="通过AS导出未签名的apk"><a href="#通过AS导出未签名的apk" class="headerlink" title="通过AS导出未签名的apk"></a>通过AS导出未签名的apk</h3><p>AS不能直接导出未签名的apk，需要通过gradle来导出。打开AS，直接新建一个默认项目，用于签名测试的Demo。<br><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016%5C04%5C12%5CAndroid%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%281%29%20--%20APK%E7%AD%BE%E5%90%8D%5C01.png" alt="导出未签名apk的示意图"></p>
+<p><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016%5C04%5C12%5CAndroid%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%281%29%20--%20APK%E7%AD%BE%E5%90%8D%5C02.png" alt="导出成功示意图"></p>
+<p><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016%5C04%5C12%5CAndroid%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%281%29%20--%20APK%E7%AD%BE%E5%90%8D%5C03.png" alt="导出包路径示意图"><br>这样，未签名的apk包就导出来了，第一步准备工作就完成了。</p>
+<h3 id="签名工具的配置"><a href="#签名工具的配置" class="headerlink" title="签名工具的配置"></a>签名工具的配置</h3><p><strong>用到的签名工具：</strong></p>
+<ul>
+<li>keytool.exe</li>
+<li>jarsigner.exe</li>
+</ul>
+<p>keytool.exe生成key，位于C:\Program Files\Java\jre1.8.0_25\bin目录下（jre的安装目录），jarsigner.exe用生成的key对apk签名，位于C:\Program Files\Java\jdk1.8.0_25\bin目录下(jdk的安装目录)，把这两个的路径添加到环境变量path后，就完成了签名工具的配置。</p>
+<h3 id="具体操作"><a href="#具体操作" class="headerlink" title="具体操作"></a>具体操作</h3><p><strong>keytool参数选项说明：</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Keytool 选项</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-genkey</td>
+<td style="text-align:center">产生一个键值对（公钥和私钥）</td>
+</tr>
+<tr>
+<td style="text-align:center">-v</td>
+<td style="text-align:center">允许动作输出</td>
+</tr>
+<tr>
+<td style="text-align:center">-alias<alias_name></alias_name></td>
+<td style="text-align:center">键的别名。只有前八位字符有效。</td>
+</tr>
+<tr>
+<td style="text-align:center">-keyalg</td>
+<td style="text-align:center">产生键的<a href="http://www.2cto.com/Article/jiami/" target="_blank" rel="external">加密</a>算法。支持DSA和RSA。</td>
+</tr>
+<tr>
+<td style="text-align:center">-keysize</td>
+<td style="text-align:center">产生键的长度。如果不支持，keytool用默认值1024 bits.通常我们用2048 bits 或更长的key。</td>
+</tr>
+<tr>
+<td style="text-align:center">-dname</td>
+<td style="text-align:center">专有名称，描述谁创建的密钥。该值被用作自签名证书的颁发者和主题字段。注意你可以不在命令行指定。如果没有指定keytool会提示你(CN, OU, and so on)。</td>
+</tr>
+<tr>
+<td style="text-align:center">-keypass</td>
+<td style="text-align:center">键的密码。主要为了安全起见，如果没提供，keytool会提示你输入。</td>
+</tr>
+<tr>
+<td style="text-align:center">-validity</td>
+<td style="text-align:center">键的有效期，单位：天。<br><strong>Note:</strong> A value of 10000 or greater is recommended.</td>
+</tr>
+<tr>
+<td style="text-align:center">-keystore.keystore</td>
+<td style="text-align:center">用于存储私钥的文件。</td>
+</tr>
+<tr>
+<td style="text-align:center">-storepass</td>
+<td style="text-align:center">私钥存储文件的密码。主要为了安全起见，如果没提供，keytool会提示你输入。这个密码不会存储在你的shell历史记录中。</td>
+</tr>
+</tbody>
+</table>
+<p>使用keytool创建签名key，打开windows 10的命令窗口，输入命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -genkey -v -alias demo -keyalg RSA -validity 40000 -keystore demo.keystore</span><br></pre></td></tr></table></figure></p>
+<p><strong>参数说明：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-genkey             产生密钥</span><br><span class="line">-alias              demo.keystore的别名demo</span><br><span class="line">-keyalg RSA         使用RSA算法对签名加密</span><br><span class="line">-validity 40000     有效期限4000天</span><br><span class="line">-keystore           demo.keystore</span><br></pre></td></tr></table></figure></p>
+<p>说明：输入此命令前，先进入你想将创建的key保存的目录，比如，我现在要将keystore保存在D盘根目录，则</p>
+<p><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016%5C04%5C12%5CAndroid%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%281%29%20--%20APK%E7%AD%BE%E5%90%8D%5C04.png" alt="创建签名key的示意图"><br>这样，签名key就创建成功了。<br>接着，对未签名的apk进行签名，先把未签名的apk放到你生成的keystore的目录。</p>
+<p><strong>jarsigner参数选项说明：</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Jarsigner 选项</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-keystore.keystore</td>
+<td style="text-align:center">包含你私钥的存储文件</td>
+</tr>
+<tr>
+<td style="text-align:center">-verbose</td>
+<td style="text-align:center">显示输出动作</td>
+</tr>
+<tr>
+<td style="text-align:center">-sigalg</td>
+<td style="text-align:center">签名算法，用 SHA1withRSA</td>
+</tr>
+<tr>
+<td style="text-align:center">-digestalg</td>
+<td style="text-align:center">消息摘要算法，用 SHA1</td>
+</tr>
+<tr>
+<td style="text-align:center">-storepass</td>
+<td style="text-align:center">存储文件的密码<br>主要为了安全起见，如果没提供，jarsigner会提示你输入。这个密码不会存储在你的shell历史记录中。</td>
+</tr>
+<tr>
+<td style="text-align:center">-keypass</td>
+<td style="text-align:center">私钥的密码<br>主要为了安全起见，如果没提供，jarsigner会提示你输入。这个密码不会存储在你的shell历史记录中。</td>
+</tr>
+</tbody>
+</table>
+<p>JDK1.6命令:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jarsigner -verbose -keystore demo.keystore -signedjar app-signed.apk app-unsigned.apk demo</span><br></pre></td></tr></table></figure></p>
+<p><strong>参数说明：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-verbose 输出签名的详细信息</span><br><span class="line">-keystore demo.keystore密钥库的位置</span><br><span class="line">-signedjar app-signed.apk app-unsigned.apk   demo.keystore 正式签名，app-signed.apk是</span><br><span class="line">app-unsigned.apk签名后生成的apk，文件名可自定义，app-unsigned.apk是放在demo.keystore文件</span><br><span class="line">同一目录的未签名apk</span><br><span class="line">demo  demo.keystore的别名</span><br></pre></td></tr></table></figure></p>
+<p>JDK1.7以上 命令：(JDK1.7 算法发生了变化，需要指定 -sigalg 和 -digestalg)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore demo.keystore -signedjar app-signed.apk app-unsigned.apk demo</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016%5C04%5C12%5CAndroid%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%281%29%20--%20APK%E7%AD%BE%E5%90%8D%5C05.png" alt="生成签名apk"></p>
+<p><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016%5C04%5C12%5CAndroid%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%281%29%20--%20APK%E7%AD%BE%E5%90%8D%5C06.png" alt="签名成功"><br>如上图，签名成功后出现警告，这个警告对签名并没有影响，但看着怪不舒服的，要去掉的话只要在命令上加上<strong>-tsa <a href="https://timestamp.geotrust.com/tsa" target="_blank" rel="external">https://timestamp.geotrust.com/tsa</a></strong>就可以了。</p>
+<p><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016%5C04%5C12%5CAndroid%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%281%29%20--%20APK%E7%AD%BE%E5%90%8D%5C07.png" alt="最终命令"></p>
+<h2 id="通过Android-Studio（简称：AS）完成签名"><a href="#通过Android-Studio（简称：AS）完成签名" class="headerlink" title="通过Android Studio（简称：AS）完成签名"></a>通过Android Studio（简称：AS）完成签名</h2><p>IDE工具签名很容易就可以完成，看下图：</p>
+<p><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016%5C04%5C12%5CAndroid%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%281%29%20--%20APK%E7%AD%BE%E5%90%8D%5C08.png" alt="AS签名apk"><br>根据提示，填写相应的内容，即可完成签名，这里就不进一步说明了。</p>
+<h1 id="遇到的问题及解决方法"><a href="#遇到的问题及解决方法" class="headerlink" title="遇到的问题及解决方法"></a>遇到的问题及解决方法</h1><p>1.生成的签名apk不能安装</p>
+<p><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016%5C04%5C12%5CAndroid%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%281%29%20--%20APK%E7%AD%BE%E5%90%8D%5C09.png" alt="问题一"><br>出现上图，红色框的提示导致签名apk无法安装，原因是真机或者模拟器的Android版本小于签名apk的最小sdk版本，比如我现在的这个apk的最小sdk版本是19，而我的真机版本是17。</p>
+<p><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016%5C04%5C12%5CAndroid%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%281%29%20--%20APK%E7%AD%BE%E5%90%8D%5C10.png" alt="解决方法"></p>
+<p>2.签名apk不能重复安装</p>
+<p><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016%5C04%5C12%5CAndroid%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%281%29%20--%20APK%E7%AD%BE%E5%90%8D%5C11.png" alt="问题二"><br>出现上图，红色框的提示安装失败，是因为这个apk已经安装过了。<br><strong>解决方法：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//执行安装命令是，增加-r参数</span><br><span class="line">adb install -r app-signed.apk</span><br></pre></td></tr></table></figure></p>
+<p>3.签名冲突</p>
+<p><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016%5C04%5C12%5CAndroid%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%281%29%20--%20APK%E7%AD%BE%E5%90%8D%5C12.png" alt="签名冲突"><br>出现上图，红色框的提示安装失败，是因为签名冲突造成的，比如你使用了ADB的debug权限签名，但后来使用标准sign签名后再安装同一个文件会出现这样的错误提示，解决的方法除了只有先老老实实从手机上卸载原有版本再进行安装，而adb install -r参数也无法解决这个问题。</p>
+<p><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016%5C04%5C12%5CAndroid%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%B7%AF%281%29%20--%20APK%E7%AD%BE%E5%90%8D%5C13.png" alt="安装签名apk成功"></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><blockquote>
+<p>哪怕再小的知识点，也要认真的去学习，一点一点的去积累，去成长，写的有什么不对的，希望各位路过的大牛们指点指点，拜谢。</p>
+</blockquote>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>离开校园，工作也有三个月了，一直都忙于公司的项目或者瞎折腾，今天开始，好好的开始学习Android，从零出发。</p>
+<p>自从学习Android以来，一直都是自学，用到啥学啥，很乱，没有系统的去梳理Android的知识，在博客园看到一位博主：<a href="http://www.cnblogs.com/qianxudetianxia/category/293007.html">谦虚的天下，从2011年4月一直更新到2015年1月Android学习系列</a>；想以这个为指导，进行现阶段的Android学习。<br>]]>
+    
+    </summary>
+    
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
+    
+      <category term="签名" scheme="http://yoursite.com/tags/%E7%AD%BE%E5%90%8D/"/>
+    
+      <category term="Android" scheme="http://yoursite.com/categories/Android/"/>
+    
+      <category term="Study" scheme="http://yoursite.com/categories/Android/Study/"/>
+    
+  </entry>
+  
+</feed>
