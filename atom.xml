@@ -4,7 +4,7 @@
   <subtitle><![CDATA[杨萌个人博客 - 一个迷茫期的程序员]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2016-04-15T02:00:07.105Z</updated>
+  <updated>2016-04-15T14:00:02.138Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,45 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[通过Theme自定义Activity间的切换动画]]></title>
+    <link href="http://yoursite.com/Android/Basics/CustomAnimationForActivity.html"/>
+    <id>http://yoursite.com/Android/Basics/CustomAnimationForActivity.html</id>
+    <published>2016-04-15T13:30:49.000Z</published>
+    <updated>2016-04-15T14:00:02.138Z</updated>
+    <content type="html"><![CDATA[<p>Android系统默认的Activity之间的切换效果大多数都是：<strong>右边滑入，左边滑出</strong>；但有时候这样并不能满足我们项目的需求，这时就需要改变默认的切换风格，如：淡入淡出。<br><a id="more"></a></p>
+<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>Android系统默认的Activity之间的切换效果大多数都是：<strong>右边滑入，左边滑出</strong>；但有时候这样并不能满足我们项目的需求，这时就需要改变默认的切换风格，如：淡入淡出。</p>
+<h1 id="二、实现"><a href="#二、实现" class="headerlink" title="二、实现"></a>二、实现</h1><p>Activity的切换效果的实现有两种方法，一种是在Activity跳转的时候实现，另一种就是通过Theme来实现。</p>
+<h2 id="建立动画"><a href="#建立动画" class="headerlink" title="建立动画"></a>建立动画</h2><p>在项目res资源文件夹下新建anim文件夹，这个文件夹是专门用来放自定义动画xml文件的，在里面建立fade_in.xml、fade_out.xml两个动画资源，具体代码如下：</p>
+<h3 id="fade-in-xml"><a href="#fade-in-xml" class="headerlink" title="fade_in.xml"></a>fade_in.xml</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;!--淡入动画--&gt;</span><br><span class="line">&lt;alpha xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">       android:fromAlpha=&quot;0.0&quot;</span><br><span class="line">       android:toAlpha=&quot;1.0&quot;</span><br><span class="line">       android:duration=&quot;300&quot;</span><br><span class="line">       android:interpolator=&quot;@android:anim/accelerate_interpolator&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="fade-out-xml"><a href="#fade-out-xml" class="headerlink" title="fade_out.xml"></a>fade_out.xml</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;!--淡出动画--&gt;</span><br><span class="line">&lt;alpha xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">       android:fromAlpha=&quot;1.0&quot;</span><br><span class="line">       android:toAlpha=&quot;0.0&quot;</span><br><span class="line">       android:duration=&quot;300&quot;</span><br><span class="line">       android:interpolator=&quot;@android:anim/accelerate_interpolator&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="在style调用动画"><a href="#在style调用动画" class="headerlink" title="在style调用动画"></a>在style调用动画</h2><p>在res文件夹下的values文件夹中，打开style.xml，并添加如下代码：</p>
+<h3 id="style-xml"><a href="#style-xml" class="headerlink" title="style.xml"></a>style.xml</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;style name=&quot;Anim_fade&quot; parent=&quot;android:Theme.NoTitleBar&quot;&gt;</span><br><span class="line">    &lt;item name=&quot;android:windowAnimationStyle&quot;&gt;@style/fade&lt;/item&gt;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br><span class="line">&lt;style name=&quot;fade&quot; parent=&quot;@android:style/Animation.Activity&quot;&gt;</span><br><span class="line">    &lt;item name=&quot;android:activityOpenEnterAnimation&quot;&gt;@anim/fade_in&lt;/item&gt;</span><br><span class="line">    &lt;item name=&quot;android:activityOpenExitAnimation&quot;&gt;@anim/fade_out&lt;/item&gt;</span><br><span class="line">    &lt;item name=&quot;android:activityCloseEnterAnimation&quot;&gt;@anim/fade_in&lt;/item&gt;</span><br><span class="line">    &lt;item name=&quot;android:fragmentCloseExitAnimation&quot;&gt;@anim/fade_out&lt;/item&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h2><p>在AndroidManifest.xml中的Activity的声明上加入<strong>android:theme=”@style/Anim_fade”</strong></p>
+<h3 id="AndroidManifest-xml"><a href="#AndroidManifest-xml" class="headerlink" title="AndroidManifest.xml"></a>AndroidManifest.xml</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">          package=&quot;com.example.mysprout.activityhandoffanimationdemo&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;application</span><br><span class="line">            android:allowBackup=&quot;true&quot;</span><br><span class="line">            android:label=&quot;@string/app_name&quot;</span><br><span class="line">            android:icon=&quot;@mipmap/ic_launcher&quot;</span><br><span class="line">            android:supportsRtl=&quot;true&quot;</span><br><span class="line">            android:theme=&quot;@android:style/Theme.NoTitleBar&quot;&gt;</span><br><span class="line"></span><br><span class="line">        &lt;activity android:name=&quot;.activity.MainActivity&quot;</span><br><span class="line">                  android:screenOrientation=&quot;portrait&quot;</span><br><span class="line">                android:theme=&quot;@style/Anim_fade&quot;&gt;</span><br><span class="line">            &lt;intent-filter&gt;</span><br><span class="line">                &lt;action android:name=&quot;android.intent.action.MAIN&quot;/&gt;</span><br><span class="line">                &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot;/&gt;</span><br><span class="line">            &lt;/intent-filter&gt;</span><br><span class="line">        &lt;/activity&gt;</span><br><span class="line"></span><br><span class="line">        &lt;activity android:name=&quot;.activity.FirstActivity&quot;</span><br><span class="line">                  android:screenOrientation=&quot;portrait&quot;</span><br><span class="line">                  android:theme=&quot;@style/Anim_fade&quot;/&gt;</span><br><span class="line"></span><br><span class="line">    &lt;/application&gt;</span><br><span class="line"></span><br><span class="line">&lt;/manifest&gt;</span><br></pre></td></tr></table></figure>
+<p>在Activity中的操作是：点击MainActivity中按钮跳转到FirstActivity，就能看到切换效果，Activity的代码这里就不贴了。</p>
+<p>这次的这个很简单就不上传Demo咯，下次我会收集Activity不同的切换效果，并集成到一个Demo中，一起上传的。</p>
+<blockquote>
+<p>使用工具：Android Studio 2.0</p>
+</blockquote>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Android系统默认的Activity之间的切换效果大多数都是：<strong>右边滑入，左边滑出</strong>；但有时候这样并不能满足我们项目的需求，这时就需要改变默认的切换风格，如：淡入淡出。<br>]]>
+    
+    </summary>
+    
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
+    
+      <category term="Theme" scheme="http://yoursite.com/tags/Theme/"/>
+    
+      <category term="切换动画" scheme="http://yoursite.com/tags/%E5%88%87%E6%8D%A2%E5%8A%A8%E7%94%BB/"/>
+    
+      <category term="Android" scheme="http://yoursite.com/categories/Android/"/>
+    
+      <category term="Basics" scheme="http://yoursite.com/categories/Android/Basics/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[WordPress使用笔记 — 安全篇（保护后台登录）]]></title>
