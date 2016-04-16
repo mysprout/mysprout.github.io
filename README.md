@@ -1,5 +1,21 @@
 ﻿
 #使用与配置Hexo
+##2016.04.16
+###域名跳转
+为了有助于SEO，我将我的一级域名指向www二级域名，由于Hexo搭建的博客是静态博客，只能在index.html通过JS控制，进行跳转：
+**进入：**
+> D:\My Blog<font color = "red"><博客本地根目录></font>\themes\raytaylorism\layout\_partial
+
+
+**修改head.ejs：**
+```
+//在head标签下添加
+<script language=javascript>
+    if (document.domain =='yangmeng.me')  
+	    this.location = "http://www.yangmeng.me" + this.location.pathname + this.location.search;
+</script>
+```
+
 ##2016.04.15
 ###添加RSS和sitemap
 ####通过npm安装插件
