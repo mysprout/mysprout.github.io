@@ -3,9 +3,9 @@
   <title><![CDATA[Face the sea,with spring flowers blossoming.]]></title>
   <subtitle><![CDATA[杨萌个人博客 - 一个迷茫期的程序员]]></subtitle>
   <link href="/atom.xml" rel="self"/>
-  <link href="http://yangmeng.me/"/>
+  <link href="http://www.yangmeng.me/"/>
   <updated>2016-04-15T14:00:02.138Z</updated>
-  <id>http://yangmeng.me/</id>
+  <id>http://www.yangmeng.me/</id>
   
   <author>
     <name><![CDATA[mysprout]]></name>
@@ -16,8 +16,8 @@
   
   <entry>
     <title><![CDATA[通过Theme自定义Activity间的切换动画]]></title>
-    <link href="http://yangmeng.me/Android/Basics/CustomAnimationForActivity.html"/>
-    <id>http://yangmeng.me/Android/Basics/CustomAnimationForActivity.html</id>
+    <link href="http://www.yangmeng.me/Android/Basics/CustomAnimationForActivity.html"/>
+    <id>http://www.yangmeng.me/Android/Basics/CustomAnimationForActivity.html</id>
     <published>2016-04-15T13:30:49.000Z</published>
     <updated>2016-04-15T14:00:02.138Z</updated>
     <content type="html"><![CDATA[<p>Android系统默认的Activity之间的切换效果大多数都是：<strong>右边滑入，左边滑出</strong>；但有时候这样并不能满足我们项目的需求，这时就需要改变默认的切换风格，如：淡入淡出。<br><a id="more"></a></p>
@@ -41,22 +41,22 @@
     
     </summary>
     
-      <category term="Android" scheme="http://yangmeng.me/tags/Android/"/>
+      <category term="Android" scheme="http://www.yangmeng.me/tags/Android/"/>
     
-      <category term="Theme" scheme="http://yangmeng.me/tags/Theme/"/>
+      <category term="Theme" scheme="http://www.yangmeng.me/tags/Theme/"/>
     
-      <category term="切换动画" scheme="http://yangmeng.me/tags/%E5%88%87%E6%8D%A2%E5%8A%A8%E7%94%BB/"/>
+      <category term="切换动画" scheme="http://www.yangmeng.me/tags/%E5%88%87%E6%8D%A2%E5%8A%A8%E7%94%BB/"/>
     
-      <category term="Android" scheme="http://yangmeng.me/categories/Android/"/>
+      <category term="Android" scheme="http://www.yangmeng.me/categories/Android/"/>
     
-      <category term="Basics" scheme="http://yangmeng.me/categories/Android/Basics/"/>
+      <category term="Basics" scheme="http://www.yangmeng.me/categories/Android/Basics/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[WordPress使用笔记 — 安全篇（保护后台登录）]]></title>
-    <link href="http://yangmeng.me/WordPress/Security/protected-background-login.html"/>
-    <id>http://yangmeng.me/WordPress/Security/protected-background-login.html</id>
+    <link href="http://www.yangmeng.me/WordPress/Security/protected-background-login.html"/>
+    <id>http://www.yangmeng.me/WordPress/Security/protected-background-login.html</id>
     <published>2016-04-14T09:26:09.000Z</published>
     <updated>2016-04-15T02:00:07.105Z</updated>
     <content type="html"><![CDATA[<p>通过修改进入wordpress站点后台的登录地址，来提高WordPress站点的安全性。<br>实现的方法有两种，一种是使用插件，一种是使用非插件。<br><a id="more"></a></p>
@@ -83,20 +83,20 @@
     
     </summary>
     
-      <category term="WordPress" scheme="http://yangmeng.me/tags/WordPress/"/>
+      <category term="WordPress" scheme="http://www.yangmeng.me/tags/WordPress/"/>
     
-      <category term="保护后台登录" scheme="http://yangmeng.me/tags/%E4%BF%9D%E6%8A%A4%E5%90%8E%E5%8F%B0%E7%99%BB%E5%BD%95/"/>
+      <category term="保护后台登录" scheme="http://www.yangmeng.me/tags/%E4%BF%9D%E6%8A%A4%E5%90%8E%E5%8F%B0%E7%99%BB%E5%BD%95/"/>
     
-      <category term="WordPress" scheme="http://yangmeng.me/categories/WordPress/"/>
+      <category term="WordPress" scheme="http://www.yangmeng.me/categories/WordPress/"/>
     
-      <category term="Security" scheme="http://yangmeng.me/categories/WordPress/Security/"/>
+      <category term="Security" scheme="http://www.yangmeng.me/categories/WordPress/Security/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[清单合并]]></title>
-    <link href="http://yangmeng.me/Android/Notes/list-merge.html"/>
-    <id>http://yangmeng.me/Android/Notes/list-merge.html</id>
+    <link href="http://www.yangmeng.me/Android/Notes/list-merge.html"/>
+    <id>http://www.yangmeng.me/Android/Notes/list-merge.html</id>
     <published>2016-04-13T11:59:31.000Z</published>
     <updated>2016-04-15T02:00:33.240Z</updated>
     <content type="html"><![CDATA[<p>因公司业务需要，需要在项目中集成滴滴的SDK， 几经波折集成好后，在运行项目的时候，项目不能编译通过，报错如下：</p>
@@ -119,20 +119,20 @@
     
     </summary>
     
-      <category term="Android" scheme="http://yangmeng.me/tags/Android/"/>
+      <category term="Android" scheme="http://www.yangmeng.me/tags/Android/"/>
     
-      <category term="Manifest merger failed" scheme="http://yangmeng.me/tags/Manifest-merger-failed/"/>
+      <category term="Manifest merger failed" scheme="http://www.yangmeng.me/tags/Manifest-merger-failed/"/>
     
-      <category term="Android" scheme="http://yangmeng.me/categories/Android/"/>
+      <category term="Android" scheme="http://www.yangmeng.me/categories/Android/"/>
     
-      <category term="Notes" scheme="http://yangmeng.me/categories/Android/Notes/"/>
+      <category term="Notes" scheme="http://www.yangmeng.me/categories/Android/Notes/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[为TextView、Button控件上的文本添加图标]]></title>
-    <link href="http://yangmeng.me/Android/Notes/textview-icon.html"/>
-    <id>http://yangmeng.me/Android/Notes/textview-icon.html</id>
+    <link href="http://www.yangmeng.me/Android/Notes/textview-icon.html"/>
+    <id>http://www.yangmeng.me/Android/Notes/textview-icon.html</id>
     <published>2016-04-13T11:47:55.000Z</published>
     <updated>2016-04-15T02:00:44.007Z</updated>
     <content type="html"><![CDATA[<p>最近做项目，需要在TextView的文本左边添加图标，临时用到，以前会的现在居然忘了，没法，只有记录下来，方便以后用到的时候，及时查询到。<br>如果只是想在TextView的文本的上下左右添加图片，在java代码中不会改变的话，可以直接在布局xml文件中写死，使用TextView的drawableLeft、drawableTop、drawableRight、drawableBottom属性就可以实现如下图的效果，使用drawablePadding属性就可以控制图片与文本之间的距离。<br><a id="more"></a></p>
@@ -157,22 +157,22 @@
     
     </summary>
     
-      <category term="Android" scheme="http://yangmeng.me/tags/Android/"/>
+      <category term="Android" scheme="http://www.yangmeng.me/tags/Android/"/>
     
-      <category term="TextView" scheme="http://yangmeng.me/tags/TextView/"/>
+      <category term="TextView" scheme="http://www.yangmeng.me/tags/TextView/"/>
     
-      <category term="图标" scheme="http://yangmeng.me/tags/%E5%9B%BE%E6%A0%87/"/>
+      <category term="图标" scheme="http://www.yangmeng.me/tags/%E5%9B%BE%E6%A0%87/"/>
     
-      <category term="Android" scheme="http://yangmeng.me/categories/Android/"/>
+      <category term="Android" scheme="http://www.yangmeng.me/categories/Android/"/>
     
-      <category term="Notes" scheme="http://yangmeng.me/categories/Android/Notes/"/>
+      <category term="Notes" scheme="http://www.yangmeng.me/categories/Android/Notes/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[在Button控件上显示倒计时]]></title>
-    <link href="http://yangmeng.me/Android/Notes/button-countdown.html"/>
-    <id>http://yangmeng.me/Android/Notes/button-countdown.html</id>
+    <link href="http://www.yangmeng.me/Android/Notes/button-countdown.html"/>
+    <id>http://www.yangmeng.me/Android/Notes/button-countdown.html</id>
     <published>2016-04-13T11:22:00.000Z</published>
     <updated>2016-04-15T02:00:55.791Z</updated>
     <content type="html"><![CDATA[<p>今天做项目的时候，需要做一个按钮获取验证码，点击之后按钮需要倒计时，并且不可点击。现在将方法记录下来，方便下次遇到的时候解决。<br><a id="more"></a></p>
@@ -189,22 +189,22 @@
     
     </summary>
     
-      <category term="Android" scheme="http://yangmeng.me/tags/Android/"/>
+      <category term="Android" scheme="http://www.yangmeng.me/tags/Android/"/>
     
-      <category term="Button" scheme="http://yangmeng.me/tags/Button/"/>
+      <category term="Button" scheme="http://www.yangmeng.me/tags/Button/"/>
     
-      <category term="倒计时" scheme="http://yangmeng.me/tags/%E5%80%92%E8%AE%A1%E6%97%B6/"/>
+      <category term="倒计时" scheme="http://www.yangmeng.me/tags/%E5%80%92%E8%AE%A1%E6%97%B6/"/>
     
-      <category term="Android" scheme="http://yangmeng.me/categories/Android/"/>
+      <category term="Android" scheme="http://www.yangmeng.me/categories/Android/"/>
     
-      <category term="Notes" scheme="http://yangmeng.me/categories/Android/Notes/"/>
+      <category term="Notes" scheme="http://www.yangmeng.me/categories/Android/Notes/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[WordPress使用笔记 — 插件篇（SyntaxHighlighter）]]></title>
-    <link href="http://yangmeng.me/WordPress/Plugins/syntaxHighlighter.html"/>
-    <id>http://yangmeng.me/WordPress/Plugins/syntaxHighlighter.html</id>
+    <link href="http://www.yangmeng.me/WordPress/Plugins/syntaxHighlighter.html"/>
+    <id>http://www.yangmeng.me/WordPress/Plugins/syntaxHighlighter.html</id>
     <published>2016-04-13T03:55:03.000Z</published>
     <updated>2016-04-15T02:00:21.565Z</updated>
     <content type="html"><![CDATA[<p>进入wp后台 — 插件 – 安装插件，在搜索框中输入：SyntaxHighlighter Evolved，回车搜索，下载并安装第一个。<br>安装成功后，启用SyntaxHighlighter Evolved插件，并刷新后台，进入 – 设置 – SyntaxHighlighter；只需更改杂项设置，其他的默认就行。<br><a id="more"></a><br>代码高亮插件：SyntaxHighlighter Evolved</p>
@@ -222,22 +222,22 @@
     
     </summary>
     
-      <category term="WordPress" scheme="http://yangmeng.me/tags/WordPress/"/>
+      <category term="WordPress" scheme="http://www.yangmeng.me/tags/WordPress/"/>
     
-      <category term="SyntaxHighlighter" scheme="http://yangmeng.me/tags/SyntaxHighlighter/"/>
+      <category term="SyntaxHighlighter" scheme="http://www.yangmeng.me/tags/SyntaxHighlighter/"/>
     
-      <category term="代码高亮" scheme="http://yangmeng.me/tags/%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE/"/>
+      <category term="代码高亮" scheme="http://www.yangmeng.me/tags/%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE/"/>
     
-      <category term="WordPress" scheme="http://yangmeng.me/categories/WordPress/"/>
+      <category term="WordPress" scheme="http://www.yangmeng.me/categories/WordPress/"/>
     
-      <category term="Plugins" scheme="http://yangmeng.me/categories/WordPress/Plugins/"/>
+      <category term="Plugins" scheme="http://www.yangmeng.me/categories/WordPress/Plugins/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Android学习之路(1) -- APK签名]]></title>
-    <link href="http://yangmeng.me/Android/Study/apk-signed.html"/>
-    <id>http://yangmeng.me/Android/Study/apk-signed.html</id>
+    <link href="http://www.yangmeng.me/Android/Study/apk-signed.html"/>
+    <id>http://www.yangmeng.me/Android/Study/apk-signed.html</id>
     <published>2016-04-12T08:36:43.000Z</published>
     <updated>2016-04-15T01:59:53.750Z</updated>
     <content type="html"><![CDATA[<p>离开校园，工作也有三个月了，一直都忙于公司的项目或者瞎折腾，今天开始，好好的开始学习Android，从零出发。</p>
@@ -381,13 +381,13 @@
     
     </summary>
     
-      <category term="Android" scheme="http://yangmeng.me/tags/Android/"/>
+      <category term="Android" scheme="http://www.yangmeng.me/tags/Android/"/>
     
-      <category term="签名" scheme="http://yangmeng.me/tags/%E7%AD%BE%E5%90%8D/"/>
+      <category term="签名" scheme="http://www.yangmeng.me/tags/%E7%AD%BE%E5%90%8D/"/>
     
-      <category term="Android" scheme="http://yangmeng.me/categories/Android/"/>
+      <category term="Android" scheme="http://www.yangmeng.me/categories/Android/"/>
     
-      <category term="Study" scheme="http://yangmeng.me/categories/Android/Study/"/>
+      <category term="Study" scheme="http://www.yangmeng.me/categories/Android/Study/"/>
     
   </entry>
   
