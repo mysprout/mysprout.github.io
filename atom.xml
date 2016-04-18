@@ -4,7 +4,7 @@
   <subtitle><![CDATA[杨萌个人博客 - 一个迷茫期的程序员]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://www.yangmeng.me/"/>
-  <updated>2016-04-18T06:11:45.220Z</updated>
+  <updated>2016-04-18T06:18:23.099Z</updated>
   <id>http://www.yangmeng.me/</id>
   
   <author>
@@ -16,10 +16,10 @@
   
   <entry>
     <title><![CDATA[工作四个月了，做点小总结]]></title>
-    <link href="http://www.yangmeng.me/%E9%9A%8F%E8%AE%B0/summary-objective.html"/>
-    <id>http://www.yangmeng.me/随记/summary-objective.html</id>
+    <link href="http://www.yangmeng.me/Diary/summary-objective.html"/>
+    <id>http://www.yangmeng.me/Diary/summary-objective.html</id>
     <published>2016-04-18T06:06:07.000Z</published>
-    <updated>2016-04-18T06:11:45.220Z</updated>
+    <updated>2016-04-18T06:18:23.099Z</updated>
     <content type="html"><![CDATA[<p>这四个月不能说没所获，能挣钱养活自己是一方面，Android技能得到提升是一方面，可是这四个月来，大多数时候都是迷茫的，不知自己的目标究竟是什么，没有努力的方向与动力，每天都在学习，可也不知学的是什么的，学习效率低是一大硬伤，付出是时间与自己的收获总觉得不成正比，我觉得是学习方法出了问题，这个依然再摸索……<br><a id="more"></a></p>
 <p>就如我博客备注一样“一个迷茫期的程序员”；的确是这样，从离开大学到入职再到现在，四个多月，悄然逝去。</p>
 <p>这四个月不能说没所获，能挣钱养活自己是一方面，Android技能得到提升是一方面，可是这四个月来，大多数时候都是迷茫的，不知自己的目标究竟是什么，没有努力的方向与动力，每天都在学习，可也不知学的是什么的，学习效率低是一大硬伤，付出是时间与自己的收获总觉得不成正比，我觉得是学习方法出了问题，这个依然再摸索……</p>
@@ -57,7 +57,7 @@
     
       <category term="成长" scheme="http://www.yangmeng.me/tags/%E6%88%90%E9%95%BF/"/>
     
-      <category term="随记" scheme="http://www.yangmeng.me/categories/%E9%9A%8F%E8%AE%B0/"/>
+      <category term="Diary" scheme="http://www.yangmeng.me/categories/Diary/"/>
     
   </entry>
   
