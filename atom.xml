@@ -4,7 +4,7 @@
   <subtitle><![CDATA[杨萌个人博客 - 一个迷茫期的程序员]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://www.yangmeng.me/"/>
-  <updated>2016-04-18T06:18:23.099Z</updated>
+  <updated>2016-04-18T12:47:25.535Z</updated>
   <id>http://www.yangmeng.me/</id>
   
   <author>
@@ -13,6 +13,66 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Android学习之路(2) -- 使用draw9Patch.bat工具画.9图]]></title>
+    <link href="http://www.yangmeng.me/Android/Study/use-draw9Patch.bat-tool.html"/>
+    <id>http://www.yangmeng.me/Android/Study/use-draw9Patch.bat-tool.html</id>
+    <published>2016-04-18T10:08:38.000Z</published>
+    <updated>2016-04-18T12:47:25.535Z</updated>
+    <content type="html"><![CDATA[<p>在Android的设计过程中，为了适配不同的手机分辨率，图片大多需要拉伸或者压缩，这样就出现了可以任意调整大小的一种图片格式“.9.png”。这种图片是用于Android开发的一种特殊的图片格式，它的好处在于可以用简单的方式把一张图片中哪些区域可以拉伸，哪些区域不可以拉伸设定好，同时可以把显示内容区域的位置标示清楚。<br><a id="more"></a></p>
+<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>学Android以来，一直都想学学画.9图，可是一直没有付出实际，今天正好有时间，就学一学。</p>
+<h1 id="二、实现"><a href="#二、实现" class="headerlink" title="二、实现"></a>二、实现</h1><h2 id="1-“-9-png”的好处"><a href="#1-“-9-png”的好处" class="headerlink" title="1.“.9.png”的好处"></a>1.“.9.png”的好处</h2><p>在Android的设计过程中，为了适配不同的手机分辨率，图片大多需要拉伸或者压缩，这样就出现了可以任意调整大小的一种图片格式“.9.png”。这种图片是用于Android开发的一种特殊的图片格式，它的好处在于可以用简单的方式把一张图片中哪些区域可以拉伸，哪些区域不可以拉伸设定好，同时可以把显示内容区域的位置标示清楚。</p>
+<h2 id="2-“-9-png”格式"><a href="#2-“-9-png”格式" class="headerlink" title="2.“.9.png”格式"></a>2.“.9.png”格式</h2><p>.9.PNG是标准的PNG格式，只是在最外面一圈额外增加1px的边框，这个1px的边框就是用来定义图片中可扩展的和静态不变的区域。特别说明，left和top边框中交叉部分是可拉伸部分，未选中部分是静态区域部分。right和bottom边框中交叉部分则是内容部分（变相的相当于定义看一个内边距，神似padding功能），这个参数是可选的, 如下图：</p>
+<p><img src="http://7xswpn.com2.z0.glb.clouddn.com/use-draw9Patch.bat-tool-01.png" alt=""></p>
+<p>在Android中以9.PNG格式的图片为背景，则能够自定义拉伸而不失真，比如系统的Button就是一个典型的例子。<br>其实呢，无论是left和top，还是right和bottom都是把图片分成9块 (边角四块是不能缩放的，其他的四块则是允许缩放的)，所以叫做9.PNG。</p>
+<h2 id="3-使用draw9Patch-bat工具画-9图"><a href="#3-使用draw9Patch-bat工具画-9图" class="headerlink" title="3.使用draw9Patch.bat工具画.9图"></a>3.使用draw9Patch.bat工具画.9图</h2><h3 id="①打开draw9Patch-bat"><a href="#①打开draw9Patch-bat" class="headerlink" title="①打开draw9Patch.bat"></a>①打开draw9Patch.bat</h3><p>什么，你还不知道draw9Patch.bat在哪里？哈哈，在你<strong>Android SDK目录的tools文件夹下</strong>。</p>
+<h3 id="②准备要拉伸的图片"><a href="#②准备要拉伸的图片" class="headerlink" title="②准备要拉伸的图片"></a>②准备要拉伸的图片</h3><p>一张很小的图片，作为TextView的背景图，中间部分填充文本内容。</p>
+<p><img src="http://7xswpn.com2.z0.glb.clouddn.com/use-draw9Patch.bat-tool-02.png" alt=""></p>
+<h3 id="③制作-9-png"><a href="#③制作-9-png" class="headerlink" title="③制作.9.png"></a>③制作.9.png</h3><p>双击draw9Patch.bat，回车</p>
+<p><img src="http://7xswpn.com2.z0.glb.clouddn.com/use-draw9Patch.bat-tool-000.png" alt=""></p>
+<p><img src="http://7xswpn.com2.z0.glb.clouddn.com/use-draw9Patch.bat-tool-00.png" alt=""></p>
+<p><img src="http://7xswpn.com2.z0.glb.clouddn.com/use-draw9Patch.bat-tool-03.png" alt=""></p>
+<p><img src="http://7xswpn.com2.z0.glb.clouddn.com/use-draw9Patch.bat-tool-04.png" alt=""></p>
+<p><img src="http://7xswpn.com2.z0.glb.clouddn.com/use-draw9Patch.bat-tool-05.png" alt=""></p>
+<p>然后点击File，选择Save…或者Ctrl+S保存刚制作好的.9.png,并命名为ic_yes.9.png。</p>
+<h3 id="④使用-9-png"><a href="#④使用-9-png" class="headerlink" title="④使用.9.png"></a>④使用.9.png</h3><p>打开Android Studio，新建项目Draw9Patch，默认主Activity为MainActivity.java：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class MainActivity extends Activity</span><br><span class="line">&#123;</span><br><span class="line">	@Override</span><br><span class="line">	protected void onCreate(Bundle savedInstanceState)</span><br><span class="line">	&#123;</span><br><span class="line">		super.onCreate(savedInstanceState);</span><br><span class="line">		setContentView(R.layout.activity_main);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>AS新建项目之后，默认放图片的文件夹是mipmap，而.9.png只能放在drawable文件夹中，所以我们的新建drawable-xhdpi文件夹，并将原图和制作好的.9图复制进去。</p>
+<p><img src="http://7xswpn.com2.z0.glb.clouddn.com/use-draw9Patch.bat-tool-06.png" alt=""></p>
+<p>activity_main.xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">        android:orientation=&quot;vertical&quot;</span><br><span class="line">        android:layout_width=&quot;match_parent&quot;</span><br><span class="line">        android:layout_height=&quot;match_parent&quot;</span><br><span class="line">        android:layout_margin=&quot;50dp&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;TextView</span><br><span class="line">            android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">            android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">            android:background=&quot;@drawable/ic_no&quot;</span><br><span class="line">            android:text=&quot;不是.9图片做的背景不是.9图片做的背景不是.9图片做的背景不是.9图片做的背景不是.9图片做的背景不是.9图片做的背景不是.9图片做的背景&quot;</span><br><span class="line">            android:textColor=&quot;#ff0000&quot;/&gt;</span><br><span class="line"></span><br><span class="line">    &lt;TextView</span><br><span class="line">            android:layout_marginTop=&quot;50dp&quot;</span><br><span class="line">            android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">            android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">            android:background=&quot;@drawable/ic_yes&quot;</span><br><span class="line">            android:text=&quot;是.9图片做的背景是.9图片做的背景是.9图片做的背景是.9图片做的背景是.9图片做的背景是.9图片做的背景&quot;</span><br><span class="line">            android:textColor=&quot;#0000ff&quot;/&gt;</span><br><span class="line"></span><br><span class="line">&lt;/LinearLayout&gt;</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://7xswpn.com2.z0.glb.clouddn.com/use-draw9Patch.bat-tool-07.png" alt=""></p>
+<p>从预览图我们可以看到.9.png与非.9.png的明显区别。<br>可以看出，.9.png边框非常的清晰。非.9.png因为图片放大导致模糊化了。<br>到这里为止，我们已经基本会制作.9.png图片了。</p>
+<h3 id="⑤-9-png自定义内容区域"><a href="#⑤-9-png自定义内容区域" class="headerlink" title="⑤.9.png自定义内容区域"></a>⑤.9.png自定义内容区域</h3><p><img src="http://7xswpn.com2.z0.glb.clouddn.com/use-draw9Patch.bat-tool-08.png" alt=""><br>是不是觉得文本内容和边距挨的太近了，我们可以使用right和bottom边的线来定义内容区域，来达到增大内边距的目的，另外直接设置TextView的内边距也能办到，所有前面说和padding功能相似。</p>
+<p><img src="http://7xswpn.com2.z0.glb.clouddn.com/use-draw9Patch.bat-tool-10.png" alt=""></p>
+<p><img src="http://7xswpn.com2.z0.glb.clouddn.com/use-draw9Patch.bat-tool-09.png" alt=""><br>看，是不是很明显呢？和padding的效果一样。</p>
+<blockquote>
+<p>在这里，我要特别说明，一开始为了增大内边距，很容易惯性思维，在<textview>中申明android:padding=”10dip”之类的，我在这里劝告朋友们不要这么做，一是你将无法预知你的显示，二是这比较混淆，因为设置内容区域就是确定padding，所以我在前面部分说他们是神似。我个人认为通过内容区域设定padding比在布局xml中定义padding更优雅，更简洁！</textview></p>
+</blockquote>
+<h3 id="⑥制作-9-png的高级技巧"><a href="#⑥制作-9-png的高级技巧" class="headerlink" title="⑥制作.9.png的高级技巧"></a>⑥制作.9.png的高级技巧</h3><p>对于初学Draw9Patch的人来说，这可以算是高级技巧，那就是：<strong>拉伸区域，可以不是连续的，可以不止一块，而且是和自定义的边框线的长度成正比</strong>。</p>
+<p><img src="http://7xswpn.com2.z0.glb.clouddn.com/use-draw9Patch.bat-tool-11.png" alt=""></p>
+<h1 id="三、补充"><a href="#三、补充" class="headerlink" title="三、补充"></a>三、补充</h1><h2 id="怎么删除点好的黑线？"><a href="#怎么删除点好的黑线？" class="headerlink" title="怎么删除点好的黑线？"></a>怎么删除点好的黑线？</h2><p>按住shift键，对着黑线点击鼠标左键，就会清除一个黑点；如果清除一条黑线则按住shift键，选中黑线开始的第一个按住鼠标左键一直拖到黑线末尾，放开鼠标，整条线就清除了。</p>
+<h1 id="四、参考"><a href="#四、参考" class="headerlink" title="四、参考"></a>四、参考</h1><blockquote>
+<p><a href="http://www.cnblogs.com/qianxudetianxia/archive/2011/04/17/2017591.html" target="_blank" rel="external">Android学习系列(4)–App自适应draw9patch不失真背景</a></p>
+</blockquote>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>在Android的设计过程中，为了适配不同的手机分辨率，图片大多需要拉伸或者压缩，这样就出现了可以任意调整大小的一种图片格式“.9.png”。这种图片是用于Android开发的一种特殊的图片格式，它的好处在于可以用简单的方式把一张图片中哪些区域可以拉伸，哪些区域不可以拉伸设定好，同时可以把显示内容区域的位置标示清楚。<br>]]>
+    
+    </summary>
+    
+      <category term="Android" scheme="http://www.yangmeng.me/tags/Android/"/>
+    
+      <category term="draw9Patch.bat" scheme="http://www.yangmeng.me/tags/draw9Patch-bat/"/>
+    
+      <category term=".9.png" scheme="http://www.yangmeng.me/tags/9-png/"/>
+    
+      <category term="自适应背景图" scheme="http://www.yangmeng.me/tags/%E8%87%AA%E9%80%82%E5%BA%94%E8%83%8C%E6%99%AF%E5%9B%BE/"/>
+    
+      <category term="Android" scheme="http://www.yangmeng.me/categories/Android/"/>
+    
+      <category term="Study" scheme="http://www.yangmeng.me/categories/Android/Study/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[工作四个月了，做点小总结]]></title>
