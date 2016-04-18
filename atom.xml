@@ -4,7 +4,7 @@
   <subtitle><![CDATA[杨萌个人博客 - 一个迷茫期的程序员]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://www.yangmeng.me/"/>
-  <updated>2016-04-15T14:00:02.138Z</updated>
+  <updated>2016-04-18T06:11:45.220Z</updated>
   <id>http://www.yangmeng.me/</id>
   
   <author>
@@ -13,6 +13,53 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[工作四个月了，做点小总结]]></title>
+    <link href="http://www.yangmeng.me/%E9%9A%8F%E8%AE%B0/summary-objective.html"/>
+    <id>http://www.yangmeng.me/随记/summary-objective.html</id>
+    <published>2016-04-18T06:06:07.000Z</published>
+    <updated>2016-04-18T06:11:45.220Z</updated>
+    <content type="html"><![CDATA[<p>这四个月不能说没所获，能挣钱养活自己是一方面，Android技能得到提升是一方面，可是这四个月来，大多数时候都是迷茫的，不知自己的目标究竟是什么，没有努力的方向与动力，每天都在学习，可也不知学的是什么的，学习效率低是一大硬伤，付出是时间与自己的收获总觉得不成正比，我觉得是学习方法出了问题，这个依然再摸索……<br><a id="more"></a></p>
+<p>就如我博客备注一样“一个迷茫期的程序员”；的确是这样，从离开大学到入职再到现在，四个多月，悄然逝去。</p>
+<p>这四个月不能说没所获，能挣钱养活自己是一方面，Android技能得到提升是一方面，可是这四个月来，大多数时候都是迷茫的，不知自己的目标究竟是什么，没有努力的方向与动力，每天都在学习，可也不知学的是什么的，学习效率低是一大硬伤，付出是时间与自己的收获总觉得不成正比，我觉得是学习方法出了问题，这个依然再摸索……</p>
+<p>心态出了问题，做事总急于求成，学个两天没效果，心情就会变得烦躁；心太大，想一口吃下一个“大包子”；学东西，心不能平静，在学Android的时候，会突然想去学WordPress；如此云云……</p>
+<p>总得来说，这就是现阶段的各种“不良行为”，可能工作也有一部分原因，但是这些都是客观原因，<strong>只有自己去主导自己，才能走上提升自己的正轨</strong>。</p>
+<p>接下来，要改掉之上的种种“不良行为”，确定自己的目标，要动起来，心动，头动，手动……</p>
+<p>说说接下来的打算吧。</p>
+<ul>
+<li><p>确定主攻的方向依然是Android，把工作中、生活中空闲的时间都抽出来，学习Android知识，努力提升自己的Android水平。</p>
+</li>
+<li><p>WordPress作为兴趣之一，目标是能独立的开发主题。</p>
+</li>
+<li><p>PHP也是兴趣之一，目标还没想好。</p>
+</li>
+<li><p>提升一下PS。</p>
+</li>
+</ul>
+<p>……</p>
+<p>上面的目标用2-3年去实现，去沉淀。</p>
+<p><strong>只有自己足够强大，才能挣脱束缚。</strong></p>
+<blockquote>
+<p>Hello world!</p>
+</blockquote>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>这四个月不能说没所获，能挣钱养活自己是一方面，Android技能得到提升是一方面，可是这四个月来，大多数时候都是迷茫的，不知自己的目标究竟是什么，没有努力的方向与动力，每天都在学习，可也不知学的是什么的，学习效率低是一大硬伤，付出是时间与自己的收获总觉得不成正比，我觉得是学习方法出了问题，这个依然再摸索……<br>]]>
+    
+    </summary>
+    
+      <category term="总结" scheme="http://www.yangmeng.me/tags/%E6%80%BB%E7%BB%93/"/>
+    
+      <category term="目标" scheme="http://www.yangmeng.me/tags/%E7%9B%AE%E6%A0%87/"/>
+    
+      <category term="自我" scheme="http://www.yangmeng.me/tags/%E8%87%AA%E6%88%91/"/>
+    
+      <category term="成长" scheme="http://www.yangmeng.me/tags/%E6%88%90%E9%95%BF/"/>
+    
+      <category term="随记" scheme="http://www.yangmeng.me/categories/%E9%9A%8F%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[通过Theme自定义Activity间的切换动画]]></title>
