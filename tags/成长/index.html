@@ -435,8 +435,10 @@ function loadScript(url, callback)
         // 针对移动端做的优化：FAB按钮点击一下收回
         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
             $('.fixed-action-btn').addClass('click-to-toggle');
+	    alert("手机");
         } else {
 		loadScript("//github.atool.org/canvas-nest.min.js", myPrettyCode);
+		 alert("电脑");
 	}
 
         // 回到顶部
