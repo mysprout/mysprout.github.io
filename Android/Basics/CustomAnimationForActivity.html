@@ -431,6 +431,33 @@
 <script src="/js/materialize.min.js"></script>
 
 <script>
+
+var myPrettyCode = function() {
+
+   // Here, do what ever you want
+
+};
+function loadScript(url, callback)
+	{
+	    // Adding the script tag to the head as suggested before
+	    var head = document.getElementsByTagName('body')[0];
+	    var script = document.createElement('script');
+	    script.type = 'text/javascript';
+	    script.src = url;
+	    script.color = "0,0,255";
+	    script.opacity = '0.7';
+	    script.zIndex = "-2";
+	    script.count = "99";
+
+	    // Then bind the event to the callback function.
+	    // There are several events for cross browser compatibility.
+	    script.onreadystatechange = callback;
+	    script.onload = callback;
+
+	    // Fire the loading
+	    head.appendChild(script);
+	}
+
 (function($) {
     $(document).ready(function() {
         // 隐藏禁用javascript（针对微信内置浏览器）的提示
@@ -484,7 +511,10 @@
         // 针对移动端做的优化：FAB按钮点击一下收回
         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
             $('.fixed-action-btn').addClass('click-to-toggle');
-        }
+        } else {
+		loadScript("//github.atool.org/canvas-nest.min.js", myPrettyCode);
+	}
+
         // 回到顶部
         $('.btn-return-top').click(function() {
             $('body, html').animate({
@@ -544,14 +574,6 @@ MathJax.Hub.Config({
 
 
 
-    <script type="text/javascript">
-	// 针对移动端做的优化：FAB按钮点击一下收回
-        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-           
-        } else {
-	     <script type="text/javascript" color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//github.atool.org/canvas-nest.min.js"></script>
-	}
-    </script>
    
 </body>
 </html>
