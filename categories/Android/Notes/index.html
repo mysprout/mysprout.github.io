@@ -367,31 +367,6 @@
 <script src="/js/materialize.min.js"></script>
 
 <script>
-
-var myPrettyCode = function() {
-
-   // Here, do what ever you want
-
-};
-function loadScript(url, callback)
-	{
-	    // Adding the script tag to the head as suggested before
-	    var script = document.createElement('script');
-	    script.type = 'text/javascript';
-	    script.src = url;
-	    script.color = "0,0,255";
-	    script.opacity = '0.7';
-	    script.zIndex = "-2";
-	    script.count = "99";
-
-	    // Then bind the event to the callback function.
-	    // There are several events for cross browser compatibility.
-	    script.onreadystatechange = callback;
-	    script.onload = callback;
-
-	    $("body").append(script);
-	}
-
 (function($) {
     $(document).ready(function() {
         // 隐藏禁用javascript（针对微信内置浏览器）的提示
@@ -447,9 +422,9 @@ function loadScript(url, callback)
             $('.fixed-action-btn').addClass('click-to-toggle');
 	    alert("手机");
         } else {
-		loadScript("//github.atool.org/canvas-nest.min.js", myPrettyCode);
+		loadScript("//github.atool.org/canvas-nest.min.js");
 		 alert("电脑");
-	}
+		}
 
         // 回到顶部
         $('.btn-return-top').click(function() {
@@ -470,6 +445,20 @@ function loadScript(url, callback)
         
     });
 })(jQuery);
+
+function loadScript(url)
+{
+    // Adding the script tag to the head as suggested before
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = url;
+    script.color = "0,0,255";
+    script.opacity = '0.7';
+    script.zIndex = "-2";
+    script.count = "99";
+    $("body").append(script);
+}
+
 </script>
 
 
