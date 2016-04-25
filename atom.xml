@@ -4,7 +4,7 @@
   <subtitle><![CDATA[杨萌个人博客 - 一个迷茫期的程序员]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://www.yangmeng.me/"/>
-  <updated>2016-04-25T09:55:07.548Z</updated>
+  <updated>2016-04-25T10:00:59.842Z</updated>
   <id>http://www.yangmeng.me/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://www.yangmeng.me/Android/Advanced/custom-textview.html"/>
     <id>http://www.yangmeng.me/Android/Advanced/custom-textview.html</id>
     <published>2016-04-25T09:09:59.000Z</published>
-    <updated>2016-04-25T09:55:07.548Z</updated>
+    <updated>2016-04-25T10:00:59.842Z</updated>
     <content type="html"><![CDATA[<p>有差不多一个星期没有更新过博客，昨天是周末，通过学习《Android群英传》一书，了解了一下自定义View、TextView的知识，并动手写了自定义TextView的demo，今天正好记录下来，即可以复习昨天所学，也可以分享给大家。<br><a id="more"></a></p>
 <h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>有差不多一个星期没有更新过博客，昨天是周末，通过学习《Android群英传》一书，了解了一下自定义View、TextView的知识，并动手写了自定义TextView的demo，今天正好记录下来，即可以复习昨天所学，也可以分享给大家。</p>
 <h1 id="二、实现自定义TextView"><a href="#二、实现自定义TextView" class="headerlink" title="二、实现自定义TextView"></a>二、实现自定义TextView</h1><p>通过学习，实现了两种样式的TextView的自定义：</p>
@@ -35,7 +35,7 @@
 <p>注：在继承TextView后，选择构造方法的时候，必须要选择带两个参数的构造方法，因为默认的布局文件调用的是这个构造方法，否则会导致项目运行时崩溃。</p>
 </blockquote>
 <h2 id="3-实现效果图"><a href="#3-实现效果图" class="headerlink" title="3. 实现效果图"></a>3. 实现效果图</h2><p><img src="http://7xswpn.com2.z0.glb.clouddn.com/%5C2016%5C04%5C25%5CAndroid%E8%BF%9B%E9%98%B6%E4%B9%8B%E8%B7%AF-1-%E8%87%AA%E5%AE%9A%E4%B9%89TextView%5Ccustom-textview.gif" alt=""></p>
-<h1 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h1><p>希望朋友们能喜欢，有什么建议都可以给我留言。</p>
+<h1 id="三、结束"><a href="#三、结束" class="headerlink" title="三、结束"></a>三、结束</h1><p>希望朋友们能喜欢，有什么建议都可以给我留言。</p>
 ]]></content>
     <summary type="html">
     <![CDATA[<p>有差不多一个星期没有更新过博客，昨天是周末，通过学习《Android群英传》一书，了解了一下自定义View、TextView的知识，并动手写了自定义TextView的demo，今天正好记录下来，即可以复习昨天所学，也可以分享给大家。<br>]]>

@@ -176,6 +176,14 @@
         
 
             <li class="collapse-level-1" collapse-level="1">
+                <a class="no-padding" href="/categories/Android/Study/">
+                    Study <span class="right">2 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-1" collapse-level="1">
                 <a class="no-padding" href="/categories/Android/Notes/">
                     Notes <span class="right">3 篇</span></a>
                 </a>
@@ -186,14 +194,6 @@
             <li class="collapse-level-1" collapse-level="1">
                 <a class="no-padding" href="/categories/Android/Advanced/">
                     Advanced <span class="right">1 篇</span></a>
-                </a>
-            </li>
-
-        
-
-            <li class="collapse-level-1" collapse-level="1">
-                <a class="no-padding" href="/categories/Android/Study/">
-                    Study <span class="right">2 篇</span></a>
                 </a>
             </li>
 
@@ -292,7 +292,7 @@
 
 
             <div class="toc light-green-link-context hide-on-med-and-down">
-    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#一、前言"><span class="section table-of-contents-text">一、前言</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#二、实现自定义TextView"><span class="section table-of-contents-text">二、实现自定义TextView</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#1-自定义TextView背景（基础）"><span class="section table-of-contents-text">1. 自定义TextView背景（基础）</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#2-自定义TextView文本闪烁"><span class="section table-of-contents-text">2. 自定义TextView文本闪烁</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#3-实现效果图"><span class="section table-of-contents-text">3. 实现效果图</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#结束"><span class="section table-of-contents-text">结束</span></a></li></ol>
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#一、前言"><span class="section table-of-contents-text">一、前言</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#二、实现自定义TextView"><span class="section table-of-contents-text">二、实现自定义TextView</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#1-自定义TextView背景（基础）"><span class="section table-of-contents-text">1. 自定义TextView背景（基础）</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#2-自定义TextView文本闪烁"><span class="section table-of-contents-text">2. 自定义TextView文本闪烁</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#3-实现效果图"><span class="section table-of-contents-text">3. 实现效果图</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#三、结束"><span class="section table-of-contents-text">三、结束</span></a></li></ol>
 </div>
 
 
@@ -312,7 +312,7 @@
 <p>注：在继承TextView后，选择构造方法的时候，必须要选择带两个参数的构造方法，因为默认的布局文件调用的是这个构造方法，否则会导致项目运行时崩溃。</p>
 </blockquote>
 <h2 id="3-实现效果图"><a href="#3-实现效果图" class="headerlink" title="3. 实现效果图"></a>3. 实现效果图</h2><p><img src="http://7xswpn.com2.z0.glb.clouddn.com/%5C2016%5C04%5C25%5CAndroid%E8%BF%9B%E9%98%B6%E4%B9%8B%E8%B7%AF-1-%E8%87%AA%E5%AE%9A%E4%B9%89TextView%5Ccustom-textview.gif" alt=""></p>
-<h1 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h1><p>希望朋友们能喜欢，有什么建议都可以给我留言。</p>
+<h1 id="三、结束"><a href="#三、结束" class="headerlink" title="三、结束"></a>三、结束</h1><p>希望朋友们能喜欢，有什么建议都可以给我留言。</p>
 
             </div>
         </div>
@@ -493,10 +493,8 @@
         // 针对移动端做的优化：FAB按钮点击一下收回
         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
             $('.fixed-action-btn').addClass('click-to-toggle');
-	    alert("手机");
         } else {
 		loadScript("//github.atool.org/canvas-nest.min.js");
-		 alert("电脑");
 		}
 
         // 回到顶部
