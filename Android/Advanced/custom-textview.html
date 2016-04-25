@@ -20,7 +20,7 @@
 
     
 
-    <title>WordPress使用笔记 — 插件篇（SyntaxHighlighter） | 杨萌个人博客 - 一个迷茫期的程序员</title>
+    <title>Android进阶之路(1) - 自定义TextView | 杨萌个人博客 - 一个迷茫期的程序员</title>
     <meta name="author" content="mysprout">
     
     <meta name="description" content="杨萌个人博客">
@@ -28,7 +28,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <meta property="og:title" content="WordPress使用笔记 — 插件篇（SyntaxHighlighter）"/>
+    <meta property="og:title" content="Android进阶之路(1) - 自定义TextView"/>
     <meta property="og:site_name" content="Face the sea,with spring flowers blossoming."/>
 
     
@@ -255,7 +255,7 @@
             
     
     
-    <a class="breadcrumb" href="/categories/WordPress/">WordPress</a><a class="breadcrumb" href="/categories/WordPress/Plugins/">Plugins</a>
+    <a class="breadcrumb" href="/categories/Android/">Android</a><a class="breadcrumb" href="/categories/Android/Advanced/">Advanced</a>
 
 
         
@@ -272,40 +272,47 @@
             <div class="article-title">
                 
     
-        <h1>WordPress使用笔记 — 插件篇（SyntaxHighlighter）</h1>
+        <h1>Android进阶之路(1) - 自定义TextView</h1>
     
 
 
             </div>
-            <time class="light-green-link-context" datetime="2016-04-13T03:55:03.000Z"><a href="/WordPress/Plugins/syntaxHighlighter.html">2016-04-13</a></time>
+            <time class="light-green-link-context" datetime="2016-04-25T09:09:59.000Z"><a href="/Android/Advanced/custom-textview.html">2016-04-25</a></time>
 
             
     <div class="tags-row">
         
-            <a href="/tags/WordPress/" class="chip light-green">WordPress</a>
+            <a href="/tags/Android/" class="chip light-green">Android</a>
         
-            <a href="/tags/SyntaxHighlighter/" class="chip light-green">SyntaxHighlighter</a>
+            <a href="/tags/Android进阶/" class="chip light-green">Android进阶</a>
         
-            <a href="/tags/代码高亮/" class="chip light-green">代码高亮</a>
+            <a href="/tags/自定义TextView/" class="chip light-green">自定义TextView</a>
         
     </div>
 
 
             <div class="toc light-green-link-context hide-on-med-and-down">
-    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#下载与安装"><span class="section table-of-contents-text">下载与安装</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#配置"><span class="section table-of-contents-text">配置</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#使用"><span class="section table-of-contents-text">使用</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#效果图"><span class="section table-of-contents-text">效果图</span></a></li></ol>
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#一、前言"><span class="section table-of-contents-text">一、前言</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#二、实现自定义TextView"><span class="section table-of-contents-text">二、实现自定义TextView</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#1-自定义TextView背景（基础）"><span class="section table-of-contents-text">1. 自定义TextView背景（基础）</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#2-自定义TextView文本闪烁"><span class="section table-of-contents-text">2. 自定义TextView文本闪烁</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#3-实现效果图"><span class="section table-of-contents-text">3. 实现效果图</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#结束"><span class="section table-of-contents-text">结束</span></a></li></ol>
 </div>
 
 
             <div class="entry light-green-link-context">
-                <p>进入wp后台 — 插件 – 安装插件，在搜索框中输入：SyntaxHighlighter Evolved，回车搜索，下载并安装第一个。<br>安装成功后，启用SyntaxHighlighter Evolved插件，并刷新后台，进入 – 设置 – SyntaxHighlighter；只需更改杂项设置，其他的默认就行。<br><a id="more"></a><br>代码高亮插件：SyntaxHighlighter Evolved</p>
-<h1 id="下载与安装"><a href="#下载与安装" class="headerlink" title="下载与安装"></a>下载与安装</h1><p>进入wp后台 — 插件 – 安装插件，在搜索框中输入：SyntaxHighlighter Evolved，回车搜索，下载并安装第一个。</p>
-<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p>安装成功后，启用SyntaxHighlighter Evolved插件，并刷新后台，进入 – 设置 – SyntaxHighlighter；只需更改杂项设置，其他的默认就行。</p>
-<p><img src="http://7xswpn.com2.z0.glb.clouddn.com/wordpress-notes-plugins-01.png" alt="配置"></p>
-<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>在发表文章时，[&amp;php]&lt;您需要高亮的代码&gt;[/php]，去掉&amp;符号，发布成功后，即可进入博客查看效果了。</p>
-<h1 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h1><p>发表文章：</p>
-<p><img src="http://7xswpn.com2.z0.glb.clouddn.com/wordpress-notes-plugins-02.png" alt="使用图"></p>
-<p>查看效果：</p>
-<p><img src="http://7xswpn.com2.z0.glb.clouddn.com/wordpress-notes-plugins-03.png" alt="效果图"></p>
+                <p>有差不多一个星期没有更新过博客，昨天是周末，通过学习《Android群英传》一书，了解了一下自定义View、TextView的知识，并动手写了自定义TextView的demo，今天正好记录下来，即可以复习昨天所学，也可以分享给大家。<br><a id="more"></a></p>
+<h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>有差不多一个星期没有更新过博客，昨天是周末，通过学习《Android群英传》一书，了解了一下自定义View、TextView的知识，并动手写了自定义TextView的demo，今天正好记录下来，即可以复习昨天所学，也可以分享给大家。</p>
+<h1 id="二、实现自定义TextView"><a href="#二、实现自定义TextView" class="headerlink" title="二、实现自定义TextView"></a>二、实现自定义TextView</h1><p>通过学习，实现了两种样式的TextView的自定义：</p>
+<ol>
+<li>自定义TextView背景（基础）</li>
+<li>自定义TextView文本闪烁</li>
+</ol>
+<p>我刚接触自定义View，起步要求不高，所以实现上面的两个效果只是重写了TextView的onDraw()方法。</p>
+<h2 id="1-自定义TextView背景（基础）"><a href="#1-自定义TextView背景（基础）" class="headerlink" title="1. 自定义TextView背景（基础）"></a>1. 自定义TextView背景（基础）</h2><p>实现代码，注释很详细，这里就不再赘述了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">public class CustomTextViewBg extends TextView</span><br><span class="line">&#123;</span><br><span class="line">	private Paint mPaint1, mPaint2;</span><br><span class="line">	private Canvas canvas;</span><br><span class="line"></span><br><span class="line">	public CustomTextViewBg(Context context)</span><br><span class="line">	&#123;</span><br><span class="line">		super(context);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public CustomTextViewBg(Context context, AttributeSet attrs)</span><br><span class="line">	&#123;</span><br><span class="line">		super(context, attrs);</span><br><span class="line">		mPaint1 = new Paint();</span><br><span class="line">		mPaint1.setColor(getResources().getColor(android.R.color.holo_blue_light));</span><br><span class="line">		mPaint1.setStyle(Paint.Style.FILL);</span><br><span class="line">		mPaint2 = new Paint();</span><br><span class="line">		mPaint2.setColor(Color.YELLOW);</span><br><span class="line">		mPaint2.setStyle(Paint.Style.FILL);</span><br><span class="line">		canvas = new Canvas();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 修改TextView需要重写onDraw()</span><br><span class="line">	 * @param canvas</span><br><span class="line">	 */</span><br><span class="line">	@Override</span><br><span class="line">	protected void onDraw(Canvas canvas)</span><br><span class="line">	&#123;</span><br><span class="line">		//绘制外层矩形</span><br><span class="line">		canvas.drawRect(</span><br><span class="line">				0,</span><br><span class="line">				0,</span><br><span class="line">				getMeasuredWidth(),</span><br><span class="line">				getMeasuredHeight(),</span><br><span class="line">				mPaint1);</span><br><span class="line">		//绘制内层矩形</span><br><span class="line">		canvas.drawRect(</span><br><span class="line">				10,</span><br><span class="line">				10,</span><br><span class="line">				getMeasuredWidth() - 10,</span><br><span class="line">				getMeasuredHeight() - 10,</span><br><span class="line">				mPaint2);</span><br><span class="line">		canvas.save();</span><br><span class="line">		//绘制文字前平移10像素</span><br><span class="line">		canvas.translate(10, 0);</span><br><span class="line">		//在回调父类方法前，实现自己的逻辑，对TextView来说即是在绘制文本内容前</span><br><span class="line">		//父类完成的方法，即绘制文本</span><br><span class="line">		super.onDraw(canvas);</span><br><span class="line">		//在回调父类方法后，实现自己的逻辑，对TextView来说即是在绘制文本内容后</span><br><span class="line">		canvas.restore();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>实现效果图：</p>
+<h2 id="2-自定义TextView文本闪烁"><a href="#2-自定义TextView文本闪烁" class="headerlink" title="2. 自定义TextView文本闪烁"></a>2. 自定义TextView文本闪烁</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">public class CustomTextViewGlint extends TextView</span><br><span class="line">&#123;</span><br><span class="line">	private int mViewWidth;</span><br><span class="line">	private Paint mPaint;</span><br><span class="line">	private LinearGradient mLinearGradient;</span><br><span class="line">	private Matrix mGradientMatrix;</span><br><span class="line">	private int mTranslate;</span><br><span class="line"></span><br><span class="line">	public CustomTextViewGlint(Context context)</span><br><span class="line">	&#123;</span><br><span class="line">		super(context);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 自定义TextView，一定要有这个构造方法</span><br><span class="line">	 * @param context</span><br><span class="line">	 * @param attrs</span><br><span class="line">	 */</span><br><span class="line">	public CustomTextViewGlint(Context context, AttributeSet attrs)</span><br><span class="line">	&#123;</span><br><span class="line">		super(context, attrs);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	protected void onSizeChanged(int w, int h, int oldw, int oldh)</span><br><span class="line">	&#123;</span><br><span class="line">		super.onSizeChanged(w, h, oldw, oldh);</span><br><span class="line">		if (mViewWidth == 0)&#123;</span><br><span class="line">			mViewWidth = getMeasuredWidth();</span><br><span class="line">			if (mViewWidth &gt; 0)&#123;</span><br><span class="line">				mPaint = getPaint();</span><br><span class="line">				mLinearGradient = new LinearGradient(</span><br><span class="line">						0,</span><br><span class="line">						0,</span><br><span class="line">						mViewWidth,</span><br><span class="line">						0,</span><br><span class="line">						new int[]&#123; Color.BLUE, 0xffffffff,Color.BLUE &#125;,</span><br><span class="line">						null, Shader.TileMode.CLAMP</span><br><span class="line">				);</span><br><span class="line">				mPaint.setShader(mLinearGradient);</span><br><span class="line">				mGradientMatrix = new Matrix();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	protected void onDraw(Canvas canvas)</span><br><span class="line">	&#123;</span><br><span class="line">		super.onDraw(canvas);</span><br><span class="line">		if (mGradientMatrix != null)&#123;</span><br><span class="line">			mTranslate += mViewWidth/5;</span><br><span class="line">			if (mTranslate &gt; 2*mViewWidth)&#123;</span><br><span class="line">				mTranslate = -mViewWidth;</span><br><span class="line">			&#125;</span><br><span class="line">			mGradientMatrix.setTranslate(mTranslate, 0);</span><br><span class="line">			mLinearGradient.setLocalMatrix(mGradientMatrix);</span><br><span class="line">			postInvalidateDelayed(100);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注：在继承TextView后，选择构造方法的时候，必须要选择带两个参数的构造方法，因为默认的布局文件调用的是这个构造方法，否则会导致项目运行时崩溃。</p>
+</blockquote>
+<h2 id="3-实现效果图"><a href="#3-实现效果图" class="headerlink" title="3. 实现效果图"></a>3. 实现效果图</h2><p><img src="http://7xswpn.com2.z0.glb.clouddn.com/%5C2016%5C04%5C25%5CAndroid%E8%BF%9B%E9%98%B6%E4%B9%8B%E8%B7%AF-1-%E8%87%AA%E5%AE%9A%E4%B9%89TextView%5Ccustom-textview.gif" alt=""></p>
+<h1 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h1><p>希望朋友们能喜欢，有什么建议都可以给我留言。</p>
 
             </div>
         </div>
@@ -319,7 +326,7 @@
         <div class="card">
             <div class="card-content">
                 <!-- Duoshuo Comment BEGIN -->
-                <div class="ds-thread" data-thread-key="WordPress/Plugins/syntaxHighlighter.html" data-title="WordPress使用笔记 — 插件篇（SyntaxHighlighter）" data-url="http://www.yangmeng.me/WordPress/Plugins/syntaxHighlighter.html"></div>
+                <div class="ds-thread" data-thread-key="Android/Advanced/custom-textview.html" data-title="Android进阶之路(1) - 自定义TextView" data-url="http://www.yangmeng.me/Android/Advanced/custom-textview.html"></div>
 
                 <script type="text/javascript">
                     console.log(document.querySelector('.ds-thread'));
