@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.yangmeng.me/resume/index.html</loc>
+    <lastmod>2016-05-18T06:41:42.496Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://www.yangmeng.me/Android/Advanced/custom-textview.html</loc>
     <lastmod>2016-04-25T10:00:59.842Z</lastmod>
   </url>
