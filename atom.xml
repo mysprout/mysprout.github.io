@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title><![CDATA[Face the sea,with spring flowers blossoming.]]></title>
-  <subtitle><![CDATA[杨萌个人博客 - 一个迷茫期的程序员]]></subtitle>
+  <subtitle><![CDATA[杨萌的个人技术博客 - 一个迷茫期的程序员]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://www.yangmeng.me/"/>
   <updated>2016-04-25T10:00:59.842Z</updated>
