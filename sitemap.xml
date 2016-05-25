@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.yangmeng.me/Android/Study/deep-links.html</loc>
+    <lastmod>2016-05-25T08:13:10.650Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://www.yangmeng.me/Android/Notes/delay-exec.html</loc>
     <lastmod>2016-05-20T08:49:53.136Z</lastmod>
   </url>

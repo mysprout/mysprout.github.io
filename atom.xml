@@ -4,7 +4,7 @@
   <subtitle><![CDATA[杨萌的个人技术博客 - 一个迷茫期的程序员]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://www.yangmeng.me/"/>
-  <updated>2016-05-20T08:49:53.136Z</updated>
+  <updated>2016-05-25T08:13:10.650Z</updated>
   <id>http://www.yangmeng.me/</id>
   
   <author>
@@ -13,6 +13,52 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Deep Links技术实现]]></title>
+    <link href="http://www.yangmeng.me/Android/Study/deep-links.html"/>
+    <id>http://www.yangmeng.me/Android/Study/deep-links.html</id>
+    <published>2016-05-25T06:47:03.000Z</published>
+    <updated>2016-05-25T08:13:10.650Z</updated>
+    <content type="html"><![CDATA[<p>点击网页链接进入App应用的技术实现。</p>
+<a id="more"></a>
+<h1 id="Deep-Links"><a href="#Deep-Links" class="headerlink" title="Deep Links"></a>Deep Links</h1><p>举个例子说明，比如我的博客有Android版的App，当我将我的文章分享出去后，别人通过点击我分享的博文的html里面的链接，可以直接进入我的博客App。</p>
+<h1 id="Deep-Links实现"><a href="#Deep-Links实现" class="headerlink" title="Deep Links实现"></a>Deep Links实现</h1><h2 id="1-认识链接"><a href="#1-认识链接" class="headerlink" title="1. 认识链接"></a>1. 认识链接</h2><p>比如我的博客地址：<a href="http://www.yangmeng.me">http://www.yangmeng.me</a></p>
+<p><strong>http</strong>表示使用的是http协议，<strong>www.yangmeng.me</strong>则是域名。</p>
+<p>而实现Deep Links功能其实也是借助这样的链接机制，但我们不必拘泥与http协议，而是可以任意的自定义协议。</p>
+<h2 id="2-代码实现"><a href="#2-代码实现" class="headerlink" title="2. 代码实现"></a>2. 代码实现</h2><h3 id="a-test-html"><a href="#a-test-html" class="headerlink" title="a. test.html"></a>a. test.html</h3><p>首先，写一个测试的网页<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line"> &lt;head&gt;</span><br><span class="line">  &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;meta name=&quot;Generator&quot; content=&quot;EditPlus®&quot;&gt;</span><br><span class="line">  &lt;meta name=&quot;Author&quot; content=&quot;&quot;&gt;</span><br><span class="line">  &lt;meta name=&quot;Keywords&quot; content=&quot;&quot;&gt;</span><br><span class="line">  &lt;meta name=&quot;Description&quot; content=&quot;&quot;&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line"> &lt;/head&gt;</span><br><span class="line"> &lt;body&gt;</span><br><span class="line">  &lt;a href=&quot;me.yangmeng.androidstudydeeplinks://postAdress&quot;&gt;Try Deep Links&lt;/a&gt;</span><br><span class="line"> &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>me.yangmeng.androidstudydeeplinks：是我自定义的协议，也是我的项目包名，这样可以防止点击链接跳转的时候，跳到别人家的应用去。</li>
+<li>postAdress：表示host</li>
+</ul>
+<p>我是在真机上调试的，直接通过QQ将这个html发送给我的手机，并用手机QQ浏览这个网页，现在点击这个链接是没有反应的。<br><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016%5C05%5C25%5CDeep-Links%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0%5C01.png" alt="test.html"></p>
+<h3 id="b-修改项目的AndroidManifest-xml"><a href="#b-修改项目的AndroidManifest-xml" class="headerlink" title="b.修改项目的AndroidManifest.xml"></a>b.修改项目的AndroidManifest.xml</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity</span><br><span class="line">    android:name=&quot;.TestActivity&quot;</span><br><span class="line">        android:label=&quot;@string/app_name&quot;</span><br><span class="line">        android:theme=&quot;@style/AppTheme.NoActionBar&quot;&gt;</span><br><span class="line">    &lt;intent-filter&gt;</span><br><span class="line">        &lt;action android:name=&quot;android.intent.action.VIEW&quot;/&gt;</span><br><span class="line">        &lt;category android:name=&quot;android.intent.category.DEFAULT&quot;/&gt;</span><br><span class="line">        &lt;category android:name=&quot;android.intent.category.BROWSABLE&quot;/&gt;</span><br><span class="line">        &lt;data android:scheme=&quot;me.yangmeng.androidstudydeeplinks&quot;/&gt;</span><br><span class="line">    &lt;/intent-filter&gt;</span><br><span class="line">&lt;/activity&gt;</span><br></pre></td></tr></table></figure>
+<p>通过AS创建一个默认带Activity的项目，然后新建一个Activity，并在<intent-filter>标签里面加入action、category、data三部分内容。</intent-filter></p>
+<p>其中action、category这两部分需要固定写成这样，我们不能修改的，因为当你点击一个html链接时，系统自动发出的就是这样的action和category。</p>
+<p>然后data部分就需要我们来自定义了，android : scheme用于指定协议，类似于http这样的东西，这里我们指定成了me.yangmeng.androidstudydeeplinks，这是一个自定义的协议，也是我的项目包名，指定成这样是为了避免和其它的应用程序冲突，从而误把deep links链到人家的程序里去了。除了android : scheme之外，我们还可以通过android:host来指定域名，android:port来指定端口，android:path来指定路径，这些属性都可以对deep links进行更多的限制，要满足特定条件才能打开指定App。那这里我希望只要是使用me.yangmeng.androidstudydeeplinks协议的链接就能打开我们的程序，因此就不对其他属性进行设置了。</p>
+<p>现在将项目run到手机上后，我点击刚才手机上的链接，出现下图提示：<br><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016%5C05%5C25%5CDeep-Links%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0%5C02.png" alt="Deep Links测试"><br>当我点击打开后，跳转到了我的项目的TestActivity这个界面<br><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016%5C05%5C25%5CDeep-Links%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0%5C03.png" alt="Deep Links测试"><br>至此，就实现了Deep Links。</p>
+<h3 id="c-通过host跳转到应用的指定Activity"><a href="#c-通过host跳转到应用的指定Activity" class="headerlink" title="c.通过host跳转到应用的指定Activity"></a>c.通过host跳转到应用的指定Activity</h3><p>就如我一开举的例子，这时我增加一个需求，我不只是要跳转到我的App里面，比如要跳转到我的App里面指定的一篇文章详情中。怎么实现呢？总不能在又在我的文章详情的Activity又设置一个Deep Links，确实不用这样，我刚才的链接，在协议后面，还有<strong>postAdress</strong>这个host，这时只需要在TestActivity取出这个host，就可以做相应的跳转了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = getIntent();</span><br><span class="line">    if (intent != null)&#123;</span><br><span class="line">    	Uri uri = intent.getData();</span><br><span class="line">    	String host = uri.getHost();</span><br><span class="line">    	if (&quot;postAdress&quot;.equals(host))&#123;</span><br><span class="line">    		// 跳转到文章详情界面</span><br><span class="line">    		startActivity(new Intent(this, PostActivity.class));</span><br><span class="line">    	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这时，再回到浏览器打开链接，则会直接进入PostActivity。<br><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016%5C05%5C25%5CDeep-Links%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0%5C04.png" alt="Deep Links测试"></p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><blockquote>
+<p>这篇文章是看了郭神的<a href="http://mp.weixin.qq.com/s?__biz=MzA5MzI3NjE2MA==&amp;mid=2650235870&amp;idx=1&amp;sn=8499e45b52199e739d73ba7d2db2c21b&amp;scene=4#wechat_redirect" target="_blank" rel="external">Android deep links技术实现</a>后，自己练手学习后总结的。不好的地方，还请各位看官指出，谢。</p>
+</blockquote>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>点击网页链接进入App应用的技术实现。</p>]]>
+    
+    </summary>
+    
+      <category term="Android" scheme="http://www.yangmeng.me/tags/Android/"/>
+    
+      <category term="Deep Links" scheme="http://www.yangmeng.me/tags/Deep-Links/"/>
+    
+      <category term="从网页进入App" scheme="http://www.yangmeng.me/tags/%E4%BB%8E%E7%BD%91%E9%A1%B5%E8%BF%9B%E5%85%A5App/"/>
+    
+      <category term="Android" scheme="http://www.yangmeng.me/categories/Android/"/>
+    
+      <category term="Study" scheme="http://www.yangmeng.me/categories/Android/Study/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Android延时执行的方法]]></title>
