@@ -20,7 +20,7 @@
 
     
 
-    <title>自定义TextView | 杨萌的个人技术博客 - 一个迷茫期的程序员</title>
+    <title>Android着色器的使用 | 杨萌的个人技术博客 - 一个迷茫期的程序员</title>
     <meta name="author" content="mysprout">
     
     <meta name="description" content="杨萌的个人技术博客">
@@ -28,7 +28,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
+    <meta property="og:title" content="Android着色器的使用"/>
     <meta property="og:site_name" content="Face the sea,with spring flowers blossoming."/>
 
     
@@ -278,30 +278,121 @@
 
     <main>
         <div class="container main-container">
-    
-
-<nav class="page-nav hide-on-small-only">
+    <nav class="page-nav hide-on-small-only">
     <div class="nav-wrapper brown darken-1">
-        <span class="breadcrumb">当前位置（标签）</span>
+        <span class="breadcrumb">当前位置（分类目录）</span>
         
+            
+    
+    
+    <a class="breadcrumb" href="/categories/Android/">Android</a><a class="breadcrumb" href="/categories/Android/Study/">Study</a>
+
 
         
-            <a class="breadcrumb" href="/tags/自定义TextView/">自定义TextView</a>
+
         
     </div>
 </nav>
 
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>Android着色器的使用</h1>
+    
 
 
-    <div class="collection mt-0">
+            </div>
+            <time class="light-green-link-context" datetime="2016-07-29T14:10:22.000Z"><a href="/Android/Study/android-tint.html">2016-07-29</a></time>
+
+            
+    <div class="tags-row">
         
-            <a href="/Android/Advanced/custom-textview.html" class="collection-item grey-text text-darken-1">
-                <time datetime="2016-04-25T09:09:59.000Z">2016-04-25</time>
-                <span>&nbsp;&nbsp;&nbsp;</span>
-                Android进阶之路(1) - 自定义TextView
-            </a>
+            <a href="/tags/Android/" class="chip light-green">Android</a>
+        
+            <a href="/tags/着色器/" class="chip light-green">着色器</a>
+        
+            <a href="/tags/Tint/" class="chip light-green">Tint</a>
         
     </div>
+
+
+            <div class="toc light-green-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#Tint-是什么？"><span class="section table-of-contents-text">Tint 是什么？</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#学习目的"><span class="section table-of-contents-text">学习目的</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#实现目的一：矢量图适配所有颜色"><span class="section table-of-contents-text">实现目的一：矢量图适配所有颜色</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#XML"><span class="section table-of-contents-text">XML</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#代码实现"><span class="section table-of-contents-text">代码实现</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#实现目的二：更优雅的selector实现方式"><span class="section table-of-contents-text">实现目的二：更优雅的selector实现方式</span></a></li></ol>
+</div>
+
+
+            <div class="entry light-green-link-context">
+                <p>Tint 翻译为着色。</p>
+<p>着色，着什么色呢，和背景有关？当然是着背景的色。当我们开发 App 的时候，如果使用了 Theme.AppCompat 主题的时候，会发现 ActionBar 或者 Toolbar 及相应的控件的颜色会相应的变成我们在 Theme 中设置的 colorPrimary， colorPrimaryDark， colorAccent 这些颜色，这是为什么呢，这就全是 Tint 的功劳了！</p>
+<p>这样做有什么好处呢？好处就是你不必再老老实实的打开 PS 再制作一张新的资源图。而且大家都知道 apk 包最大的就是图片资源了，这样减少不必要资源图，可以极大的减少了我们的 apk 包的大小。</p>
+<a id="more"></a>
+<h1 id="Tint-是什么？"><a href="#Tint-是什么？" class="headerlink" title="Tint 是什么？"></a>Tint 是什么？</h1><p>Tint 翻译为着色。</p>
+<p>着色，着什么色呢，和背景有关？当然是着背景的色。当我们开发 App 的时候，如果使用了 Theme.AppCompat 主题的时候，会发现 ActionBar 或者 Toolbar 及相应的控件的颜色会相应的变成我们在 Theme 中设置的 colorPrimary， colorPrimaryDark， colorAccent 这些颜色，这是为什么呢，这就全是 Tint 的功劳了！</p>
+<p>这样做有什么好处呢？好处就是你不必再老老实实的打开 PS 再制作一张新的资源图。而且大家都知道 apk 包最大的就是图片资源了，这样减少不必要资源图，可以极大的减少了我们的 apk 包的大小。</p>
+<h1 id="学习目的"><a href="#学习目的" class="headerlink" title="学习目的"></a>学习目的</h1><ul>
+<li>矢量图适配所有颜色</li>
+<li>更优雅的selector实现方式</li>
+</ul>
+<h1 id="实现目的一：矢量图适配所有颜色"><a href="#实现目的一：矢量图适配所有颜色" class="headerlink" title="实现目的一：矢量图适配所有颜色"></a>实现目的一：矢量图适配所有颜色</h1><h2 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> &lt;ImageView</span><br><span class="line">    android:id=&quot;@+id/img&quot;</span><br><span class="line">    android:layout_width=&quot;match_parent&quot;</span><br><span class="line">    android:layout_height=&quot;0dp&quot;</span><br><span class="line">    android:layout_weight=&quot;1&quot;</span><br><span class="line">    android:src=&quot;@mipmap/ic_launcher&quot;/&gt;</span><br><span class="line"></span><br><span class="line">&lt;ImageView</span><br><span class="line">    android:id=&quot;@+id/img2&quot;</span><br><span class="line">    android:layout_width=&quot;match_parent&quot;</span><br><span class="line">    android:layout_height=&quot;0dp&quot;</span><br><span class="line">    android:layout_weight=&quot;1&quot;</span><br><span class="line">    android:tint=&quot;#aff&quot;</span><br><span class="line">    android:src=&quot;@mipmap/ic_launcher&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016/07/29/Android%E7%9D%80%E8%89%B2%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8/tint01.png" alt="xml实现效果图"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">img是原图，img2通过android:tint=&quot;@color&quot;改变了颜色，对比两张图片我们发现tint适合用于纯色矢量图。</span><br></pre></td></tr></table></figure></p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//这是实现的逻辑代码，imageView是原图</span><br><span class="line">ImageView imageView = (ImageView) findViewById(R.id.img);</span><br><span class="line">ImageView imageView2 = (ImageView) findViewById(R.id.img2);</span><br><span class="line"></span><br><span class="line">Drawable drawable = ContextCompat.getDrawable(this, R.mipmap.ic_launcher);</span><br><span class="line">imageView.setImageDrawable(drawable);</span><br><span class="line"></span><br><span class="line">Drawable.ConstantState state = drawable.getConstantState();</span><br><span class="line">Drawable drawable1 = DrawableCompat.wrap(state == null ? drawable : state.newDrawable()).mutate();</span><br><span class="line">drawable1.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());</span><br><span class="line">DrawableCompat.setTint(drawable1, ContextCompat.getColor(this, R.color.colorAccent));</span><br><span class="line"></span><br><span class="line">imageView2.setImageDrawable(drawable1);</span><br></pre></td></tr></table></figure>
+<p><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016/07/29/Android%E7%9D%80%E8%89%B2%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8/tint02.png" alt="代码实现效果图"></p>
+<p><strong>代码实现的知识点的梳理：</strong></p>
+<ul>
+<li>DrawableCompat类：是Drawable的向下兼容类，为了在6.0以下兼容tint属性而使用的。</li>
+<li>wrap方法：使用tint就必须调用该方法对Drawable进行一次包装。</li>
+<li>mutate方法：如果不调用该方法，我们进行操作的就是原drawable，着色之后原drawable也改变的，所以两个ImageView都会显示着色后的drawable。</li>
+</ul>
+<h1 id="实现目的二：更优雅的selector实现方式"><a href="#实现目的二：更优雅的selector实现方式" class="headerlink" title="实现目的二：更优雅的selector实现方式"></a>实现目的二：更优雅的selector实现方式</h1><p><strong>传统的实现方式</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;selector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;</span><br><span class="line">    &lt;item android:state_pressed=&quot;true&quot;</span><br><span class="line">          android:drawable=&quot;@drawable/icon_pressed&quot;/&gt;</span><br><span class="line">    &lt;item android:drawable=&quot;@drawable/icon_normal&quot;/&gt;</span><br><span class="line">&lt;/selector&gt;</span><br></pre></td></tr></table></figure>
+<p>我们可以发现，我们需要在drawable中放置两张图片。<strong>但是在目的一中我们知道一张矢量图是能适配出所有颜色的。</strong></p>
+<p><strong>通过tint的实现方式</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;selector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;</span><br><span class="line">    &lt;item android:state_pressed=&quot;true&quot;</span><br><span class="line">          android:drawable=&quot;@drawable/icon&quot;/&gt;</span><br><span class="line">    &lt;item android:color=&quot;@color/colorAccent&quot;/&gt;</span><br><span class="line"></span><br><span class="line">    &lt;ImageView</span><br><span class="line">        android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:id=&quot;@+id/img&quot;</span><br><span class="line">        android:src=&quot;@drawable/icon&quot;</span><br><span class="line">        android:tint=&quot;@color/colorAccent&quot;</span><br><span class="line">        android:clickable=&quot;true&quot;/&gt;</span><br><span class="line">&lt;/selector&gt;</span><br></pre></td></tr></table></figure>
+<p>上面的方法在6.0以下会直接crash的，因为不兼容，所以为了兼容我们接下来在java代码中实现。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"> ImageView imageView = (ImageView) findViewById(R.id.image);</span><br><span class="line">Drawable drawable = ContextCompat.getDrawable(this, R.drawable.icon);</span><br><span class="line">int[] colors = new int[]&#123;ContextCompat.getColor(this, R.color.colorAccent), ContextCompat.getColor(this, R.color.colorPrimaryDark)&#125;;</span><br><span class="line">int[][] states = new int[2][];</span><br><span class="line">states[0] = new int[]&#123;android.R.attr.state_pressed&#125;;</span><br><span class="line">states[1] = new int[]&#123;&#125;;</span><br><span class="line"></span><br><span class="line">ColorStateList colorStateList = new ColorStateList(states, colors);</span><br><span class="line"></span><br><span class="line">StateListDrawable stateListDrawable = new StateListDrawable();</span><br><span class="line">stateListDrawable.addState(states[0], drawable);</span><br><span class="line">stateListDrawable.addState(states[1], drawable);</span><br><span class="line"></span><br><span class="line">Drawable.ConstantState state = stateListDrawable.getConstantState();</span><br><span class="line">drawable = DrawableCompat.wrap(state == null ? stateListDrawable : state.newDrawable()).mutate();</span><br><span class="line">DrawableCompat.setTintList(drawable, colorStateList);</span><br><span class="line"></span><br><span class="line">imageView.setImageDrawable(drawable);</span><br></pre></td></tr></table></figure>
+<p><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016/07/29/Android%E7%9D%80%E8%89%B2%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8/tint03.gif" alt="Java代码实现效果图"></p>
+<p>更优雅的实现selector，既减少了apk大小又节约了内存，虽然实现有点复杂，但是多次实现并多看源码，能很快的理解透彻，也可以封装成公用方法，减少代码的冗余。</p>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+    <section id="comment">
+        <div class="card">
+            <div class="card-content">
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread" data-thread-key="Android/Study/android-tint.html" data-title="Android着色器的使用" data-url="http://www.yangmeng.me/Android/Study/android-tint.html"></div>
+
+                <script type="text/javascript">
+                    console.log(document.querySelector('.ds-thread'));
+                    var duoshuoQuery = {
+                        short_name: 'yangmeng'
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:'
+                            ? 'https:'
+                            : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
+            </div>
+        </div>
+    </section>
+
 
 
 </div>
