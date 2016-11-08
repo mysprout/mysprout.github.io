@@ -2,8 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.yangmeng.me/Hexo/hexo-install.html</loc>
+    <lastmod>2016-11-08T09:01:37.452Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://www.yangmeng.me/Android/Study/android-tint.html</loc>
-    <lastmod>2016-07-29T14:45:15.781Z</lastmod>
+    <lastmod>2016-07-29T14:48:04.726Z</lastmod>
   </url>
   
   <url>

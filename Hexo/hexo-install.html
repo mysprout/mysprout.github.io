@@ -20,7 +20,7 @@
 
     
 
-    <title>Basics | 杨萌的个人技术博客 - 一个迷茫期的程序员</title>
+    <title>Windows系统搭建Hexo环境 | 杨萌的个人技术博客 - 一个迷茫期的程序员</title>
     <meta name="author" content="mysprout">
     
     <meta name="description" content="杨萌的个人技术博客">
@@ -28,7 +28,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
+    <meta property="og:title" content="Windows系统搭建Hexo环境"/>
     <meta property="og:site_name" content="Face the sea,with spring flowers blossoming."/>
 
     
@@ -270,30 +270,133 @@
 
     <main>
         <div class="container main-container">
-    
-
-<nav class="page-nav hide-on-small-only">
+    <nav class="page-nav hide-on-small-only">
     <div class="nav-wrapper brown darken-1">
         <span class="breadcrumb">当前位置（分类目录）</span>
         
+            
+    
+    
+    <a class="breadcrumb" href="/categories/Hexo/">Hexo</a>
+
 
         
-            <a class="breadcrumb" href="/categories/Android/Basics/">Basics</a>
+
         
     </div>
 </nav>
 
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>Windows系统搭建Hexo环境</h1>
+    
 
 
-    <div class="collection mt-0">
+            </div>
+            <time class="light-green-link-context" datetime="2016-11-08T08:46:15.000Z"><a href="/Hexo/hexo-install.html">2016-11-08</a></time>
+
+            
+    <div class="tags-row">
         
-            <a href="/Android/Basics/CustomAnimationForActivity.html" class="collection-item grey-text text-darken-1">
-                <time datetime="2016-04-15T13:30:49.000Z">2016-04-15</time>
-                <span>&nbsp;&nbsp;&nbsp;</span>
-                通过Theme自定义Activity间的切换动画
-            </a>
+            <a href="/tags/Hexo/" class="chip light-green">Hexo</a>
+        
+            <a href="/tags/博客框架/" class="chip light-green">博客框架</a>
         
     </div>
+
+
+            <div class="toc light-green-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#Hexo"><span class="section table-of-contents-text">Hexo</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#准备篇"><span class="section table-of-contents-text">准备篇</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#安装篇"><span class="section table-of-contents-text">安装篇</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#使用篇"><span class="section table-of-contents-text">使用篇</span></a></li></ol>
+</div>
+
+
+            <div class="entry light-green-link-context">
+                <p>本篇文章纪录了我搭建Hexo环境的过程，方便以后查阅。</p>
+<a id="more"></a>
+<h1 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h1><ul>
+<li><a href="https://hexo.io/zh-cn/" target="_blank" rel="external">Hexo是什么？快来看看吧</a></li>
+<li><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">不知道怎么用？官方文档带你飞</a></li>
+<li>也可以直接看我的总结哦</li>
+</ul>
+<h1 id="准备篇"><a href="#准备篇" class="headerlink" title="准备篇"></a>准备篇</h1><p>安装Hexo之前，要先确认自己电脑上安装了<code>Node.js</code>和<code>Git</code>。</p>
+<ul>
+<li><a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a></li>
+<li><a href="https://git-scm.com/" target="_blank" rel="external">Git</a></li>
+</ul>
+<p>通过上面的链接可以直接去下载安装文件来安装，但是下载这两个会很慢，因此我把这两个下好了，放在七牛，方便下载，速度杠杠的。</p>
+<ul>
+<li><a href="http://qiniu.mysprout.cn/node-v7.0.0-x64.msi" target="_blank" rel="external">Node.js七牛版</a></li>
+<li><a href="http://qiniu.mysprout.cn/Git-2.10.2-64-bit.exe" target="_blank" rel="external">Git七牛版</a></li>
+</ul>
+<p>下载好后就可以直接安装了，安装过程很简单，没什么需注意的，直接next…next……就可以了。</p>
+<p>安装成功后，进入系统的命令提示符（<code>Win键+R 输入cmd</code>），检查是否安装成功，输入以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#Node.js</span><br><span class="line">node -v</span><br></pre></td></tr></table></figure>
+<p>回车，打印出<code>v7.0.0</code>字样，表示安装成功。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#Git</span><br><span class="line">git --version</span><br></pre></td></tr></table></figure></p>
+<p>回车，打印出<code>git version 2.9.2.windows.1</code>字样，表示安装成功。</p>
+<h1 id="安装篇"><a href="#安装篇" class="headerlink" title="安装篇"></a>安装篇</h1><p>进入系统的命令提示符（<code>Win键+R 输入cmd</code>），输入安装命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>回车，如下图所示：</p>
+<p><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016/11/08/Windows%E7%B3%BB%E7%BB%9F%E6%90%AD%E5%BB%BAHexo%E7%8E%AF%E5%A2%83/1.png" alt="Hexo开始安装"></p>
+<p>耐心等待，时间有点长，安装完成后，如下图所示：</p>
+<p><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016/11/08/Windows%E7%B3%BB%E7%BB%9F%E6%90%AD%E5%BB%BAHexo%E7%8E%AF%E5%A2%83/2.png" alt="Hexo安装完成"></p>
+<p>会出现图中红色框内的警告，不用理会，不会影响Hexo使用的。</p>
+<p>检查是否安装成功，继续输入命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure></p>
+<p>出现如下图一样的图片则表示安装成功：</p>
+<p><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016/11/08/Windows%E7%B3%BB%E7%BB%9F%E6%90%AD%E5%BB%BAHexo%E7%8E%AF%E5%A2%83/3.png" alt="Hexo安装成功"></p>
+<h1 id="使用篇"><a href="#使用篇" class="headerlink" title="使用篇"></a>使用篇</h1><p>首先在本地新建一个blog文件夹（喜欢放那儿就放那儿），用来存放hexo初始化后的文件。进入这个blog，鼠标右键，选择<code>Git Bash Here</code>，输入指令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#初始化hexo</span><br><span class="line">hexo init .</span><br></pre></td></tr></table></figure>
+<p>回车执行，耐心等待，时间可能很长，如图所示：</p>
+<p><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016/11/08/Windows%E7%B3%BB%E7%BB%9F%E6%90%AD%E5%BB%BAHexo%E7%8E%AF%E5%A2%83/4.png" alt="Hexo初始化完成"></p>
+<p>表示初始化完成，打开blog，会发现新增了许多文件和文件夹，这就是初始化后生成的，如图：</p>
+<p><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016/11/08/Windows%E7%B3%BB%E7%BB%9F%E6%90%AD%E5%BB%BAHexo%E7%8E%AF%E5%A2%83/5.png" alt="Hexo初始化后的根目录"></p>
+<p>输入启动命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#启动服务器</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure></p>
+<p>回车，如图：</p>
+<p><img src="http://7xswpn.com2.z0.glb.qiniucdn.com/2016/11/08/Windows%E7%B3%BB%E7%BB%9F%E6%90%AD%E5%BB%BAHexo%E7%8E%AF%E5%A2%83/6.png" alt="Hexo启动服务器"></p>
+<p>就可以直接访问<a href="http://localhost:4000/" target="_blank" rel="external">本地服务器：http://localhost:4000</a>了。</p>
+<p>接着部署Hexo需要依赖的插件，输入指令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#会自动部署</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure></p>
+<p>回车执行完成后，Hexo本地环境就算搭建完成了。</p>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+    <section id="comment">
+        <div class="card">
+            <div class="card-content">
+                <!-- Duoshuo Comment BEGIN -->
+                <div class="ds-thread" data-thread-key="Hexo/hexo-install.html" data-title="Windows系统搭建Hexo环境" data-url="http://www.yangmeng.me/Hexo/hexo-install.html"></div>
+
+                <script type="text/javascript">
+                    console.log(document.querySelector('.ds-thread'));
+                    var duoshuoQuery = {
+                        short_name: 'yangmeng'
+                    };
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';
+                        ds.async = true;
+                        ds.src = (document.location.protocol == 'https:'
+                            ? 'https:'
+                            : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- Duoshuo Comment END -->
+            </div>
+        </div>
+    </section>
+
 
 
 </div>
